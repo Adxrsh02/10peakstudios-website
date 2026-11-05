@@ -1,0 +1,246 @@
+/* 10PeakStudio design tokens. Source: Project_spec/Design.md section 7 (brand values verbatim
+   from 10PeakStudio_Brand_Guidelines.html). Light theme only; Obsidian sections use .surface-inverse.
+   Do not add colours here without updating Design.md (RUL-ST-01, RUL-ST-02). */
+
+/* 1. Primitives: brand values verbatim ("static" keeps every variable emitted) */
+@theme static {
+  --color-peak-violet: #8e21fc;
+  --color-deep-violet: #480bb4;
+  --color-lilac-spark: #a743f8;
+  --color-glow-violet: #5b10e0;
+  --color-obsidian: #000000;
+  --color-ink: #14111e;
+  --color-slate-lavender: #8d8ca4;
+  --color-mist: #d7d6e1;
+  --color-summit-white: #fcfcfc;
+  --color-paper: #f6f5fa;
+  --color-ink-muted: #5e5a70;
+  --color-violet-hover: #7a1ae0;
+  --color-inverse-muted: #a9a7bb;
+  --color-inverse-link: #c38bff;
+  --color-inverse-rule: #2a2638;
+  /* Arrow rise gradient stops (brand file, Design.md 4.2) */
+  --color-rise-mid: #6617ea;
+  --color-rise-high: #8f31f9;
+  /* Proposed functional colours (Design.md 4.5) */
+  --color-error: #b42318;
+  --color-success: #067647;
+  --color-warning: #8a5300;
+  --color-error-inverse: #f87171;
+  --color-success-inverse: #4ade80;
+  --color-warning-inverse: #fbbf24;
+
+  --font-heading: var(--font-sora), 'Inter', system-ui, sans-serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, Menlo, Consolas, monospace;
+
+  --text-display: clamp(2.5rem, 1.833rem + 2.963vw, 4.5rem);
+  --text-display--line-height: 1.1;
+  --text-display--letter-spacing: -0.02em;
+  --text-display--font-weight: 700;
+  --text-h1: clamp(2.125rem, 1.667rem + 2.037vw, 3.5rem);
+  --text-h1--line-height: 1.15;
+  --text-h1--letter-spacing: -0.02em;
+  --text-h1--font-weight: 700;
+  --text-h2: clamp(1.75rem, 1.417rem + 1.481vw, 2.75rem);
+  --text-h2--line-height: 1.18;
+  --text-h2--letter-spacing: -0.015em;
+  --text-h2--font-weight: 600;
+  --text-h3: clamp(1.5rem, 1.292rem + 0.926vw, 2.125rem);
+  --text-h3--line-height: 1.24;
+  --text-h3--letter-spacing: -0.01em;
+  --text-h3--font-weight: 600;
+  --text-h4: clamp(1.25rem, 1.125rem + 0.556vw, 1.625rem);
+  --text-h4--line-height: 1.31;
+  --text-h4--letter-spacing: -0.005em;
+  --text-h4--font-weight: 600;
+  --text-h5: clamp(1.125rem, 1.083rem + 0.185vw, 1.25rem);
+  --text-h5--line-height: 1.4;
+  --text-h5--font-weight: 600;
+  --text-body-lg: clamp(1.0625rem, 1.042rem + 0.093vw, 1.125rem);
+  --text-body-lg--line-height: 1.667;
+  --text-body: 1rem;
+  --text-body--line-height: 1.625;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.571;
+  --text-small--letter-spacing: 0.005em;
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.5;
+  --text-caption--letter-spacing: 0.01em;
+  --text-caption--font-weight: 500;
+
+  --radius-sm: 0.5rem; /* 8 px: inputs, small controls (brand page) */
+  --radius-md: 0.875rem; /* 14 px: cards (brand page) */
+  --radius-lg: 1.5rem; /* 24 px: feature panels, media [Proposed] */
+  --radius-pill: 9999px; /* CTAs, chips [Proposed] */
+
+  --shadow-sm: 0 1px 2px rgb(20 17 30 / 0.06);
+  --shadow-md: 0 8px 24px -8px rgb(20 17 30 / 0.12);
+  --shadow-lg: 0 24px 48px -16px rgb(20 17 30 / 0.18);
+  --shadow-glow: 0 0 48px rgb(91 16 224 / 0.2); /* Glow Violet at 20% [Brand rule] */
+  --shadow-glow-strong: 0 0 48px rgb(91 16 224 / 0.35); /* brand Tailwind token; hero 3D and loader only */
+
+  --ease-peak-rise: cubic-bezier(0.2, 0.7, 0.2, 1); /* [Brand] guide "rise" keyframe */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* [Proposed] UI state changes */
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1); /* [Proposed] exits */
+
+  --breakpoint-3xl: 120rem;
+}
+
+/* 2. Semantic layer: light (default) */
+:root {
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: var(--color-ink);
+  --card: #ffffff;
+  --card-foreground: var(--color-ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--color-ink);
+  --primary: var(--color-peak-violet);
+  --primary-foreground: #ffffff;
+  --primary-hover: var(--color-violet-hover);
+  --primary-active: var(--color-deep-violet);
+  --secondary: var(--color-paper);
+  --secondary-foreground: var(--color-ink);
+  --muted: var(--color-paper);
+  --muted-foreground: var(--color-ink-muted);
+  --accent: var(--color-paper); /* shadcn hover surface, not the brand accent */
+  --accent-foreground: var(--color-ink);
+  --destructive: var(--color-error);
+  --border: var(--color-mist);
+  --input: var(--color-slate-lavender);
+  --ring: var(--color-peak-violet);
+  --link: var(--color-violet-hover);
+  --brand-accent: var(--color-peak-violet);
+  --surface-subtle: var(--color-summit-white);
+  --surface-sunken: var(--color-paper);
+  --radius: var(--radius-md);
+  --header-height: 4rem;
+
+  /* Layout (Design.md 6.2, 6.4) */
+  --container-content: 80rem;
+  --container-wide: 90rem;
+  --space-section: clamp(4rem, 2.667rem + 5.926vw, 8rem);
+
+  /* Motion tokens (Design.md 11.4) */
+  --duration-instant: 100ms;
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+  --duration-reveal-mobile: 500ms;
+  --duration-reveal: 800ms;
+  --duration-signature: 1100ms;
+
+  /* z-index scale (Design.md 6.6) */
+  --z-raised: 10;
+  --z-header: 40;
+  --z-sticky-cta: 45;
+  --z-dropdown: 50;
+  --z-overlay: 60;
+  --z-consent: 70;
+  --z-toast: 80;
+  --z-loader: 100;
+}
+
+/* 3. Semantic layer: Obsidian sections */
+.surface-inverse {
+  --background: var(--color-obsidian);
+  --foreground: var(--color-summit-white);
+  --card: var(--color-ink);
+  --card-foreground: var(--color-summit-white);
+  --popover: var(--color-ink);
+  --popover-foreground: var(--color-summit-white);
+  --secondary: var(--color-ink);
+  --secondary-foreground: var(--color-summit-white);
+  --muted: var(--color-ink);
+  --muted-foreground: var(--color-inverse-muted);
+  --accent: var(--color-ink);
+  --accent-foreground: var(--color-summit-white);
+  --destructive: var(--color-error-inverse);
+  --border: var(--color-inverse-rule);
+  --input: var(--color-slate-lavender);
+  --ring: var(--color-lilac-spark);
+  --link: var(--color-inverse-link);
+  --brand-accent: var(--color-lilac-spark);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* 4. Expose semantic tokens as Tailwind utilities (bg-background, text-foreground, ...) */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-link: var(--link);
+  --color-brand-accent: var(--brand-accent);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-surface-sunken: var(--surface-sunken);
+}
+
+/* 5. Brand gradients as utilities */
+@utility bg-band {
+  background-image: linear-gradient(196deg, #9725fc 0%, #9122fc 50%, #8014fb 100%);
+}
+@utility bg-arrow-rise {
+  background-image: linear-gradient(90deg, #480bb4 0%, #6617ea 25%, #8f31f9 60%, #a743f8 100%);
+}
+@utility bg-arrow-rise-vertical {
+  background-image: linear-gradient(180deg, #480bb4 0%, #6617ea 25%, #8f31f9 60%, #a743f8 100%);
+}
+@utility bg-summit-light {
+  background-image: linear-gradient(141deg, #fcfcfc 0%, #e9e9ef 40%, #d7d6e1 60%, #8d8ca4 100%);
+}
+
+/* Gradient text (Arrow rise), only at >= 28 px (Design.md 4.2) */
+@utility text-arrow-rise {
+  background-image: linear-gradient(90deg, #480bb4 0%, #6617ea 25%, #8f31f9 60%, #a743f8 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Layout helpers */
+@utility container-content {
+  width: 100%;
+  max-width: var(--container-content);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @variant sm {
+    padding-inline: 2rem;
+  }
+  @variant lg {
+    padding-inline: 3rem;
+  }
+}
+@utility container-wide {
+  width: 100%;
+  max-width: var(--container-wide);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @variant sm {
+    padding-inline: 2rem;
+  }
+  @variant lg {
+    padding-inline: 3rem;
+  }
+}
+@utility py-section {
+  padding-block: var(--space-section);
+}

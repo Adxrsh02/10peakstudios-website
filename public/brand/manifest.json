@@ -1,0 +1,422 @@
+[
+  {
+    "file": "01-Primary/10PeakStudio_Primary_Horizontal_Dark.svg",
+    "mime": "image/svg+xml",
+    "bytes": 20558,
+    "dimensions": "1869.4x428.9"
+  },
+  {
+    "file": "01-Primary/10PeakStudio_Primary_Horizontal_Dark_2400w.png",
+    "mime": "image/png",
+    "bytes": 167586,
+    "dimensions": "2400x551"
+  },
+  {
+    "file": "01-Primary/10PeakStudio_Primary_Horizontal_Flat_Dark.svg",
+    "mime": "image/svg+xml",
+    "bytes": 15772,
+    "dimensions": "1869.4x428.9"
+  },
+  {
+    "file": "01-Primary/10PeakStudio_Primary_Horizontal_Flat_Light.svg",
+    "mime": "image/svg+xml",
+    "bytes": 15774,
+    "dimensions": "1869.4x428.9"
+  },
+  {
+    "file": "01-Primary/10PeakStudio_Primary_Horizontal_Light.svg",
+    "mime": "image/svg+xml",
+    "bytes": 19261,
+    "dimensions": "1869.4x428.9"
+  },
+  {
+    "file": "01-Primary/10PeakStudio_Primary_Horizontal_Light_2400w.png",
+    "mime": "image/png",
+    "bytes": 119803,
+    "dimensions": "2400x551"
+  },
+  {
+    "file": "01-Primary/10PeakStudio_Primary_Stacked_Dark.svg",
+    "mime": "image/svg+xml",
+    "bytes": 20517,
+    "dimensions": "849.9x582"
+  },
+  {
+    "file": "01-Primary/10PeakStudio_Primary_Stacked_Dark_2400w.png",
+    "mime": "image/png",
+    "bytes": 380831,
+    "dimensions": "2400x1643"
+  },
+  {
+    "file": "01-Primary/10PeakStudio_Primary_Stacked_Flat_Dark.svg",
+    "mime": "image/svg+xml",
+    "bytes": 15731,
+    "dimensions": "849.9x582"
+  },
+  {
+    "file": "01-Primary/10PeakStudio_Primary_Stacked_Flat_Light.svg",
+    "mime": "image/svg+xml",
+    "bytes": 15733,
+    "dimensions": "849.9x582"
+  },
+  {
+    "file": "01-Primary/10PeakStudio_Primary_Stacked_Light.svg",
+    "mime": "image/svg+xml",
+    "bytes": 19220,
+    "dimensions": "849.9x582"
+  },
+  {
+    "file": "01-Primary/10PeakStudio_Primary_Stacked_Light_2400w.png",
+    "mime": "image/png",
+    "bytes": 257275,
+    "dimensions": "2400x1643"
+  },
+  {
+    "file": "02-Logomark/10PeakStudio_AppIcon.svg",
+    "mime": "image/svg+xml",
+    "bytes": 16205,
+    "dimensions": "1024x1024"
+  },
+  {
+    "file": "02-Logomark/10PeakStudio_Favicon.svg",
+    "mime": "image/svg+xml",
+    "bytes": 10599,
+    "dimensions": "512x512"
+  },
+  {
+    "file": "02-Logomark/10PeakStudio_Icon_1024.png",
+    "mime": "image/png",
+    "bytes": 84734,
+    "dimensions": "1024x1024"
+  },
+  {
+    "file": "02-Logomark/10PeakStudio_Icon_16.png",
+    "mime": "image/png",
+    "bytes": 6294,
+    "dimensions": "16x16"
+  },
+  {
+    "file": "02-Logomark/10PeakStudio_Icon_180.png",
+    "mime": "image/png",
+    "bytes": 14562,
+    "dimensions": "180x180"
+  },
+  {
+    "file": "02-Logomark/10PeakStudio_Icon_32.png",
+    "mime": "image/png",
+    "bytes": 6873,
+    "dimensions": "32x32"
+  },
+  {
+    "file": "02-Logomark/10PeakStudio_Icon_48.png",
+    "mime": "image/png",
+    "bytes": 7614,
+    "dimensions": "48x48"
+  },
+  {
+    "file": "02-Logomark/10PeakStudio_Icon_512.png",
+    "mime": "image/png",
+    "bytes": 38608,
+    "dimensions": "512x512"
+  },
+  {
+    "file": "02-Logomark/10PeakStudio_Logomark_3D_Dark.svg",
+    "mime": "image/svg+xml",
+    "bytes": 15317,
+    "dimensions": "745.3x428.9"
+  },
+  {
+    "file": "02-Logomark/10PeakStudio_Logomark_3D_Hero_Original.svg",
+    "mime": "image/svg+xml",
+    "bytes": 16204,
+    "dimensions": "1536x1024"
+  },
+  {
+    "file": "02-Logomark/10PeakStudio_Logomark_3D_Light.svg",
+    "mime": "image/svg+xml",
+    "bytes": 14020,
+    "dimensions": "745.3x428.9"
+  },
+  {
+    "file": "02-Logomark/10PeakStudio_Logomark_3D_Tile_Dark.svg",
+    "mime": "image/svg+xml",
+    "bytes": 16219,
+    "dimensions": "1200x1200"
+  },
+  {
+    "file": "02-Logomark/10PeakStudio_Logomark_3D_Tile_Light.svg",
+    "mime": "image/svg+xml",
+    "bytes": 14131,
+    "dimensions": "1200x1200"
+  },
+  {
+    "file": "02-Logomark/10PeakStudio_Logomark_Flat_Dark.svg",
+    "mime": "image/svg+xml",
+    "bytes": 10525,
+    "dimensions": "745.3x428.9"
+  },
+  {
+    "file": "02-Logomark/10PeakStudio_Logomark_Flat_Light.svg",
+    "mime": "image/svg+xml",
+    "bytes": 10527,
+    "dimensions": "745.3x428.9"
+  },
+  {
+    "file": "02-Logomark/favicon.ico",
+    "mime": "image/x-icon",
+    "bytes": 3463,
+    "dimensions": null
+  },
+  {
+    "file": "03-Construction/10PeakStudio_Construction.pdf",
+    "mime": "application/pdf",
+    "bytes": 261232,
+    "dimensions": null
+  },
+  {
+    "file": "03-Construction/10PeakStudio_Construction.svg",
+    "mime": "image/svg+xml",
+    "bytes": 372180,
+    "dimensions": "1920x1200"
+  },
+  {
+    "file": "04-ClearSpace/10PeakStudio_ClearSpace.pdf",
+    "mime": "application/pdf",
+    "bytes": 260049,
+    "dimensions": null
+  },
+  {
+    "file": "04-ClearSpace/10PeakStudio_ClearSpace.svg",
+    "mime": "image/svg+xml",
+    "bytes": 347083,
+    "dimensions": "1920x1330"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Background_OnDark.svg",
+    "mime": "image/svg+xml",
+    "bytes": 13754,
+    "dimensions": "1600x900"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Background_OnGradient.svg",
+    "mime": "image/svg+xml",
+    "bytes": 8186,
+    "dimensions": "1600x900"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Background_OnLight.svg",
+    "mime": "image/svg+xml",
+    "bytes": 11662,
+    "dimensions": "1600x900"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Background_OnPhoto.svg",
+    "mime": "image/svg+xml",
+    "bytes": 19171,
+    "dimensions": "1600x900"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Horizontal_FullColor3D_Dark.svg",
+    "mime": "image/svg+xml",
+    "bytes": 20552,
+    "dimensions": "1869.4x428.9"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Horizontal_FullColor3D_Light.svg",
+    "mime": "image/svg+xml",
+    "bytes": 19255,
+    "dimensions": "1869.4x428.9"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Horizontal_FullColorFlat_Dark.svg",
+    "mime": "image/svg+xml",
+    "bytes": 15760,
+    "dimensions": "1869.4x428.9"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Horizontal_FullColorFlat_Light.svg",
+    "mime": "image/svg+xml",
+    "bytes": 15762,
+    "dimensions": "1869.4x428.9"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Horizontal_Mono_OnBrand.svg",
+    "mime": "image/svg+xml",
+    "bytes": 15776,
+    "dimensions": "1999.5x559"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Horizontal_OneColor_Black.svg",
+    "mime": "image/svg+xml",
+    "bytes": 15700,
+    "dimensions": "1869.4x428.9"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Horizontal_OneColor_White.svg",
+    "mime": "image/svg+xml",
+    "bytes": 15700,
+    "dimensions": "1869.4x428.9"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Mark_FullColor3D_Dark.svg",
+    "mime": "image/svg+xml",
+    "bytes": 15325,
+    "dimensions": "745.3x428.9"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Mark_FullColor3D_Light.svg",
+    "mime": "image/svg+xml",
+    "bytes": 14028,
+    "dimensions": "745.3x428.9"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Mark_FullColorFlat_Dark.svg",
+    "mime": "image/svg+xml",
+    "bytes": 10533,
+    "dimensions": "745.3x428.9"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Mark_FullColorFlat_Light.svg",
+    "mime": "image/svg+xml",
+    "bytes": 10535,
+    "dimensions": "745.3x428.9"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Mark_Mono_OnBrand.svg",
+    "mime": "image/svg+xml",
+    "bytes": 10548,
+    "dimensions": "875.3x559"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Mark_OneColor_Black.svg",
+    "mime": "image/svg+xml",
+    "bytes": 10473,
+    "dimensions": "745.3x428.9"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Mark_OneColor_White.svg",
+    "mime": "image/svg+xml",
+    "bytes": 10473,
+    "dimensions": "745.3x428.9"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Stacked_FullColor3D_Dark.svg",
+    "mime": "image/svg+xml",
+    "bytes": 20511,
+    "dimensions": "849.9x582"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Stacked_FullColor3D_Light.svg",
+    "mime": "image/svg+xml",
+    "bytes": 19214,
+    "dimensions": "849.9x582"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Stacked_FullColorFlat_Dark.svg",
+    "mime": "image/svg+xml",
+    "bytes": 15719,
+    "dimensions": "849.9x582"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Stacked_FullColorFlat_Light.svg",
+    "mime": "image/svg+xml",
+    "bytes": 15721,
+    "dimensions": "849.9x582"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Stacked_Mono_OnBrand.svg",
+    "mime": "image/svg+xml",
+    "bytes": 15744,
+    "dimensions": "979.9x712.1"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Stacked_OneColor_Black.svg",
+    "mime": "image/svg+xml",
+    "bytes": 15659,
+    "dimensions": "849.9x582"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Stacked_OneColor_White.svg",
+    "mime": "image/svg+xml",
+    "bytes": 15659,
+    "dimensions": "849.9x582"
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Variations_Overview.pdf",
+    "mime": "application/pdf",
+    "bytes": 415639,
+    "dimensions": null
+  },
+  {
+    "file": "05-Variations/10PeakStudio_Variations_Overview.svg",
+    "mime": "image/svg+xml",
+    "bytes": 562507,
+    "dimensions": "1920x1556"
+  },
+  {
+    "file": "06-Color/10PeakStudio_ColorPalette.pdf",
+    "mime": "application/pdf",
+    "bytes": 531866,
+    "dimensions": null
+  },
+  {
+    "file": "06-Color/10PeakStudio_ColorPalette.svg",
+    "mime": "image/svg+xml",
+    "bytes": 755100,
+    "dimensions": "1920x1640"
+  },
+  {
+    "file": "07-Typography/10PeakStudio_Typography.pdf",
+    "mime": "application/pdf",
+    "bytes": 679704,
+    "dimensions": null
+  },
+  {
+    "file": "07-Typography/10PeakStudio_Typography.svg",
+    "mime": "image/svg+xml",
+    "bytes": 970290,
+    "dimensions": "1920x3342"
+  },
+  {
+    "file": "07-Typography/10PeakStudio_fonts.css",
+    "mime": "text/css",
+    "bytes": 1665,
+    "dimensions": null
+  },
+  {
+    "file": "08-Misuse/10PeakStudio_Misuse.pdf",
+    "mime": "application/pdf",
+    "bytes": 225454,
+    "dimensions": null
+  },
+  {
+    "file": "08-Misuse/10PeakStudio_Misuse.svg",
+    "mime": "image/svg+xml",
+    "bytes": 287179,
+    "dimensions": "1920x1350"
+  },
+  {
+    "file": "09-Tokens/10PeakStudio_tailwind.config.js",
+    "mime": "text/javascript",
+    "bytes": 2284,
+    "dimensions": null
+  },
+  {
+    "file": "09-Tokens/10PeakStudio_tokens.css",
+    "mime": "text/css",
+    "bytes": 2987,
+    "dimensions": null
+  },
+  {
+    "file": "09-Tokens/10PeakStudio_tokens.json",
+    "mime": "application/json",
+    "bytes": 9632,
+    "dimensions": null
+  },
+  {
+    "file": "README.md",
+    "mime": "text/markdown",
+    "bytes": 2337,
+    "dimensions": null
+  }
+]

@@ -1,0 +1,22 @@
+/* 10PeakStudio web fonts (Google Fonts, SIL Open Font License) */
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+:root {
+  --font-heading: "Sora", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+h1, h2, h3, h4, h5, .display { font-family: var(--font-heading); }
+body { font-family: var(--font-body); font-size: 1rem; line-height: 1.625; }
+code, kbd, pre, samp { font-family: var(--font-mono); }
+.display { font-size: 4.5rem;    line-height: 5rem;    letter-spacing: -0.02em;  font-weight: 700; }
+h1       { font-size: 3.5rem;    line-height: 4rem;    letter-spacing: -0.02em;  font-weight: 700; }
+h2       { font-size: 2.75rem;   line-height: 3.25rem; letter-spacing: -0.015em; font-weight: 600; }
+h3       { font-size: 2.125rem;  line-height: 2.625rem;letter-spacing: -0.01em;  font-weight: 600; }
+h4       { font-size: 1.625rem;  line-height: 2.125rem;letter-spacing: -0.005em; font-weight: 600; }
+h5       { font-size: 1.25rem;   line-height: 1.75rem; font-weight: 600; }
+.body-lg { font-size: 1.125rem;  line-height: 1.875rem; }
+.small   { font-size: 0.875rem;  line-height: 1.375rem; letter-spacing: 0.005em; }
+.caption { font-size: 0.75rem;   line-height: 1.125rem; letter-spacing: 0.01em; font-weight: 500; }
+/* Sora has no rupee glyph: wrap amounts in Inter */
+.price   { font-family: var(--font-body); font-variant-numeric: tabular-nums; }

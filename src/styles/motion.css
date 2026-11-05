@@ -1,0 +1,64 @@
+/* Motion primitives that must work before (or without) JavaScript.
+   Design.md 11; Architecture.md 9. Content is visible by default (RUL-MOT-04). */
+
+@keyframes peak-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes gradient-sweep {
+  from {
+    background-position: 100% 50%;
+  }
+  to {
+    background-position: 0% 50%;
+  }
+}
+
+/* Hero intro: eyebrow, chips and CTAs only. The H1 and the supporting paragraph are never hidden
+   (LCP candidates, RUL-MOT-03). Delayed while the loader plays. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-intro] {
+    animation: peak-rise var(--duration-signature) var(--ease-peak-rise) both;
+    animation-delay: calc(var(--intro-order, 0) * 80ms + 120ms);
+  }
+  html[data-loader='on'] [data-intro] {
+    animation-delay: calc(var(--intro-order, 0) * 80ms + 1750ms);
+  }
+  [data-sweep] {
+    background-size: 220% 100%;
+    animation: gradient-sweep 1.6s var(--ease-peak-rise) both;
+    animation-delay: 300ms;
+  }
+  html[data-loader='on'] [data-sweep] {
+    animation-delay: 1900ms;
+  }
+}
+
+/* Reveal: hidden state only when JS has armed it for an element below the fold (Reveal.tsx). */
+[data-reveal='armed'] {
+  opacity: 0;
+  transform: translateY(var(--reveal-y, 24px));
+}
+
+/* Global reduced-motion safety net (RUL-A11Y-11) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal='armed'] {
+    opacity: 1;
+    transform: none;
+  }
+}

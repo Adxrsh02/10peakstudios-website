@@ -1,0 +1,468 @@
+{
+  "$description": "10PeakStudio design tokens (W3C Design Tokens Community Group format)",
+  "color": {
+    "peak-violet": {
+      "$type": "color",
+      "$value": "#8E21FC",
+      "$description": "Primary. Violet band and flat logo.",
+      "$extensions": {
+        "rgb": [
+          142,
+          33,
+          252
+        ],
+        "cmyk": [
+          44,
+          87,
+          0,
+          1
+        ],
+        "hsl": [
+          270,
+          97,
+          56
+        ],
+        "pantoneClosest": "PANTONE Violet C / 266 C",
+        "contrastOnWhite": 5.57,
+        "contrastOnBlack": 3.77
+      }
+    },
+    "deep-violet": {
+      "$type": "color",
+      "$value": "#480BB4",
+      "$description": "Secondary. Arrow tail, shadows.",
+      "$extensions": {
+        "rgb": [
+          72,
+          11,
+          180
+        ],
+        "cmyk": [
+          60,
+          94,
+          0,
+          29
+        ],
+        "hsl": [
+          262,
+          88,
+          37
+        ],
+        "pantoneClosest": "PANTONE Violet C / 2735 C",
+        "contrastOnWhite": 10.59,
+        "contrastOnBlack": 1.98
+      }
+    },
+    "lilac-spark": {
+      "$type": "color",
+      "$value": "#A743F8",
+      "$description": "Accent. Arrow head, highlights.",
+      "$extensions": {
+        "rgb": [
+          167,
+          67,
+          248
+        ],
+        "cmyk": [
+          33,
+          73,
+          0,
+          3
+        ],
+        "hsl": [
+          273,
+          93,
+          62
+        ],
+        "pantoneClosest": "PANTONE 7442 C / 266 C",
+        "contrastOnWhite": 4.37,
+        "contrastOnBlack": 4.8
+      }
+    },
+    "glow-violet": {
+      "$type": "color",
+      "$value": "#5B10E0",
+      "$description": "Effect only, at 20% opacity.",
+      "$extensions": {
+        "rgb": [
+          91,
+          16,
+          224
+        ],
+        "cmyk": [
+          59,
+          93,
+          0,
+          12
+        ],
+        "hsl": [
+          262,
+          87,
+          47
+        ],
+        "pantoneClosest": "PANTONE Violet C / 2735 C",
+        "contrastOnWhite": 8.09,
+        "contrastOnBlack": 2.6
+      }
+    },
+    "obsidian": {
+      "$type": "color",
+      "$value": "#000000",
+      "$description": "Neutral. Primary dark surface.",
+      "$extensions": {
+        "rgb": [
+          0,
+          0,
+          0
+        ],
+        "cmyk": [
+          0,
+          0,
+          0,
+          100
+        ],
+        "hsl": [
+          0,
+          0,
+          0
+        ],
+        "pantoneClosest": "PANTONE Black 6 C / Black C",
+        "contrastOnWhite": 21.0,
+        "contrastOnBlack": 1.0
+      }
+    },
+    "ink": {
+      "$type": "color",
+      "$value": "#14111E",
+      "$description": "Neutral, derived. Logo on light.",
+      "$extensions": {
+        "rgb": [
+          20,
+          17,
+          30
+        ],
+        "cmyk": [
+          33,
+          43,
+          0,
+          88
+        ],
+        "hsl": [
+          254,
+          28,
+          9
+        ],
+        "pantoneClosest": "PANTONE Black 6 C / Black C",
+        "contrastOnWhite": 18.61,
+        "contrastOnBlack": 1.13
+      }
+    },
+    "slate-lavender": {
+      "$type": "color",
+      "$value": "#8D8CA4",
+      "$description": "Neutral. Shadow side of white faces.",
+      "$extensions": {
+        "rgb": [
+          141,
+          140,
+          164
+        ],
+        "cmyk": [
+          14,
+          15,
+          0,
+          36
+        ],
+        "hsl": [
+          242,
+          12,
+          60
+        ],
+        "pantoneClosest": "PANTONE 7445 C / 7443 C",
+        "contrastOnWhite": 3.27,
+        "contrastOnBlack": 6.42
+      }
+    },
+    "mist": {
+      "$type": "color",
+      "$value": "#D7D6E1",
+      "$description": "Neutral. Mid-tone of white faces.",
+      "$extensions": {
+        "rgb": [
+          215,
+          214,
+          225
+        ],
+        "cmyk": [
+          4,
+          5,
+          0,
+          12
+        ],
+        "hsl": [
+          245,
+          15,
+          86
+        ],
+        "pantoneClosest": "PANTONE 7443 C / 663 C",
+        "contrastOnWhite": 1.44,
+        "contrastOnBlack": 14.6
+      }
+    },
+    "summit-white": {
+      "$type": "color",
+      "$value": "#FCFCFC",
+      "$description": "Neutral. Lit faces, text on dark.",
+      "$extensions": {
+        "rgb": [
+          252,
+          252,
+          252
+        ],
+        "cmyk": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "hsl": [
+          0,
+          0,
+          99
+        ],
+        "pantoneClosest": "No ink (paper white)",
+        "contrastOnWhite": 1.03,
+        "contrastOnBlack": 20.47
+      }
+    }
+  },
+  "gradient": {
+    "band": {
+      "$type": "gradient",
+      "$value": [
+        {
+          "color": "#9725FC",
+          "position": 0
+        },
+        {
+          "color": "#9122FC",
+          "position": 0.5
+        },
+        {
+          "color": "#8014FB",
+          "position": 1
+        }
+      ],
+      "$extensions": {
+        "css": "linear-gradient(196deg, #9725FC 0%, #9122FC 50%, #8014FB 100%)"
+      }
+    },
+    "arrow-rise": {
+      "$type": "gradient",
+      "$value": [
+        {
+          "color": "#480BB4",
+          "position": 0
+        },
+        {
+          "color": "#6617EA",
+          "position": 0.25
+        },
+        {
+          "color": "#8F31F9",
+          "position": 0.6
+        },
+        {
+          "color": "#A743F8",
+          "position": 1
+        }
+      ],
+      "$extensions": {
+        "css": "linear-gradient(90deg, #480BB4 0%, #6617EA 25%, #8F31F9 60%, #A743F8 100%)"
+      }
+    },
+    "summit-light": {
+      "$type": "gradient",
+      "$value": [
+        {
+          "color": "#FCFCFC",
+          "position": 0
+        },
+        {
+          "color": "#E9E9EF",
+          "position": 0.4
+        },
+        {
+          "color": "#D7D6E1",
+          "position": 0.6
+        },
+        {
+          "color": "#8D8CA4",
+          "position": 1
+        }
+      ],
+      "$extensions": {
+        "css": "linear-gradient(141deg, #FCFCFC 0%, #E9E9EF 40%, #D7D6E1 60%, #8D8CA4 100%)"
+      }
+    }
+  },
+  "font": {
+    "heading": {
+      "$type": "fontFamily",
+      "$value": [
+        "Sora",
+        "Inter",
+        "system-ui",
+        "sans-serif"
+      ]
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": [
+        "Inter",
+        "system-ui",
+        "sans-serif"
+      ]
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": [
+        "JetBrains Mono",
+        "ui-monospace",
+        "monospace"
+      ]
+    }
+  },
+  "typography": {
+    "display": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.heading}",
+        "fontWeight": 700,
+        "fontSize": "72px",
+        "lineHeight": "80px",
+        "letterSpacing": "-0.02em"
+      }
+    },
+    "h1": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.heading}",
+        "fontWeight": 700,
+        "fontSize": "56px",
+        "lineHeight": "64px",
+        "letterSpacing": "-0.02em"
+      }
+    },
+    "h2": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.heading}",
+        "fontWeight": 600,
+        "fontSize": "44px",
+        "lineHeight": "52px",
+        "letterSpacing": "-0.015em"
+      }
+    },
+    "h3": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.heading}",
+        "fontWeight": 600,
+        "fontSize": "34px",
+        "lineHeight": "42px",
+        "letterSpacing": "-0.01em"
+      }
+    },
+    "h4": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.heading}",
+        "fontWeight": 600,
+        "fontSize": "26px",
+        "lineHeight": "34px",
+        "letterSpacing": "-0.005em"
+      }
+    },
+    "h5": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.heading}",
+        "fontWeight": 600,
+        "fontSize": "20px",
+        "lineHeight": "28px",
+        "letterSpacing": "0em"
+      }
+    },
+    "body-large": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.body}",
+        "fontWeight": 400,
+        "fontSize": "18px",
+        "lineHeight": "30px",
+        "letterSpacing": "0em"
+      }
+    },
+    "body": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.body}",
+        "fontWeight": 400,
+        "fontSize": "16px",
+        "lineHeight": "26px",
+        "letterSpacing": "0em"
+      }
+    },
+    "small": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.body}",
+        "fontWeight": 400,
+        "fontSize": "14px",
+        "lineHeight": "22px",
+        "letterSpacing": "0.005em"
+      }
+    },
+    "caption": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.body}",
+        "fontWeight": 500,
+        "fontSize": "12px",
+        "lineHeight": "18px",
+        "letterSpacing": "0.01em"
+      }
+    },
+    "code": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.mono}",
+        "fontWeight": 400,
+        "fontSize": "14px",
+        "lineHeight": "22px",
+        "letterSpacing": "0em"
+      }
+    }
+  },
+  "logo": {
+    "baseUnitX": {
+      "$value": "1/4 of the logomark letter height"
+    },
+    "clearSpace": {
+      "$value": "1x"
+    },
+    "clearSpaceMarkMinimum": {
+      "$value": "0.5x"
+    },
+    "minimumSize": {
+      "horizontal3d": "160px / 35mm",
+      "horizontalFlat": "120px / 25mm",
+      "stacked3d": "96px / 22mm",
+      "stackedFlat": "72px / 16mm",
+      "mark3d": "48px / 12mm",
+      "markFlat": "24px / 8mm",
+      "favicon": "16px"
+    }
+  }
+}

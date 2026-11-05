@@ -1,0 +1,45 @@
+/* Small component styles that are clearer in CSS than in utilities. */
+
+/* Bracketed eyebrow: decorative brackets with empty alt text (Design.md 5.5). */
+.eyebrow-bracket::before {
+  content: '[\00a0\00a0';
+  content: '[\00a0\00a0' / '';
+  color: var(--color-slate-lavender);
+}
+.eyebrow-bracket::after {
+  content: '\00a0\00a0]';
+  content: '\00a0\00a0]' / '';
+  color: var(--color-slate-lavender);
+}
+
+/* Card hover lift on pointer devices only (Design.md 10.5; skill: no scale). */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .card-lift {
+    transition:
+      transform var(--duration-base) var(--ease-standard),
+      box-shadow var(--duration-base) var(--ease-standard),
+      border-color var(--duration-base) var(--ease-standard);
+  }
+  .card-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+/* Sticky CTA bar hides while the drawer/dialog (scroll-locked body) or consent banner is open
+   (PRD-NAV-08). */
+body[data-scroll-locked] [data-sticky-cta],
+html[data-consent-open] [data-sticky-cta] {
+  visibility: hidden;
+  transform: translateY(100%);
+}
+
+/* Keep keyboard focus clear of the consent banner (WCAG 2.2 focus not obscured, PRD-ANL-08). */
+html[data-consent-open] {
+  scroll-padding-bottom: 14rem;
+}
+
+/* Soft brand glow (Glow Violet at 20%, Design.md 4.1) */
+.glow-violet {
+  background: radial-gradient(closest-side, rgb(91 16 224 / 0.2), rgb(91 16 224 / 0) 100%);
+}

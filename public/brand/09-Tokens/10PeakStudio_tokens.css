@@ -1,0 +1,86 @@
+/* 10PeakStudio design tokens. Colours sampled from the logo; Ink is derived for light surfaces. */
+:root {
+  --color-peak-violet: #8E21FC;
+  --color-deep-violet: #480BB4;
+  --color-lilac-spark: #A743F8;
+  --color-glow-violet: #5B10E0;
+  --color-obsidian: #000000;
+  --color-ink: #14111E;
+  --color-slate-lavender: #8D8CA4;
+  --color-mist: #D7D6E1;
+  --color-summit-white: #FCFCFC;
+  --color-glow-violet-20: rgb(91 16 224 / 0.20);
+  --gradient-band: linear-gradient(196deg, #9725FC 0%, #9122FC 50%, #8014FB 100%);
+  --gradient-arrow-rise: linear-gradient(90deg, #480BB4 0%, #6617EA 25%, #8F31F9 60%, #A743F8 100%);
+  --gradient-summit-light: linear-gradient(141deg, #FCFCFC 0%, #E9E9EF 40%, #D7D6E1 60%, #8D8CA4 100%);
+  --font-heading: "Sora", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --text-display-size: 4.5rem;
+  --text-display-line: 5rem;
+  --text-display-tracking: -0.02em;
+  --text-display-weight: 700;
+  --text-h1-size: 3.5rem;
+  --text-h1-line: 4rem;
+  --text-h1-tracking: -0.02em;
+  --text-h1-weight: 700;
+  --text-h2-size: 2.75rem;
+  --text-h2-line: 3.25rem;
+  --text-h2-tracking: -0.015em;
+  --text-h2-weight: 600;
+  --text-h3-size: 2.125rem;
+  --text-h3-line: 2.625rem;
+  --text-h3-tracking: -0.01em;
+  --text-h3-weight: 600;
+  --text-h4-size: 1.625rem;
+  --text-h4-line: 2.125rem;
+  --text-h4-tracking: -0.005em;
+  --text-h4-weight: 600;
+  --text-h5-size: 1.25rem;
+  --text-h5-line: 1.75rem;
+  --text-h5-tracking: 0em;
+  --text-h5-weight: 600;
+  --text-body-large-size: 1.125rem;
+  --text-body-large-line: 1.875rem;
+  --text-body-large-tracking: 0em;
+  --text-body-large-weight: 400;
+  --text-body-size: 1rem;
+  --text-body-line: 1.625rem;
+  --text-body-tracking: 0em;
+  --text-body-weight: 400;
+  --text-small-size: 0.875rem;
+  --text-small-line: 1.375rem;
+  --text-small-tracking: 0.005em;
+  --text-small-weight: 400;
+  --text-caption-size: 0.75rem;
+  --text-caption-line: 1.125rem;
+  --text-caption-tracking: 0.01em;
+  --text-caption-weight: 500;
+  --text-code-size: 0.875rem;
+  --text-code-line: 1.375rem;
+  --text-code-tracking: 0em;
+  --text-code-weight: 400;
+  --logo-clear-space: 1;      /* in units of x; x = ¼ of the logomark letter height (≈ 0.23 × full mark height) */
+  --logo-min-horizontal-3d: 160px;
+  --logo-min-horizontal-flat: 120px;
+  --logo-min-mark-3d: 48px;
+  --logo-min-mark-flat: 24px;
+
+  /* semantic, light surfaces */
+  --surface: var(--color-summit-white);
+  --surface-raised: #FFFFFF;
+  --text: var(--color-ink);
+  --text-muted: #5E5A70;
+  --accent: var(--color-peak-violet);
+  --border: var(--color-mist);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface: var(--color-obsidian);
+    --surface-raised: var(--color-ink);
+    --text: var(--color-summit-white);
+    --text-muted: var(--color-slate-lavender);
+    --accent: var(--color-lilac-spark);
+    --border: #2A2638;
+  }
+}

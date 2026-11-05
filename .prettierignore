@@ -1,0 +1,16 @@
+node_modules
+.next
+out
+.wrangler
+.lighthouseci
+playwright-report
+test-results
+package-lock.json
+public/brand
+public/llms.txt
+.claude
+design-system
+Project_spec
+CLAUDE.md
+10PeakStudio_Brand_Guidelines.html
+src/components/brand/svg

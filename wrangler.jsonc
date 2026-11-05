@@ -1,0 +1,12 @@
+{
+  // Architecture.md 5.2. Assets-only until M5; the /api/contact Worker ("main", D1, vars)
+  // is added with the enquiry form. Nothing here creates remote resources.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "10peakstudio-web",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash",
+  },
+}

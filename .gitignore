@@ -1,0 +1,38 @@
+# dependencies
+node_modules/
+
+# build output
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# cloudflare
+.wrangler/
+.dev.vars
+
+# env
+.env*.local
+.env
+
+# tests and reports
+test-results/
+playwright-report/
+blob-report/
+.lighthouseci/
+coverage/
+
+# python caches (skill scripts)
+__pycache__/
+
+# os / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# added for push
+.open-next/
+.env.*
+!.env.example
+.dev.vars.*
+!.dev.vars.example

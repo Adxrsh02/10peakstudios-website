@@ -1,0 +1,124 @@
+/* Logo loader (Design.md 11.6). Timeline in ms: band 150-650, ribbon+fold 350-900,
+   stem+"1" 500-1000, arrow 900-1400, wordmark 1400-1650, overlay out 1650-1900.
+   Only visible while html[data-loader="on"]; hidden without JS (no bootstrap) and under
+   reduced motion. CSS fail-safe: the overlay-out animation ends invisible at 1.9 s. */
+
+.tps-loader {
+  display: none;
+}
+
+html[data-loader='on'] .tps-loader,
+html[data-loader='done'] .tps-loader {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-loader);
+  display: grid;
+  place-items: center;
+  background: #ffffff;
+}
+
+html[data-loader='on'] .tps-loader {
+  animation: tps-loader-out 250ms var(--ease-exit) 1650ms forwards;
+}
+
+html[data-loader='done'] .tps-loader {
+  animation: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 220ms var(--ease-exit),
+    visibility 0s linear 220ms;
+}
+
+.tps-loader__logo {
+  width: clamp(15rem, 58vw, 27.5rem);
+  height: auto;
+  overflow: visible;
+}
+
+.tps-loader__logo [data-part] {
+  transform-box: fill-box;
+}
+
+html[data-loader='on'] .tps-loader__logo [data-part='band'] {
+  clip-path: inset(0 100% 0 0);
+  animation: tps-wipe 500ms var(--ease-peak-rise) 150ms forwards;
+}
+html[data-loader='on'] .tps-loader__logo [data-part='ribbon'],
+html[data-loader='on'] .tps-loader__logo [data-part='fold'] {
+  opacity: 0;
+  animation: tps-rise-8 550ms var(--ease-peak-rise) 350ms forwards;
+}
+html[data-loader='on'] .tps-loader__logo [data-part='stem'],
+html[data-loader='on'] .tps-loader__logo [data-part='one'] {
+  opacity: 0;
+  animation: tps-rise-12 500ms var(--ease-peak-rise) 500ms forwards;
+}
+html[data-loader='on'] .tps-loader__logo [data-part='arrow'] {
+  clip-path: inset(0 100% 0 0);
+  animation: tps-wipe 500ms var(--ease-peak-rise) 900ms forwards;
+}
+html[data-loader='on'] .tps-loader__logo [data-part='wordmark'] {
+  opacity: 0;
+  animation: tps-fade 250ms var(--ease-standard) 1400ms forwards;
+}
+
+.tps-loader__skip {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  min-height: 44px;
+  padding: 0 1rem;
+  border-radius: var(--radius-pill);
+  font: 500 0.875rem/1 var(--font-sans);
+  color: var(--color-ink-muted);
+  background: transparent;
+}
+.tps-loader__skip:hover {
+  color: var(--color-ink);
+}
+
+@keyframes tps-wipe {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes tps-rise-8 {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes tps-rise-12 {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes tps-fade {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes tps-loader-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tps-loader {
+    display: none !important;
+  }
+}
