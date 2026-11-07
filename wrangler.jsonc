@@ -1,9 +1,10 @@
 {
   // Architecture.md 5.2. /api/contact Worker ("main", D1, vars) configured for enquiry pipeline.
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "10peakstudio-web",
+  "name": "10peakstudios-website",
   "main": "worker/index.ts",
   "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "directory": "./out",
     "binding": "ASSETS",
@@ -11,13 +12,14 @@
     "html_handling": "auto-trailing-slash",
     "run_worker_first": ["/api/*"]
   },
-  "d1_databases": [
-    {
-      "binding": "LEADS_DB",
-      "database_name": "10peakstudio-leads",
-      "database_id": "local-dev-leads-id"
-    }
-  ],
+  // Optional D1 Database: Uncomment and set database_id after creating database via `npx wrangler d1 create 10peakstudio-leads`
+  // "d1_databases": [
+  //   {
+  //     "binding": "LEADS_DB",
+  //     "database_name": "10peakstudio-leads",
+  //     "database_id": "<real-database-id-from-cloudflare>"
+  //   }
+  // ],
   "vars": {
     "LEAD_NOTIFY_TO": "connect@10peakstudios.com",
     "LEAD_FROM": "10PeakStudio <connect@10peakstudios.com>",
