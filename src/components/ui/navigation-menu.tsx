@@ -18,7 +18,7 @@ function NavigationMenu({
     <NavigationMenuPrimitive.Root
       data-slot="navigation-menu"
       delayDuration={150}
-      className={cn('relative flex flex-1 items-center justify-center', className)}
+      className={cn('static flex flex-1 items-center justify-center', className)}
       {...props}
     >
       {children}
@@ -26,11 +26,13 @@ function NavigationMenu({
         <NavigationMenuPrimitive.Viewport
           data-slot="navigation-menu-viewport"
           className={cn(
-            'relative h-(--radix-navigation-menu-viewport-height) w-(--radix-navigation-menu-viewport-width) origin-top overflow-hidden',
-            'rounded-md border border-border bg-popover text-popover-foreground shadow-lg',
-            'transition-[width,height] duration-(--duration-base) ease-(--ease-standard)',
+            'relative origin-top overflow-hidden',
+            'h-(--radix-navigation-menu-viewport-height) w-(--radix-navigation-menu-viewport-width)',
+            'rounded-md border border-border bg-popover text-popover-foreground shadow-2xl',
+            'transition-[opacity,transform] duration-200 ease-out',
             'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-top-2',
-            'data-[state=closed]:animate-out data-[state=closed]:fade-out-0',
+            'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:slide-out-to-top-2',
+            'motion-reduce:animate-none motion-reduce:transition-none',
           )}
         />
       </div>
@@ -90,8 +92,10 @@ function NavigationMenuContent({
     <NavigationMenuPrimitive.Content
       data-slot="navigation-menu-content"
       className={cn(
-        'top-0 left-0 w-full',
-        'data-[motion^=from-]:animate-in data-[motion^=from-]:fade-in data-[motion^=to-]:animate-out data-[motion^=to-]:fade-out',
+        'top-0 left-0 w-max',
+        'data-[motion^=from-]:animate-in data-[motion^=from-]:duration-150 data-[motion^=from-]:fade-in-0',
+        'data-[motion^=to-]:animate-out data-[motion^=to-]:duration-150 data-[motion^=to-]:fade-out-0',
+        'motion-reduce:animate-none',
         className,
       )}
       {...props}
