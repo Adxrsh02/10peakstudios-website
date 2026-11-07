@@ -24,6 +24,11 @@ const schema = z.object({
   NEXT_PUBLIC_GA4_ID: optionalString,
   NEXT_PUBLIC_CLARITY_ID: optionalString,
   NEXT_PUBLIC_CF_WA_TOKEN: optionalString,
+  NEXT_PUBLIC_TURNSTILE_SITE_KEY: optionalString.default('1x00000000000000000000AA'),
+  NEXT_PUBLIC_SHOW_TESTIMONIALS: z
+    .string()
+    .optional()
+    .transform((v) => v === 'true'),
 });
 
 export const env = schema.parse({
@@ -33,4 +38,6 @@ export const env = schema.parse({
   NEXT_PUBLIC_GA4_ID: process.env.NEXT_PUBLIC_GA4_ID,
   NEXT_PUBLIC_CLARITY_ID: process.env.NEXT_PUBLIC_CLARITY_ID,
   NEXT_PUBLIC_CF_WA_TOKEN: process.env.NEXT_PUBLIC_CF_WA_TOKEN,
+  NEXT_PUBLIC_TURNSTILE_SITE_KEY: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
+  NEXT_PUBLIC_SHOW_TESTIMONIALS: process.env.NEXT_PUBLIC_SHOW_TESTIMONIALS,
 });
