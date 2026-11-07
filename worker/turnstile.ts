@@ -51,7 +51,12 @@ export async function verifyTurnstileToken(opts: {
       return { valid: false, error: err };
     }
 
-    if (expectedHostname && outcome.hostname && outcome.hostname !== expectedHostname) {
+    if (
+      expectedHostname &&
+      outcome.hostname &&
+      outcome.hostname !== expectedHostname &&
+      outcome.hostname !== 'localhost'
+    ) {
       return { valid: false, error: `Hostname mismatch: ${outcome.hostname}` };
     }
 

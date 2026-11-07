@@ -58,11 +58,13 @@ test.describe('Contact Us Page (/contact)', () => {
   });
 
   test('validates form and shows accessible error summary on empty submit', async ({ page }) => {
+    await mockTurnstile(page);
     await quietVisit(page, '/contact');
     await expect(page.locator('h1')).toBeVisible();
 
     // Click submit button without filling fields
     const submitBtn = page.getByRole('button', { name: 'Send Project Enquiry' });
+    await expect(submitBtn).toBeEnabled();
     await submitBtn.click();
 
     // Error summary should appear
@@ -147,6 +149,64 @@ test.describe('Contact Us Page (/contact)', () => {
 
     // Should display rate limit alert with WhatsApp button
     await expect(page.locator('#form-status-alert')).toContainText('Submission limit reached');
+  });
+
+  test('turnstile: disables submit button until verification token exists', async ({ page }) => {
+    await page.addInitScript(() => {
+      (window as unknown as { turnstile?: unknown }).turnstile = {
+        render: (_container: unknown, params: { callback?: ((t: string) => void) | undefined }) => {
+          (
+            window as unknown as { __triggerVerify?: ((t: string) => void) | undefined }
+          ).__triggerVerify = params.callback;
+          return 'mock-widget-id';
+        },
+        reset: () => {},
+        remove: () => {},
+      };
+    });
+
+    await quietVisit(page, '/contact');
+    await expect(page.locator('h1')).toBeVisible();
+
+    const submitBtn = page.getByRole('button', { name: 'Send Project Enquiry' });
+    // Submit button MUST be disabled initially until token exists
+    await expect(submitBtn).toBeDisabled();
+    await expect(page.getByText('Security verification required before submission.')).toBeVisible();
+
+    // Trigger verification
+    await page.evaluate(() => {
+      const trigger = (window as unknown as { __triggerVerify?: (t: string) => void })
+        .__triggerVerify;
+      trigger?.('test-delayed-token-999');
+    });
+
+    // Submit button should now become enabled
+    await expect(submitBtn).toBeEnabled();
+    await expect(page.getByText('Security verification required before submission.')).toBeHidden();
+  });
+
+  test('turnstile: handles verification failure with retry button and fallback links', async ({
+    page,
+  }) => {
+    await page.addInitScript(() => {
+      (window as unknown as { turnstile?: unknown }).turnstile = {
+        render: (_container: unknown, params: { 'error-callback'?: (code: string) => void }) => {
+          setTimeout(() => params['error-callback']?.('300030'), 30);
+          return 'mock-widget-id';
+        },
+        reset: () => {},
+        remove: () => {},
+      };
+    });
+
+    await quietVisit(page, '/contact');
+    await expect(page.locator('h1')).toBeVisible();
+
+    // Error alert should be displayed with retry button
+    const retryBtn = page.getByRole('button', { name: 'Retry Verification' });
+    await expect(retryBtn).toBeVisible();
+    await expect(page.getByText('Security check failed (code: 300030).')).toBeVisible();
+    await expect(page.locator('form').getByRole('link', { name: '+91 7678083589' })).toBeVisible();
   });
 
   test('axe: zero serious or critical violations on /contact', async ({ page }) => {

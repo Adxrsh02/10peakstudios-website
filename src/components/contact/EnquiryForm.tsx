@@ -367,7 +367,9 @@ export function EnquiryForm({ turnstileSiteKey, whatsappNumber }: EnquiryFormPro
             onVerify={(token) => setTurnstileToken(token)}
             onExpire={() => setTurnstileToken('')}
             onError={() => setTurnstileToken('')}
+            onTimeout={() => setTurnstileToken('')}
             resetTrigger={turnstileResetCount}
+            whatsappNumber={whatsappNumber}
           />
           {errors.turnstileToken && (
             <p role="alert" className="text-caption font-medium text-destructive">
@@ -407,7 +409,7 @@ export function EnquiryForm({ turnstileSiteKey, whatsappNumber }: EnquiryFormPro
           <Button
             type="submit"
             size="lg"
-            disabled={status === 'submitting'}
+            disabled={status === 'submitting' || !turnstileToken}
             aria-busy={status === 'submitting'}
             className="w-full min-w-[200px] sm:w-auto"
           >
@@ -423,6 +425,11 @@ export function EnquiryForm({ turnstileSiteKey, whatsappNumber }: EnquiryFormPro
               </>
             )}
           </Button>
+          {!turnstileToken && (
+            <p className="mt-2 text-caption text-muted-foreground">
+              Security verification required before submission.
+            </p>
+          )}
         </div>
       </form>
     </div>
