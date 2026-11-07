@@ -174,6 +174,7 @@ export function EnquiryForm({ turnstileSiteKey, whatsappNumber }: EnquiryFormPro
       {/* Status Warning / Fallback Banner */}
       {status !== 'idle' && status !== 'submitting' && (
         <div
+          id="form-status-alert"
           role="alert"
           className="flex flex-col gap-3 rounded-md border border-warning/40 bg-warning/10 p-4 text-small text-foreground"
         >

@@ -3,13 +3,30 @@
 import { useSyncExternalStore } from 'react';
 import { getStudioStatus, type StudioStatus } from '@/lib/business-hours';
 
-function subscribe(callback: () => void) {
-  const timer = setInterval(callback, 60000);
-  return () => clearInterval(timer);
-}
+let cachedSnapshot: StudioStatus | null = null;
 
 function getSnapshot(): StudioStatus {
-  return getStudioStatus();
+  if (!cachedSnapshot) {
+    cachedSnapshot = getStudioStatus();
+  }
+  return cachedSnapshot;
+}
+
+function subscribe(callback: () => void) {
+  const update = () => {
+    const next = getStudioStatus();
+    if (
+      !cachedSnapshot ||
+      next.isOpen !== cachedSnapshot.isOpen ||
+      next.statusText !== cachedSnapshot.statusText ||
+      next.detailText !== cachedSnapshot.detailText
+    ) {
+      cachedSnapshot = next;
+      callback();
+    }
+  };
+  const timer = setInterval(update, 60000);
+  return () => clearInterval(timer);
 }
 
 function getServerSnapshot(): StudioStatus | null {

@@ -125,7 +125,6 @@ export function TurnstileWidget({
     <div
       ref={containerRef}
       className="flex min-h-[65px] items-center justify-start overflow-hidden"
-      aria-label="Cloudflare Turnstile Verification"
     />
   );
 }
