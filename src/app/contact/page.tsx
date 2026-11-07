@@ -44,7 +44,7 @@ export default function ContactPage() {
             {/* Main Enquiry Form (7 cols) */}
             <div className="lg:col-span-7" data-reveal-item="">
               <EnquiryForm
-                turnstileSiteKey={env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+                turnstileSiteKey={env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ''}
                 whatsappNumber={env.NEXT_PUBLIC_WHATSAPP_NUMBER}
               />
             </div>

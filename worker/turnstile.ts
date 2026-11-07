@@ -51,18 +51,27 @@ export async function verifyTurnstileToken(opts: {
       return { valid: false, error: err };
     }
 
-    if (
-      expectedHostname &&
-      outcome.hostname &&
-      outcome.hostname !== expectedHostname &&
-      outcome.hostname !== 'localhost'
-    ) {
-      return { valid: false, error: `Hostname mismatch: ${outcome.hostname}` };
+    if (expectedHostname && outcome.hostname) {
+      const allowed = expectedHostname
+        .split(',')
+        .map((h) => h.trim().toLowerCase())
+        .filter(Boolean);
+      const tokenHostname = outcome.hostname.toLowerCase();
+
+      const isValidHostname =
+        allowed.includes(tokenHostname) ||
+        tokenHostname === '10peakstudios.com' ||
+        tokenHostname === 'www.10peakstudios.com' ||
+        tokenHostname === 'localhost' ||
+        tokenHostname === '127.0.0.1';
+
+      if (!isValidHostname) {
+        return { valid: false, error: 'Hostname verification failed' };
+      }
     }
 
     return { valid: true };
-  } catch (err) {
-    const message = err instanceof Error ? err.message : 'Network error during verification';
-    return { valid: false, error: message };
+  } catch {
+    return { valid: false, error: 'Network error during verification' };
   }
 }

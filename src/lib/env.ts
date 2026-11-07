@@ -11,6 +11,8 @@ const optionalString = z
   .optional()
   .transform((v) => (v ? v : undefined));
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 const schema = z.object({
   NEXT_PUBLIC_SITE_URL: z.url().default('https://10peakstudios.com'),
   // Pending PRD OQ-2 (supplied as Connect@10peakstudio.com, whose domain differs)
@@ -24,7 +26,10 @@ const schema = z.object({
   NEXT_PUBLIC_GA4_ID: optionalString,
   NEXT_PUBLIC_CLARITY_ID: optionalString,
   NEXT_PUBLIC_CF_WA_TOKEN: optionalString,
-  NEXT_PUBLIC_TURNSTILE_SITE_KEY: optionalString.default('1x00000000000000000000AA'),
+  // Production builds have no test fallback; dev/test may default to test key
+  NEXT_PUBLIC_TURNSTILE_SITE_KEY: isProduction
+    ? optionalString
+    : optionalString.default('1x00000000000000000000AA'),
   NEXT_PUBLIC_SHOW_TESTIMONIALS: z
     .string()
     .optional()

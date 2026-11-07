@@ -26,7 +26,7 @@
     "LEAD_NOTIFY_TO": "connect@10peakstudios.com",
     "LEAD_FROM": "10PeakStudio <connect@10peakstudios.com>",
     "ALLOWED_ORIGINS": "https://10peakstudios.com,https://www.10peakstudios.com",
-    "TURNSTILE_EXPECTED_HOSTNAME": "10peakstudios.com",
+    "TURNSTILE_EXPECTED_HOSTNAME": "10peakstudios.com,www.10peakstudios.com",
     "AUTO_REPLY_ENABLED": "true"
   },
   "observability": {

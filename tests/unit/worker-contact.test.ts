@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { handleContactRequest } from '../../worker/contact';
+import { verifyTurnstileToken } from '../../worker/turnstile';
 import type { WorkerEnv } from '../../worker/types';
 
 describe('Worker /api/contact endpoint (Architecture.md §6)', () => {
@@ -198,5 +199,13 @@ describe('Worker /api/contact endpoint (Architecture.md §6)', () => {
     const res = await handleContactRequest(req, prodEnv);
     // Since Turnstile verify will fail or resendKey is checked, it will fail closed
     expect(res.status).toBeGreaterThanOrEqual(400);
+  });
+
+  it('verifyTurnstileToken passes for test secret in dev', async () => {
+    const res = await verifyTurnstileToken({
+      secretKey: '1x0000000000000000000000000000000AA',
+      token: 'any-token',
+    });
+    expect(res.valid).toBe(true);
   });
 });

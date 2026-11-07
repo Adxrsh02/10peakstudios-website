@@ -165,8 +165,15 @@ export async function handleContactRequest(request: Request, env: WorkerEnv): Pr
   });
 
   if (!turnstileResult.valid) {
+    console.error('Turnstile verification failed:', turnstileResult.error);
     return jsonResponse(
-      { ok: false, error: 'turnstile_failed', details: turnstileResult.error },
+      {
+        ok: false,
+        error: 'turnstile_failed',
+        message:
+          'Security verification challenge could not be validated. Please refresh and try again.',
+        fallback: FALLBACK_DIRECT,
+      },
       403,
       corsHeaders,
     );
