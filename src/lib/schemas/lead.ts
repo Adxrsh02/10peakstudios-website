@@ -60,7 +60,7 @@ export const leadSchema = z.object({
     message: 'You must agree to the privacy policy to submit',
   }),
   // Anti-spam honeypot (visually hidden; bots fill it)
-  website: z.string().max(0, 'Spam detected').optional().or(z.literal('')),
+  website: z.string().optional(),
   // Timestamp when user opened form (must be >= 3 seconds before submit)
   startedAt: z.number().int().positive(),
   // Cloudflare Turnstile token

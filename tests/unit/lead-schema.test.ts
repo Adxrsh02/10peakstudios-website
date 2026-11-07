@@ -54,9 +54,12 @@ describe('leadSchema (PRD §9, Rules.md RUL-TS-04, RUL-SEC-03)', () => {
     expect(result.success).toBe(false);
   });
 
-  it('detects honeypot fill as bot spam', () => {
+  it('preserves honeypot field for server-side bot defence', () => {
     const result = leadSchema.safeParse({ ...validLead, website: 'http://spam-link.com' });
-    expect(result.success).toBe(false);
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.website).toBe('http://spam-link.com');
+    }
   });
 
   it('rejects missing turnstile token', () => {

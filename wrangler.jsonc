@@ -1,12 +1,31 @@
 {
-  // Architecture.md 5.2. Assets-only until M5; the /api/contact Worker ("main", D1, vars)
-  // is added with the enquiry form. Nothing here creates remote resources.
+  // Architecture.md 5.2. /api/contact Worker ("main", D1, vars) configured for enquiry pipeline.
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "10peakstudio-web",
+  "main": "worker/index.ts",
   "compatibility_date": "2026-11-01",
   "assets": {
     "directory": "./out",
+    "binding": "ASSETS",
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash",
+    "run_worker_first": ["/api/*"]
   },
+  "d1_databases": [
+    {
+      "binding": "LEADS_DB",
+      "database_name": "10peakstudio-leads",
+      "database_id": "local-dev-leads-id"
+    }
+  ],
+  "vars": {
+    "LEAD_NOTIFY_TO": "connect@10peakstudios.com",
+    "LEAD_FROM": "10PeakStudio <connect@10peakstudios.com>",
+    "ALLOWED_ORIGINS": "https://10peakstudios.com",
+    "TURNSTILE_EXPECTED_HOSTNAME": "10peakstudios.com",
+    "AUTO_REPLY_ENABLED": "true"
+  },
+  "observability": {
+    "enabled": true
+  }
 }
