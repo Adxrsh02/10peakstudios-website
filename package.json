@@ -22,6 +22,7 @@
     "check:content": "node scripts/check-placeholders.mjs && node scripts/check-links.mjs",
     "brand:extract": "node scripts/extract-brand-assets.mjs",
     "cf:dev": "wrangler dev --port 8787",
+    "deploy": "next build && node scripts/fix-segment-prefetch.mjs && wrangler deploy",
     "prepare": "husky"
   },
   "dependencies": {

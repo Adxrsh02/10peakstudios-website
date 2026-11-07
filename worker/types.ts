@@ -33,4 +33,6 @@ export interface WorkerEnv {
   ALLOWED_ORIGINS?: string;
   TURNSTILE_EXPECTED_HOSTNAME?: string;
   AUTO_REPLY_ENABLED?: string;
+  ENVIRONMENT?: string;
+  SITE_URL?: string;
 }
