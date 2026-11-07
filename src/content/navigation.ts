@@ -17,7 +17,7 @@ export const routes: RouteEntry[] = [
   { path: '/about', title: 'About', status: 'stub', prd: '8.4' },
   { path: '/about/process', title: 'How We Work', status: 'stub', prd: '8.5' },
   { path: '/security', title: 'Security by Design', status: 'stub', prd: '8.6' },
-  { path: '/contact', title: 'Contact', status: 'stub', prd: '8.7' },
+  { path: '/contact', title: 'Contact', status: 'live', prd: '8.7' },
   { path: '/privacy', title: 'Privacy Policy', status: 'stub', prd: '8.9' },
   { path: '/terms', title: 'Terms and Conditions', status: 'stub', prd: '8.9' },
 ];
