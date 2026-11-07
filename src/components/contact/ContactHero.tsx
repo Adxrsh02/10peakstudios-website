@@ -19,26 +19,27 @@ export function ContactHero({ whatsappNumber }: ContactHeroProps) {
   return (
     <section
       aria-labelledby="contact-hero-title"
-      className="relative overflow-hidden bg-background pt-8 pb-16 sm:pt-12 sm:pb-20 lg:pt-16 lg:pb-24"
+      className="relative isolate overflow-hidden pt-8 pb-16 sm:pt-12 sm:pb-20 lg:pt-16 lg:pb-24"
     >
-      {/* Background visual with contrast-safe gradient scrim */}
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+      {/* Background visual: full-bleed behind content */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         <Image
           src={contact.hero.bgImage}
           alt=""
           fill
           priority
-          sizes="100vw"
-          className="object-cover object-right opacity-30 md:object-center md:opacity-40"
-        />
-        {/* Soft gradient masks for text readability (WCAG AA compliant) */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/50 md:bg-gradient-to-r md:from-background md:via-background/90 md:to-transparent"
+          sizes="(max-width: 768px) 768px, (max-width: 1280px) 1280px, 1920px"
+          className="object-cover object-[right_center]"
         />
       </div>
 
-      <div className="container-wide">
+      {/* Soft white gradient overlay: top-to-bottom on mobile, left-to-right (95% to transparent at 55%) on desktop */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,rgba(255,255,255,0.96)_0%,rgba(255,255,255,0.92)_55%,rgba(255,255,255,0.75)_100%)] md:bg-[linear-gradient(to_right,rgba(255,255,255,0.96)_0%,rgba(255,255,255,0.94)_35%,rgba(255,255,255,0)_55%)]"
+      />
+
+      <div className="relative z-10 container-wide">
         {/* Breadcrumbs */}
         <nav aria-label="Breadcrumb" className="mb-6">
           <ol className="flex items-center gap-2 text-caption text-muted-foreground">

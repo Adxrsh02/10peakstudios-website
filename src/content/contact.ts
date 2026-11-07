@@ -55,7 +55,7 @@ export const contact = {
     trustLine:
       'Fast response during studio hours. Direct engineering consultation, no sales fluff.',
     bgImage:
-      'https://res.cloudinary.com/qlxaljlj/image/upload/f_auto,q_auto,w_1600/v1793901327/Gemini_Generated_Image_ylrpaqylrpaqylrp.png',
+      'https://res.cloudinary.com/qlxaljlj/image/upload/v1794033471/Gemini_Generated_Image_wqy0lswqy0lswqy0.png',
   },
 
   channels: {

@@ -47,7 +47,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
   return (
     // The head bootstrap adds data-motion-tier / data-loader / data-js before hydration.
-    <html lang="en-IN" className={`${sora.variable} ${inter.variable}`} suppressHydrationWarning>
+    <html
+      lang="en-IN"
+      className={`${sora.variable} ${inter.variable}`}
+      suppressHydrationWarning
+      data-scroll-behavior="smooth"
+    >
       <head>
         {/* Static bootstrap (no user data) must run synchronously before first paint; next/script
             beforeInteractive defers it in the App Router. Documented exception to RUL-SEC-06. */}
