@@ -25,24 +25,30 @@ const worker = {
       return handleContactRequest(request, env);
     }
 
-    // Explicit sitemap.xml handling (guarantee Content-Type: application/xml; charset=utf-8, no X-Robots-Tag)
+    // Explicit sitemap.xml handling (guarantee clean headers, correct Content-Type, no duplicate nosniff)
     if (url.pathname === '/sitemap.xml' && env.ASSETS) {
       const assetRes = await env.ASSETS.fetch(request);
-      const headers = new Headers(assetRes.headers);
+      const headers = new Headers();
       headers.set('Content-Type', 'application/xml; charset=utf-8');
-      headers.delete('X-Robots-Tag');
+      headers.set('Cache-Control', 'public, max-age=3600');
+      headers.set('X-Content-Type-Options', 'nosniff');
+      headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+      headers.set('Access-Control-Allow-Origin', '*');
       return new Response(assetRes.body, {
         status: assetRes.status,
         headers,
       });
     }
 
-    // Explicit robots.txt handling (guarantee Content-Type: text/plain; charset=utf-8, no X-Robots-Tag)
+    // Explicit robots.txt handling (guarantee clean headers, correct Content-Type, no duplicate nosniff)
     if (url.pathname === '/robots.txt' && env.ASSETS) {
       const assetRes = await env.ASSETS.fetch(request);
-      const headers = new Headers(assetRes.headers);
+      const headers = new Headers();
       headers.set('Content-Type', 'text/plain; charset=utf-8');
-      headers.delete('X-Robots-Tag');
+      headers.set('Cache-Control', 'public, max-age=3600');
+      headers.set('X-Content-Type-Options', 'nosniff');
+      headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+      headers.set('Access-Control-Allow-Origin', '*');
       return new Response(assetRes.body, {
         status: assetRes.status,
         headers,
