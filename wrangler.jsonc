@@ -10,7 +10,7 @@
     "binding": "ASSETS",
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash",
-    "run_worker_first": ["/api/*"]
+    "run_worker_first": ["/api/*", "/sitemap.xml", "/robots.txt"]
   },
   // Optional D1 Database: Uncomment and set database_id after creating database via `npx wrangler d1 create 10peakstudio-leads`
   // "d1_databases": [

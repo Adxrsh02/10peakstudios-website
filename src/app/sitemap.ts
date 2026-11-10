@@ -4,7 +4,14 @@ import { site } from '@/content/site';
 
 export const dynamic = 'force-static';
 
-/** Only live, indexed routes (PRD-SEO-03, RUL-SEO-03). Stubs join when their page is built. */
+function getPriority(path: string): number {
+  if (path === '/') return 1.0;
+  if (path === '/contact') return 0.8;
+  if (path === '/privacy' || path === '/terms') return 0.5;
+  return 0.7;
+}
+
+/** PRD-SEO-03: XML sitemap listing every public, indexable page. */
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
   return routes
@@ -12,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .map((r) => ({
       url: `${site.url}${r.path === '/' ? '' : r.path}`,
       lastModified,
-      changeFrequency: 'monthly',
-      priority: r.path === '/' ? 1 : 0.7,
+      changeFrequency: (r.path === '/' ? 'weekly' : 'monthly') as 'weekly' | 'monthly',
+      priority: getPriority(r.path),
     }));
 }

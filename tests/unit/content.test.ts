@@ -65,9 +65,9 @@ describe('content integrity', () => {
     }
   });
 
-  it('lists every route exactly once', () => {
+  it('lists every route exactly once and all public routes are live', () => {
     const paths = routes.map((r) => r.path);
     expect(new Set(paths).size).toBe(paths.length);
-    expect(routes.filter((r) => r.status === 'live').map((r) => r.path)).toEqual(['/', '/contact']);
+    expect(routes.filter((r) => r.status === 'live').map((r) => r.path)).toEqual(paths);
   });
 });
