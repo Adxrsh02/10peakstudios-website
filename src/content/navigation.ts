@@ -2,23 +2,24 @@ import { pillars, servicePath, services, servicesByPillar } from './services';
 import type { NavLink, PillarId, RouteEntry } from './types';
 
 /**
- * Route table (PRD 6.1). All public pages are live and indexed for search engines.
+ * Route table (PRD 6.1). Stub routes exist so links resolve (plan Q3 default); they are
+ * noindex and excluded from the sitemap until each page is built and switched to "live".
  */
 export const routes: RouteEntry[] = [
   { path: '/', title: 'Home', status: 'live', prd: '8.1' },
-  { path: '/services', title: 'Services', status: 'live', prd: '8.2' },
+  { path: '/services', title: 'Services', status: 'stub', prd: '8.2' },
   ...services.map<RouteEntry>((s) => ({
     path: servicePath(s.slug),
     title: s.name,
-    status: 'live',
+    status: 'stub',
     prd: '8.3',
   })),
-  { path: '/about', title: 'About', status: 'live', prd: '8.4' },
-  { path: '/about/process', title: 'How We Work', status: 'live', prd: '8.5' },
-  { path: '/security', title: 'Security by Design', status: 'live', prd: '8.6' },
+  { path: '/about', title: 'About', status: 'stub', prd: '8.4' },
+  { path: '/about/process', title: 'How We Work', status: 'stub', prd: '8.5' },
+  { path: '/security', title: 'Security by Design', status: 'stub', prd: '8.6' },
   { path: '/contact', title: 'Contact', status: 'live', prd: '8.7' },
-  { path: '/privacy', title: 'Privacy Policy', status: 'live', prd: '8.9' },
-  { path: '/terms', title: 'Terms and Conditions', status: 'live', prd: '8.9' },
+  { path: '/privacy', title: 'Privacy Policy', status: 'stub', prd: '8.9' },
+  { path: '/terms', title: 'Terms and Conditions', status: 'stub', prd: '8.9' },
 ];
 
 export const contactPath = '/contact';
