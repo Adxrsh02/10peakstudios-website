@@ -6,6 +6,8 @@ import { FeatureTrio } from '@/components/sections/FeatureTrio';
 import { Hero } from '@/components/sections/Hero';
 import { PillarBento } from '@/components/sections/PillarBento';
 import { ProcessSteps } from '@/components/sections/ProcessSteps';
+import { ProjectDeliveryProcessSection } from '@/components/sections/ProjectDeliveryProcessSection';
+import { ShowcaseSection } from '@/components/sections/ShowcaseSection';
 import { SplitFeature } from '@/components/sections/SplitFeature';
 import { StatementBlock } from '@/components/sections/StatementBlock';
 import { TechnologiesPlatformsSection } from '@/components/sections/TechnologiesPlatformsSection';
@@ -50,10 +52,12 @@ export default function HomePage() {
       <div className="bg-background px-2 sm:px-4">
         <UseCaseShowcase id="automate" {...home.automate} />
       </div>
+      <ProjectDeliveryProcessSection />
       <FeatureTrio id="grow" {...home.grow} services={servicesByPillar('grow')} />
       <ProcessSteps id="process" {...home.process} />
       <AudienceGrid id="audience" {...home.audience} />
       <Differentiators id="why" {...home.why} />
+      <ShowcaseSection />
       <CalloutSection {...home.security} />
       <FaqSection id="faq" {...home.faq} faqs={homeFaqs} />
 

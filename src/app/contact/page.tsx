@@ -1,4 +1,5 @@
-import { ClientMarquee } from '@/components/contact/ClientMarquee';
+import { ClientsShowcase } from '@/components/sections/ClientsShowcase';
+import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
 import { ContactHero } from '@/components/contact/ContactHero';
 import { ContactMethods } from '@/components/contact/ContactMethods';
 import { DirectSupportStrip } from '@/components/contact/DirectSupportStrip';
@@ -60,8 +61,11 @@ export default function ContactPage() {
       {/* 5. Metrics & Proven Numbers */}
       <StatsCounter />
 
-      {/* 6. Selected Clients & Partners */}
-      <ClientMarquee />
+      {/* 6. [ Our Clients ] — Trusted By Growing Businesses & Global Teams */}
+      <ClientsShowcase />
+
+      {/* [ Testimonials ] — Hear From Our Clients */}
+      <TestimonialsSection />
 
       {/* 7. Flag-Gated Testimonials (default false) */}
       <TestimonialsGated />
