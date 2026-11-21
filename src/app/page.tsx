@@ -8,6 +8,7 @@ import { PillarBento } from '@/components/sections/PillarBento';
 import { ProcessSteps } from '@/components/sections/ProcessSteps';
 import { SplitFeature } from '@/components/sections/SplitFeature';
 import { StatementBlock } from '@/components/sections/StatementBlock';
+import { TechnologiesPlatformsSection } from '@/components/sections/TechnologiesPlatformsSection';
 import { UseCaseShowcase } from '@/components/sections/UseCaseShowcase';
 import { BuildVisual } from '@/components/sections/visuals/BuildVisual';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -35,6 +36,7 @@ export default function HomePage() {
       <Hero {...home.hero} visual={<HeroVisual />} />
       <StatementBlock {...home.philosophy} />
       <PillarBento {...home.pillars} />
+      <TechnologiesPlatformsSection />
       <SplitFeature
         id="build"
         eyebrow={home.build.eyebrow}
