@@ -21,6 +21,7 @@ playwright-report/
 blob-report/
 .lighthouseci/
 coverage/
+screenshots/
 
 # python caches (skill scripts)
 __pycache__/
