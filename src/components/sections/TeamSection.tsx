@@ -119,6 +119,7 @@ export const TeamSection: React.FC = () => {
           {/* Mobile View (< 768px): Touch Snap Carousel */}
           <div className="block md:hidden">
             <TeamMobileCarousel
+              key={activeDiscipline}
               members={filteredMembers}
               activeDiscipline={activeDiscipline}
               onSelectDiscipline={handleSelectDiscipline}

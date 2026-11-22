@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Globe } from 'lucide-react';
 import { LinkedinIcon, TwitterIcon } from '@/components/ui/social-icons';
@@ -41,11 +41,15 @@ export const TeamMobileCarousel: React.FC<TeamMobileCarouselProps> = ({
     setCurrentIndex(index);
   };
 
-  const handleDisciplineClick = (discipline: string) => {
-    setCurrentIndex(0);
+  useEffect(() => {
+    // Reset scroll position when discipline filter changes (pure DOM operation, no setState)
     if (scrollRef.current) {
       scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
     }
+  }, [activeDiscipline]);
+
+  const handleFilterClick = (discipline: string) => {
+    setCurrentIndex(0);
     onSelectDiscipline(discipline);
   };
 
@@ -64,7 +68,7 @@ export const TeamMobileCarousel: React.FC<TeamMobileCarouselProps> = ({
               key={key}
               type="button"
               aria-pressed={isPressed}
-              onClick={() => handleDisciplineClick(key)}
+              onClick={() => handleFilterClick(key)}
               className={`shrink-0 rounded-full px-4 py-2 text-xs font-semibold tracking-wider uppercase transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none ${
                 isPressed
                   ? 'bg-primary text-white shadow-md shadow-primary/25'

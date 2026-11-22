@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useSyncExternalStore } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Globe } from 'lucide-react';
@@ -12,20 +12,37 @@ interface TeamSpotlightProps {
   member: TeamMember;
 }
 
+function subscribe(callback: () => void) {
+  const mqlCoarse = window.matchMedia('(pointer: coarse)');
+  const mqlReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  mqlCoarse.addEventListener('change', callback);
+  mqlReduced.addEventListener('change', callback);
+
+  return () => {
+    mqlCoarse.removeEventListener('change', callback);
+    mqlReduced.removeEventListener('change', callback);
+  };
+}
+
+function getSnapshot() {
+  return (
+    window.matchMedia('(pointer: coarse)').matches ||
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
+}
+
+function getServerSnapshot() {
+  return false;
+}
+
 export const TeamSpotlight: React.FC<TeamSpotlightProps> = ({ member }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const isTouch = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (e.pointerType === 'touch' || !cardRef.current) return;
-    if (typeof window !== 'undefined') {
-      if (
-        window.matchMedia('(pointer: coarse)').matches ||
-        window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      ) {
-        return;
-      }
-    }
+    if (isTouch || !cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
