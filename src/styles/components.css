@@ -155,3 +155,50 @@ html[data-consent-open] {
 .animate-laser-sweep {
   animation: laser-sweep 1.1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
+
+/* Animated Dashed Orbital Path */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -320;
+  }
+}
+
+/* Floating Node Hover & Loop */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Breathing Core Pulse */
+@keyframes pulse-core {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 35px rgba(91, 88, 231, 0.45);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(91, 88, 231, 0.75);
+  }
+}
+
+/* Performance optimizations */
+.animate-\[dash_12s_linear_infinite\] {
+  animation: dash 12s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-\[dash_12s_linear_infinite\],
+  .animate-\[float_3\.4s_ease-in-out_infinite\],
+  .animate-\[float_3\.6s_ease-in-out_infinite\],
+  .animate-\[float_3\.7s_ease-in-out_infinite\],
+  .animate-\[float_3\.8s_ease-in-out_infinite\],
+  .animate-\[float_3\.9s_ease-in-out_infinite\] {
+    animation: none !important;
+  }
+}
