@@ -5,6 +5,9 @@
 export type AnalyticsEvent =
   | 'cta_click'
   | 'service_view'
+  | 'service_cta_click'
+  | 'service_tab_change'
+  | 'service_faq_open'
   | 'form_start'
   | 'form_step'
   | 'form_error'
@@ -25,8 +28,11 @@ const ALLOWED_PARAMS = new Set([
   'cta_id',
   'cta_text',
   'location',
+  'position',
   'service_slug',
   'pillar',
+  'tab_id',
+  'faq_index',
   'form_id',
   'step',
   'error_type',
