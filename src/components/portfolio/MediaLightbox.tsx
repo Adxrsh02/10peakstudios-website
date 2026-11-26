@@ -16,18 +16,26 @@ export type LightboxMediaItem = {
 
 type MediaLightboxProps = {
   items: LightboxMediaItem[];
-  initialIndex: number;
+  index: number;
+  onIndexChange: (index: number) => void;
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  onRestoreFocus?: () => void;
 };
 
 /**
  * Accessible full-screen media lightbox built on Radix Dialog (focus trap, Esc, focus restore).
  * Supports keyboard ArrowLeft/ArrowRight, touch swipe, wheel zoom, and captions.
  */
-export function MediaLightbox({ items, initialIndex, open, onOpenChange }: MediaLightboxProps) {
+export function MediaLightbox({
+  items,
+  index,
+  onIndexChange,
+  open,
+  onOpenChange,
+  onRestoreFocus,
+}: MediaLightboxProps) {
   const { tier } = useMotion();
-  const [index, setIndex] = useState(initialIndex);
   const [zoom, setZoom] = useState<number>(1);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
@@ -36,12 +44,12 @@ export function MediaLightbox({ items, initialIndex, open, onOpenChange }: Media
 
   const goPrev = () => {
     setZoom(1);
-    setIndex((prev) => (prev - 1 + items.length) % items.length);
+    onIndexChange((index - 1 + items.length) % items.length);
   };
 
   const goNext = () => {
     setZoom(1);
-    setIndex((prev) => (prev + 1) % items.length);
+    onIndexChange((index + 1) % items.length);
   };
 
   useEffect(() => {
@@ -50,18 +58,23 @@ export function MediaLightbox({ items, initialIndex, open, onOpenChange }: Media
       if (e.key === 'ArrowLeft') {
         e.preventDefault();
         setZoom(1);
-        setIndex((prev) => (prev - 1 + items.length) % items.length);
+        onIndexChange((index - 1 + items.length) % items.length);
       } else if (e.key === 'ArrowRight') {
         e.preventDefault();
         setZoom(1);
-        setIndex((prev) => (prev + 1) % items.length);
+        onIndexChange((index + 1) % items.length);
       }
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [open, hasMultiple, items.length]);
+  }, [open, hasMultiple, index, items.length, onIndexChange]);
 
   if (!current) return null;
+
+  const handleOpenChange = (nextOpen: boolean) => {
+    if (!nextOpen) setZoom(1);
+    onOpenChange(nextOpen);
+  };
 
   const handleWheel = (e: WheelEvent<HTMLDivElement>) => {
     if (e.ctrlKey || Math.abs(e.deltaY) > 10) {
@@ -87,8 +100,16 @@ export function MediaLightbox({ items, initialIndex, open, onOpenChange }: Media
   };
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="surface-inverse max-w-[min(96vw,78rem)] border-inverse-rule bg-obsidian p-4 sm:p-6">
+    <Dialog open={open} onOpenChange={handleOpenChange}>
+      <DialogContent
+        onCloseAutoFocus={(e) => {
+          if (onRestoreFocus) {
+            e.preventDefault();
+            requestAnimationFrame(() => onRestoreFocus());
+          }
+        }}
+        className="surface-inverse max-w-[min(96vw,78rem)] border-inverse-rule bg-obsidian p-4 sm:p-6"
+      >
         <div className="flex flex-wrap items-center justify-between gap-3 pr-12">
           <DialogTitle className="text-h5 text-summit-white">{current.caption}</DialogTitle>
           <div className="flex items-center gap-2">

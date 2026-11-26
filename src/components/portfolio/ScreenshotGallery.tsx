@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Image from 'next/image';
 import { Expand } from 'lucide-react';
 import { track } from '@/lib/analytics';
@@ -15,17 +15,13 @@ type ScreenshotGalleryProps = {
 
 /**
  * Filterable screenshot gallery with aspect-ratio-safe device framing (desktop/mobile/natural)
- * and keyed MediaLightbox instance for zero-effect index reset.
+ * and persistent MediaLightbox restoring focus to the exact trigger button on close.
  */
 export function ScreenshotGallery({ items, projectSlug }: ScreenshotGalleryProps) {
   const [activeLabel, setActiveLabel] = useState<string>('All');
-  const [lightboxState, setLightboxState] = useState<{ open: boolean; index: number; key: number }>(
-    {
-      open: false,
-      index: 0,
-      key: 0,
-    },
-  );
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
 
   if (items.length === 0) return null;
 
@@ -33,9 +29,11 @@ export function ScreenshotGallery({ items, projectSlug }: ScreenshotGalleryProps
   const filtered =
     activeLabel === 'All' ? items : items.filter((item) => item.label === activeLabel);
 
-  const openLightbox = (idx: number, label: string) => {
+  const openLightbox = (idx: number, label: string, buttonEl: HTMLButtonElement) => {
+    triggerRef.current = buttonEl;
     track('gallery_open', { project_slug: projectSlug, media_label: label });
-    setLightboxState((prev) => ({ open: true, index: idx, key: prev.key + 1 }));
+    setLightboxIndex(idx);
+    setLightboxOpen(true);
   };
 
   return (
@@ -95,7 +93,7 @@ export function ScreenshotGallery({ items, projectSlug }: ScreenshotGalleryProps
 
               <button
                 type="button"
-                onClick={() => openLightbox(idx, item.label)}
+                onClick={(e) => openLightbox(idx, item.label, e.currentTarget)}
                 aria-label={`Zoom image: ${item.caption}`}
                 className="group relative flex w-full items-center justify-center overflow-hidden bg-surface-sunken p-3 text-left"
               >
@@ -135,11 +133,12 @@ export function ScreenshotGallery({ items, projectSlug }: ScreenshotGalleryProps
       </div>
 
       <MediaLightbox
-        key={`${activeLabel}-${lightboxState.key}`}
         items={filtered}
-        initialIndex={lightboxState.index}
-        open={lightboxState.open}
-        onOpenChange={(open) => setLightboxState((prev) => ({ ...prev, open }))}
+        index={lightboxIndex}
+        onIndexChange={setLightboxIndex}
+        open={lightboxOpen}
+        onOpenChange={setLightboxOpen}
+        onRestoreFocus={() => triggerRef.current?.focus()}
       />
     </div>
   );

@@ -387,7 +387,7 @@ export function PortfolioFilterBar({
                 : 'border-border bg-surface-sunken text-foreground [@media(hover:hover)]:hover:border-primary/50',
             )}
           >
-            All <span className="price opacity-80">({totalCount})</span>
+            All <span className="price">({totalCount})</span>
           </button>
           {industries.map((ind) => {
             const selected = query.industry === ind.id;
@@ -407,7 +407,10 @@ export function PortfolioFilterBar({
                   empty && 'opacity-45',
                 )}
               >
-                {ind.label} <span className="price opacity-80">({ind.count})</span>
+                {ind.label}{' '}
+                <span className={cn('price', !selected && 'text-muted-foreground')}>
+                  ({ind.count})
+                </span>
               </button>
             );
           })}

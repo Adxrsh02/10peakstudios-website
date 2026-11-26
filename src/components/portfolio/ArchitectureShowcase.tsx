@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Image from 'next/image';
 import { Expand } from 'lucide-react';
 import { track } from '@/lib/analytics';
@@ -18,11 +18,9 @@ type ArchitectureShowcaseProps = {
  * preserving Design.md 6.5 (max 2 full-bleed Obsidian bands per page).
  */
 export function ArchitectureShowcase({ architecture, projectSlug }: ArchitectureShowcaseProps) {
-  const [lightbox, setLightbox] = useState<{ open: boolean; index: number; key: number }>({
-    open: false,
-    index: 0,
-    key: 0,
-  });
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
 
   const items: LightboxMediaItem[] = architecture.diagrams;
 
@@ -41,13 +39,15 @@ export function ArchitectureShowcase({ architecture, projectSlug }: Architecture
             >
               <button
                 type="button"
-                aria-label={`Inspect full architecture diagram: ${diagram.caption}`}
-                onClick={() => {
+                aria-label={`Click to zoom: ${diagram.caption}`}
+                onClick={(e) => {
+                  triggerRef.current = e.currentTarget;
                   track('gallery_open', {
                     project_slug: projectSlug,
                     media_label: 'Architecture',
                   });
-                  setLightbox((prev) => ({ open: true, index: idx, key: prev.key + 1 }));
+                  setLightboxIndex(idx);
+                  setLightboxOpen(true);
                 }}
                 className="group relative flex w-full items-center justify-center overflow-hidden p-3"
               >
@@ -79,11 +79,12 @@ export function ArchitectureShowcase({ architecture, projectSlug }: Architecture
 
       {items.length > 0 && (
         <MediaLightbox
-          key={lightbox.key}
           items={items}
-          initialIndex={lightbox.index}
-          open={lightbox.open}
-          onOpenChange={(open) => setLightbox((prev) => ({ ...prev, open }))}
+          index={lightboxIndex}
+          onIndexChange={setLightboxIndex}
+          open={lightboxOpen}
+          onOpenChange={setLightboxOpen}
+          onRestoreFocus={() => triggerRef.current?.focus()}
         />
       )}
     </div>

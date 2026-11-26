@@ -64,9 +64,9 @@ export function PortfolioHero({ stats }: PortfolioHeroProps) {
         </div>
 
         {/* Verified counts computed strictly from published case study files */}
-        <dl className="grid grid-cols-1 gap-3 pt-2 sm:flex sm:flex-wrap sm:gap-4">
+        <ul className="grid grid-cols-1 gap-3 pt-2 sm:flex sm:flex-wrap sm:gap-4">
           {counters.map(({ icon: Icon, value, label }) => (
-            <div
+            <li
               key={label}
               className="flex items-center gap-3 rounded-md border border-border bg-card/80 px-4 py-3"
             >
@@ -77,14 +77,14 @@ export function PortfolioHero({ stats }: PortfolioHeroProps) {
                 <Icon className="size-4" strokeWidth={1.75} />
               </span>
               <div className="flex items-baseline gap-2">
-                <dd className="price font-heading text-h4 font-semibold text-foreground">
+                <span className="price font-heading text-h4 font-semibold text-foreground">
                   {value}
-                </dd>
-                <dt className="text-small text-muted-foreground">{label}</dt>
+                </span>
+                <span className="text-small text-muted-foreground">{label}</span>
               </div>
-            </div>
+            </li>
           ))}
-        </dl>
+        </ul>
       </div>
     </section>
   );
