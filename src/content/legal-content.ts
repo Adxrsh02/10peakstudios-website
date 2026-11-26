@@ -212,5 +212,5 @@ export const DATA_REQUEST_OPTIONS: DataRequestOption[] = [
 ];
 
 export function buildMailtoUrl(email: string, subject: string, body: string): string {
-  return `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }

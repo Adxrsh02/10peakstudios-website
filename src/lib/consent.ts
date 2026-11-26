@@ -73,11 +73,11 @@ export function writeConsent(state: ConsentState): void {
   window.dispatchEvent(new CustomEvent<ConsentState>(CONSENT_CHANGED_EVENT, { detail: state }));
 }
 
-type TrackingWindow = Window &
-  Record<string, unknown> & {
-    gtag?: (...args: unknown[]) => void;
-    clarity?: (...args: unknown[]) => void;
-  };
+type TrackingWindow = Window & {
+  [key: `ga-disable-${string}`]: boolean | undefined;
+  gtag?: (...args: unknown[]) => void;
+  clarity?: (...args: unknown[]) => void;
+};
 
 /** Clears first-party analytics cookies across host and parent domain variants. */
 export function clearAnalyticsCookies(): void {
@@ -99,7 +99,7 @@ export function clearAnalyticsCookies(): void {
  */
 export function withdrawAnalyticsTracking(ga4Id?: string): boolean {
   if (typeof window === 'undefined' || typeof document === 'undefined') return false;
-  const w = window as TrackingWindow;
+  const w = window as unknown as TrackingWindow;
 
   if (ga4Id) {
     w[`ga-disable-${ga4Id}`] = true;

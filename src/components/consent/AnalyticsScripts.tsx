@@ -45,7 +45,7 @@ export function AnalyticsScripts({ consent, ga4Id, clarityId, cfToken }: Props) 
   // GA4 (Analytics consent; GPC defaults consent to false unless explicitly overridden)
   useEffect(() => {
     if (!ga4Id || !consent?.analytics) return;
-    const w = window as W & Record<string, unknown>;
+    const w = window as unknown as W & { [key: `ga-disable-${string}`]: boolean | undefined };
     w[`ga-disable-${ga4Id}`] = false;
     w.dataLayer = w.dataLayer ?? [];
     w.gtag = function gtag(...args: unknown[]) {

@@ -54,9 +54,14 @@ test.describe('Legal pages, Privacy Choices & GPC', () => {
     await quietVisit(page, '/privacy');
     await expect(page.getByRole('heading', { level: 1 })).toContainText('Privacy Policy');
     await expect(page.getByText('Draft: under legal review')).toBeVisible();
-    await expect(page.getByRole('heading', { name: /At a glance/i })).toBeVisible();
-    await expect(page.getByText('tps.consent.v1')).toBeVisible();
-    await expect(page.getByText('Cloudflare (Pages, Workers, Turnstile, D1)')).toBeVisible();
+    await expect(page.getByText('At a Glance', { exact: true })).toBeVisible();
+    await expect(page.getByRole('cell', { name: /tps\.consent\.v1/ })).toBeVisible();
+    await expect(
+      page.getByRole('cell', {
+        name: 'Cloudflare (Workers, Static Assets, Turnstile, D1, Web Analytics)',
+        exact: true,
+      }),
+    ).toBeVisible();
 
     const width = page.viewportSize()?.width ?? 1440;
     if (isDesktop(width)) {
@@ -76,9 +81,7 @@ test.describe('Legal pages, Privacy Choices & GPC', () => {
   test('/terms renders studio notice, research disclaimer, and governing law', async ({ page }) => {
     await quietVisit(page, '/terms');
     await expect(page.getByRole('heading', { level: 1 })).toContainText('Terms and Conditions');
-    await expect(
-      page.getByText(/Research project\. Not a certified medical device/i),
-    ).toBeVisible();
+    await expect(page.getByText(/not certified medical devices/i)).toBeVisible();
     await expect(page.getByText(/laws of India/i).first()).toBeVisible();
   });
 
@@ -89,11 +92,12 @@ test.describe('Legal pages, Privacy Choices & GPC', () => {
     const hits = await blockThirdParty(context);
     await quietVisit(page, '/privacy-choices', { consent: false });
 
-    const analyticsSwitch = page.getByRole('switch', { name: /Analytics \(Google Analytics 4\)/i });
-    const claritySwitch = page.getByRole('switch', {
+    const main = page.locator('main');
+    const analyticsSwitch = main.getByRole('switch', { name: /Analytics \(Google Analytics 4\)/i });
+    const claritySwitch = main.getByRole('switch', {
       name: /Session Insights \(Microsoft Clarity\)/i,
     });
-    const necessarySwitch = page.getByRole('switch', { name: /Strictly Necessary/i });
+    const necessarySwitch = main.getByRole('switch', { name: /Strictly Necessary/i });
 
     await expect(necessarySwitch).toBeDisabled();
     await analyticsSwitch.focus();
@@ -101,16 +105,16 @@ test.describe('Legal pages, Privacy Choices & GPC', () => {
     await expect(analyticsSwitch).toHaveAttribute('aria-checked', 'true');
 
     await claritySwitch.click();
-    await page.getByRole('button', { name: 'Save choices' }).click();
-    await expect(page.getByRole('status')).toContainText('saved and applied');
+    await main.getByRole('button', { name: 'Save choices' }).click();
+    await expect(main.getByRole('status')).toContainText('saved and applied');
 
     let stored = await page.evaluate(() =>
       JSON.parse(localStorage.getItem('tps.consent.v1') ?? '{}'),
     );
     expect(stored).toMatchObject({ version: 1, analytics: true, sessionInsights: true });
 
-    await page.getByRole('button', { name: 'Reject all' }).click();
-    await expect(page.getByRole('status')).toContainText('rejected');
+    await main.getByRole('button', { name: 'Reject all' }).click();
+    await expect(main.getByRole('status')).toContainText('rejected');
     stored = await page.evaluate(() => JSON.parse(localStorage.getItem('tps.consent.v1') ?? '{}'));
     expect(stored).toMatchObject({ version: 1, analytics: false, sessionInsights: false });
 
@@ -132,8 +136,9 @@ test.describe('Legal pages, Privacy Choices & GPC', () => {
     });
 
     await page.goto('/privacy-choices');
-    await expect(page.getByRole('region', { name: 'Privacy choices' })).toBeHidden();
-    await expect(page.getByText(/Global Privacy Control \(GPC\) signal detected/i)).toBeVisible();
+    await page.waitForTimeout(1500);
+    await expect(page.locator('[role="region"][aria-label="Privacy choices"]')).toBeHidden();
+    await expect(page.getByText(/Global Privacy Control.*detected and honored/i)).toBeVisible();
 
     await expect
       .poll(async () =>
