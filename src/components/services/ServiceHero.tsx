@@ -34,8 +34,10 @@ export function ServiceHero({ slug, hero }: ServiceHeroProps) {
             id="service-hero-heading"
             className="m-0 font-heading text-[2.25rem] leading-[1.08] font-bold tracking-[-0.03em] text-(--glass-text) sm:text-[3rem] lg:text-[3.75rem] xl:text-[4.125rem]"
           >
-            <span className="block">{hero.titleLead}</span>
-            <span className="glass-gradient-text mt-1 block">{hero.titleAccent}</span>
+            <span className="service-hero-line-1 block">{hero.titleLead}</span>
+            <span className="glass-gradient-text service-hero-line-2 mt-1 block">
+              {hero.titleAccent}
+            </span>
           </h1>
 
           <p className="max-w-2xl text-body-lg leading-relaxed text-(--glass-text-muted)">

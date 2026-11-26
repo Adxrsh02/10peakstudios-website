@@ -70,6 +70,7 @@ describe('content integrity', () => {
     expect(new Set(paths).size).toBe(paths.length);
     expect(routes.filter((r) => r.status === 'live').map((r) => r.path)).toEqual([
       '/',
+      '/services/website-development',
       '/about',
       '/portfolio',
       '/contact',

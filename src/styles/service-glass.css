@@ -225,17 +225,38 @@
   animation-play-state: paused;
 }
 
+@keyframes service-hero-line-rise {
+  0% {
+    transform: translate3d(0, 12px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+[data-theme='glass'] .service-hero-line-1 {
+  animation: service-hero-line-rise 0.42s var(--ease-peak-rise) both;
+}
+
+[data-theme='glass'] .service-hero-line-2 {
+  animation: service-hero-line-rise 0.54s var(--ease-peak-rise) 0.08s both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-theme='glass'] .service-aurora-blob-a,
   [data-theme='glass'] .service-aurora-blob-b,
-  [data-theme='glass'] .service-marquee-track {
+  [data-theme='glass'] .service-marquee-track,
+  [data-theme='glass'] .service-hero-line-1,
+  [data-theme='glass'] .service-hero-line-2 {
     animation: none !important;
   }
 }
 
 html[data-motion-tier='0'] [data-theme='glass'] .service-aurora-blob-a,
 html[data-motion-tier='0'] [data-theme='glass'] .service-aurora-blob-b,
-html[data-motion-tier='0'] [data-theme='glass'] .service-marquee-track {
+html[data-motion-tier='0'] [data-theme='glass'] .service-marquee-track,
+html[data-motion-tier='0'] [data-theme='glass'] .service-hero-line-1,
+html[data-motion-tier='0'] [data-theme='glass'] .service-hero-line-2 {
   animation: none !important;
 }
 
@@ -263,6 +284,11 @@ html[data-motion-tier='0'] [data-theme='glass'] .service-marquee-track {
   color: #fcfcfc;
 }
 
+[data-header-theme='dark-glass'] [data-header-secondary] {
+  border-color: rgb(255 255 255 / 0.3);
+  color: #fcfcfc;
+}
+
 @media (hover: hover) {
   [data-header-theme='dark-glass'] [data-slot='navigation-menu-trigger']:hover,
   [data-header-theme='dark-glass'] [data-slot='navigation-menu-trigger'][data-state='open'],
@@ -273,6 +299,10 @@ html[data-motion-tier='0'] [data-theme='glass'] .service-marquee-track {
   [data-header-theme='dark-glass'] [data-mobile-menu-trigger]:hover {
     background-color: rgb(255 255 255 / 0.1);
     color: #ffffff;
+  }
+  [data-header-theme='dark-glass'] [data-header-secondary]:hover {
+    background-color: rgb(255 255 255 / 0.1);
+    border-color: rgb(255 255 255 / 0.55);
   }
 }
 

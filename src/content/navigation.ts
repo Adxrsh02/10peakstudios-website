@@ -1,4 +1,5 @@
 import { pillars, servicePath, services, servicesByPillar } from './services';
+import { isServicePageLiveAndIndexable } from './services/registry';
 import type { NavLink, PillarId, RouteEntry } from './types';
 
 /**
@@ -11,7 +12,7 @@ export const routes: RouteEntry[] = [
   ...services.map<RouteEntry>((s) => ({
     path: servicePath(s.slug),
     title: s.name,
-    status: 'stub',
+    status: isServicePageLiveAndIndexable(s.slug) ? 'live' : 'stub',
     prd: '8.3',
   })),
   { path: '/about', title: 'About', status: 'live', prd: '8.4' },

@@ -26,6 +26,7 @@ export function MobileNav({ whatsappHref }: MobileNavProps) {
       <button
         ref={button}
         type="button"
+        data-mobile-menu-trigger=""
         aria-label="Open menu"
         aria-haspopup="dialog"
         aria-expanded={open}

@@ -1,15 +1,17 @@
 'use client';
 
-import { useEffect, useRef, useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { ArrowRight, Loader2, MessageCircle, Phone } from 'lucide-react';
+import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { contact } from '@/content/contact';
 import { track } from '@/lib/analytics';
 import {
   BUDGET_BANDS,
   leadSchema,
+  SERVICE_SLUGS,
   TIMELINES,
   type BudgetBand,
   type ServiceSlug,
@@ -21,6 +23,23 @@ import { FormField } from './FormField';
 import { ServiceSelector } from './ServiceSelector';
 import { TurnstileWidget } from './TurnstileWidget';
 
+const serviceQuerySchema = z.enum(SERVICE_SLUGS);
+
+function subscribeLocation() {
+  return () => {};
+}
+
+function getServiceFromSearch(): ServiceSlug | null {
+  if (typeof window === 'undefined') return null;
+  const raw = new URLSearchParams(window.location.search).get('service');
+  const parsed = serviceQuerySchema.safeParse(raw);
+  return parsed.success ? parsed.data : null;
+}
+
+function getServerServiceSnapshot(): ServiceSlug | null {
+  return null;
+}
+
 type EnquiryFormProps = {
   turnstileSiteKey: string;
   whatsappNumber?: string | undefined;
@@ -28,12 +47,26 @@ type EnquiryFormProps = {
 
 export function EnquiryForm({ turnstileSiteKey, whatsappNumber }: EnquiryFormProps) {
   const router = useRouter();
+  const urlService = useSyncExternalStore(
+    subscribeLocation,
+    getServiceFromSearch,
+    getServerServiceSnapshot,
+  );
 
   // Form fields
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('+91 ');
-  const [selectedServices, setSelectedServices] = useState<ServiceSlug[]>([]);
+  const [serviceChoice, setServiceChoice] = useState<{
+    edited: boolean;
+    items: ServiceSlug[];
+  }>({ edited: false, items: [] });
+  const selectedServices = serviceChoice.edited
+    ? serviceChoice.items
+    : urlService
+      ? [urlService]
+      : [];
+  const setSelectedServices = (items: ServiceSlug[]) => setServiceChoice({ edited: true, items });
   const [budgetBand, setBudgetBand] = useState<BudgetBand | ''>('');
   const [timeline, setTimeline] = useState<Timeline | ''>('');
   const [message, setMessage] = useState('');
