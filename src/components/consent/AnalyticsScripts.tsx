@@ -42,10 +42,11 @@ export function AnalyticsScripts({ consent, ga4Id, clarityId, cfToken }: Props) 
     });
   }, [cfToken]);
 
-  // GA4 (Analytics consent)
+  // GA4 (Analytics consent; GPC defaults consent to false unless explicitly overridden)
   useEffect(() => {
     if (!ga4Id || !consent?.analytics) return;
-    const w = window as W;
+    const w = window as W & Record<string, unknown>;
+    w[`ga-disable-${ga4Id}`] = false;
     w.dataLayer = w.dataLayer ?? [];
     w.gtag = function gtag(...args: unknown[]) {
       w.dataLayer?.push(args);

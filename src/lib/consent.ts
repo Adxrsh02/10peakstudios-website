@@ -1,6 +1,6 @@
 /**
  * Consent state (Architecture.md 11.1, PRD 10.3). Stored locally with version and timestamp;
- * re-prompted on version change or after 12 months. No server, no cookies of our own.
+ * re-prompted on version change or after 12 months. Honors Global Privacy Control (GPC).
  */
 export const CONSENT_STORAGE_KEY = 'tps.consent.v1';
 export const CONSENT_VERSION = 1;
@@ -14,6 +14,16 @@ export type ConsentState = {
   analytics: boolean;
   sessionInsights: boolean;
 };
+
+type NavigatorWithGpc = Navigator & { globalPrivacyControl?: boolean };
+
+export function isGpcEnabled(
+  nav: NavigatorWithGpc | undefined = typeof navigator !== 'undefined'
+    ? (navigator as NavigatorWithGpc)
+    : undefined,
+): boolean {
+  return Boolean(nav?.globalPrivacyControl === true);
+}
 
 export function createConsent(
   analytics: boolean,
@@ -61,6 +71,60 @@ export function writeConsent(state: ConsentState): void {
     /* storage blocked: choice applies to this page view only */
   }
   window.dispatchEvent(new CustomEvent<ConsentState>(CONSENT_CHANGED_EVENT, { detail: state }));
+}
+
+type TrackingWindow = Window &
+  Record<string, unknown> & {
+    gtag?: (...args: unknown[]) => void;
+    clarity?: (...args: unknown[]) => void;
+  };
+
+/** Clears first-party analytics cookies across host and parent domain variants. */
+export function clearAnalyticsCookies(): void {
+  if (typeof document === 'undefined') return;
+  for (const c of document.cookie.split(';')) {
+    const name = c.split('=')[0]?.trim() ?? '';
+    if (/^(_ga|_gid|_clck|_clsk|_cl|CLID)/.test(name)) {
+      document.cookie = `${name}=; Max-Age=0; path=/`;
+      if (typeof location !== 'undefined' && location.hostname) {
+        document.cookie = `${name}=; Max-Age=0; path=/; domain=.${location.hostname}`;
+      }
+    }
+  }
+}
+
+/**
+ * Immediately signals denial to loaded GA4/Clarity instances, deletes first-party analytics cookies,
+ * and removes injected script tags so tracking stops at once. Returns true if scripts were loaded.
+ */
+export function withdrawAnalyticsTracking(ga4Id?: string): boolean {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return false;
+  const w = window as TrackingWindow;
+
+  if (ga4Id) {
+    w[`ga-disable-${ga4Id}`] = true;
+  }
+  if (typeof w.gtag === 'function') {
+    w.gtag('consent', 'update', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+    });
+  }
+  if (typeof w.clarity === 'function') {
+    w.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'denied' });
+  }
+
+  clearAnalyticsCookies();
+
+  const gaScript = document.getElementById('ga4');
+  const clarityScript = document.getElementById('clarity');
+  const hadLiveScripts = Boolean(gaScript || clarityScript);
+  gaScript?.remove();
+  clarityScript?.remove();
+
+  return hadLiveScripts;
 }
 
 /** A "Privacy choices" click that arrives before the lazily loaded manager is queued, not lost. */

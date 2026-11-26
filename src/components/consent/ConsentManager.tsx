@@ -7,10 +7,13 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/compone
 import { Switch } from '@/components/ui/switch';
 import { track } from '@/lib/analytics';
 import {
+  CONSENT_CHANGED_EVENT,
   OPEN_CONSENT_EVENT,
   consumePendingOpen,
   createConsent,
+  isGpcEnabled,
   readConsent,
+  withdrawAnalyticsTracking,
   writeConsent,
   type ConsentState,
 } from '@/lib/consent';
@@ -51,6 +54,13 @@ export function ConsentManager({ ga4Id, clarityId, cfToken }: ConsentManagerProp
         setConsent(stored);
         return;
       }
+      // Honor Global Privacy Control (GPC): default optional analytics off cleanly without nagging
+      if (isGpcEnabled()) {
+        const gpcOptOut = createConsent(false, false);
+        writeConsent(gpcOptOut);
+        setConsent(gpcOptOut);
+        return;
+      }
       if (!reveal()) {
         observer = new MutationObserver(() => {
           if (reveal()) observer?.disconnect();
@@ -58,6 +68,13 @@ export function ConsentManager({ ga4Id, clarityId, cfToken }: ConsentManagerProp
         observer.observe(html, { attributes: true, attributeFilter: ['data-loader'] });
       }
     }, 0);
+    const onConsentExternal = (e: Event) => {
+      const detail = (e as CustomEvent<ConsentState>).detail;
+      if (detail) {
+        setConsent(detail);
+        setBannerOpen(false);
+      }
+    };
     const onOpen = () => {
       const current = readConsent();
       setDraft({
@@ -67,6 +84,7 @@ export function ConsentManager({ ga4Id, clarityId, cfToken }: ConsentManagerProp
       setDialogOpen(true);
     };
     window.addEventListener(OPEN_CONSENT_EVENT, onOpen);
+    window.addEventListener(CONSENT_CHANGED_EVENT, onConsentExternal);
     // A click that triggered lazy loading before this listener existed
     const queued = window.setTimeout(() => {
       if (consumePendingOpen()) onOpen();
@@ -76,6 +94,7 @@ export function ConsentManager({ ga4Id, clarityId, cfToken }: ConsentManagerProp
       window.clearTimeout(init);
       observer?.disconnect();
       window.removeEventListener(OPEN_CONSENT_EVENT, onOpen);
+      window.removeEventListener(CONSENT_CHANGED_EVENT, onConsentExternal);
     };
   }, []);
 
@@ -95,15 +114,10 @@ export function ConsentManager({ ga4Id, clarityId, cfToken }: ConsentManagerProp
       const withdrawn =
         (previous?.analytics && !analytics) || (previous?.sessionInsights && !sessionInsights);
       if (withdrawn) {
-        // Delete first-party analytics cookies and reload to unload scripts (Architecture.md 11.2)
-        for (const c of document.cookie.split(';')) {
-          const name = c.split('=')[0]?.trim() ?? '';
-          if (/^(_ga|_gid|_clck|_clsk|_cl)/.test(name)) {
-            document.cookie = `${name}=; Max-Age=0; path=/`;
-            document.cookie = `${name}=; Max-Age=0; path=/; domain=.${location.hostname}`;
-          }
+        const hadLiveScripts = withdrawAnalyticsTracking(ga4Id);
+        if (hadLiveScripts) {
+          window.location.reload();
         }
-        window.location.reload();
         return;
       }
       if (analytics) {
@@ -117,7 +131,7 @@ export function ConsentManager({ ga4Id, clarityId, cfToken }: ConsentManagerProp
         );
       }
     },
-    [consent],
+    [consent, ga4Id],
   );
 
   return (
@@ -188,8 +202,15 @@ export function ConsentManager({ ga4Id, clarityId, cfToken }: ConsentManagerProp
           <DialogContent aria-describedby="consent-dialog-desc">
             <DialogTitle>Privacy choices</DialogTitle>
             <DialogDescription id="consent-dialog-desc">
-              Choose which optional tools may run. Necessary features always stay on. You can change
-              this at any time from &quot;Privacy choices&quot; in the footer.
+              Choose which optional tools may run. Necessary features always stay on. You can also{' '}
+              <a
+                href="/privacy-choices"
+                className="font-medium text-link underline underline-offset-2"
+                onClick={() => setDialogOpen(false)}
+              >
+                open full Privacy Choices
+              </a>{' '}
+              or re-open this dialog anytime from the footer.
             </DialogDescription>
             <ul className="flex flex-col divide-y divide-border border-y border-border">
               <ConsentRow
