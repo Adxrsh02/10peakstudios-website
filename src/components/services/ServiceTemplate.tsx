@@ -1,10 +1,14 @@
+import dynamic from 'next/dynamic';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { findServiceSection } from '@/content/services/registry';
 import type { ServicePageContent, ServiceSectionBlock } from '@/content/services/types';
 import { faqJsonLd } from '@/lib/seo';
 import { serviceBreadcrumbJsonLd, serviceJsonLd } from '@/lib/seo-service';
+import { AppWindowHero } from './AppWindowHero';
 import { AudienceGrid } from './AudienceGrid';
+import { ExplodedArchitecture } from './ExplodedArchitecture';
 import { FeatureBento } from './FeatureBento';
+import { GrowthPath } from './GrowthPath';
 import { Packages } from './Packages';
 import { PerformanceSecurity } from './PerformanceSecurity';
 import { ProblemCards } from './ProblemCards';
@@ -13,10 +17,28 @@ import { SearchVisibility } from './SearchVisibility';
 import { ServiceCta } from './ServiceCta';
 import { ServiceFaq } from './ServiceFaq';
 import { ServiceHero } from './ServiceHero';
+import { TerminalCta } from './TerminalCta';
 import { TrustMarquee } from './TrustMarquee';
 import { TypeTabs } from './TypeTabs';
 import { WorkTeaser } from './WorkTeaser';
 import { AuroraBackground } from './motion/AuroraBackground';
+
+/* Dynamic JS bundle code-splitting WITH SSR enabled (no `ssr: false`) so static HTML renders
+   full readable text and final layout immediately while hydrating heavy interactive islands separately. */
+const BeforeAfterSlider = dynamic(() =>
+  import('./BeforeAfterSlider').then((m) => m.BeforeAfterSlider),
+);
+const ProductSwitcher = dynamic(() => import('./ProductSwitcher').then((m) => m.ProductSwitcher));
+const FingerprintScan = dynamic(() => import('./FingerprintScan').then((m) => m.FingerprintScan));
+const RoleSwitcher = dynamic(() => import('./RoleSwitcher').then((m) => m.RoleSwitcher));
+const ActivityIntegrations = dynamic(() =>
+  import('./ActivityIntegrations').then((m) => m.ActivityIntegrations),
+);
+const SprintBoard = dynamic(() => import('./SprintBoard').then((m) => m.SprintBoard));
+const EngineRoom = dynamic(() => import('./EngineRoom').then((m) => m.EngineRoom));
+const EngagementModels = dynamic(() =>
+  import('./EngagementModels').then((m) => m.EngagementModels),
+);
 
 type ServiceTemplateProps = {
   serviceName: string;
@@ -72,8 +94,37 @@ function renderSection(
           whatsappHref={whatsappHref}
         />
       );
-    default:
-      return null;
+    case 'appWindowHero':
+      return <AppWindowHero key={`appWindowHero-${idx}`} slug={slug} hero={block.data} />;
+    case 'beforeAfterSlider':
+      return <BeforeAfterSlider key={`beforeAfterSlider-${idx}`} slug={slug} data={block.data} />;
+    case 'productSwitcher':
+      return <ProductSwitcher key={`productSwitcher-${idx}`} slug={slug} data={block.data} />;
+    case 'explodedArchitecture':
+      return <ExplodedArchitecture key={`explodedArchitecture-${idx}`} data={block.data} />;
+    case 'fingerprintScan':
+      return <FingerprintScan key={`fingerprintScan-${idx}`} data={block.data} />;
+    case 'roleSwitcher':
+      return <RoleSwitcher key={`roleSwitcher-${idx}`} slug={slug} data={block.data} />;
+    case 'activityIntegrations':
+      return <ActivityIntegrations key={`activityIntegrations-${idx}`} data={block.data} />;
+    case 'sprintBoard':
+      return <SprintBoard key={`sprintBoard-${idx}`} data={block.data} />;
+    case 'growthPath':
+      return <GrowthPath key={`growthPath-${idx}`} data={block.data} />;
+    case 'engineRoom':
+      return <EngineRoom key={`engineRoom-${idx}`} data={block.data} />;
+    case 'engagementModels':
+      return <EngagementModels key={`engagementModels-${idx}`} slug={slug} data={block.data} />;
+    case 'terminalCta':
+      return (
+        <TerminalCta
+          key={`terminalCta-${idx}`}
+          slug={slug}
+          data={block.data}
+          whatsappHref={whatsappHref}
+        />
+      );
   }
 }
 

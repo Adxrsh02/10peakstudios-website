@@ -1,8 +1,10 @@
 import type { ServicePageContent, ServiceSectionBlock } from './types';
+import { webAppDevelopmentContent } from './web-app-development';
 import { websiteDevelopmentContent } from './website-development';
 
 const SERVICE_CONTENT_REGISTRY: Partial<Record<string, ServicePageContent>> = {
   [websiteDevelopmentContent.slug]: websiteDevelopmentContent,
+  [webAppDevelopmentContent.slug]: webAppDevelopmentContent,
 };
 
 const hasForbiddenToken = (value: string | undefined): boolean =>

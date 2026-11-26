@@ -71,6 +71,7 @@ describe('content integrity', () => {
     expect(routes.filter((r) => r.status === 'live').map((r) => r.path)).toEqual([
       '/',
       '/services/website-development',
+      '/services/web-app-development',
       '/about',
       '/portfolio',
       '/contact',

@@ -302,9 +302,9 @@ export function AppWindowHero({ slug, hero }: AppWindowHeroProps) {
             )}
           </div>
 
-          {/* Floating Notification Chips (placed cleanly below card on narrow screens, overlapping corners on md+) */}
+          {/* Floating Notification Chips (compact pills at outer corners on md+, stacked below on mobile) */}
           {hero.toasts[0] && (
-            <div className="glass-card-strong mt-3 flex items-center gap-2 rounded-full px-3.5 py-2 text-caption md:absolute md:-top-4 md:right-3 md:mt-0">
+            <div className="glass-card-strong mt-3 inline-flex w-fit items-center gap-2 rounded-full px-3.5 py-2 text-caption shadow-[0_12px_28px_rgb(0_0_0/0.55)] md:absolute! md:-top-4 md:right-2 md:z-20 md:mt-0">
               <span
                 className={cn(
                   'size-2 rounded-full',
@@ -318,7 +318,7 @@ export function AppWindowHero({ slug, hero }: AppWindowHeroProps) {
           )}
 
           {hero.toasts[1] && (
-            <div className="glass-card-strong mt-2 flex items-center gap-2 rounded-full px-3.5 py-2 text-caption md:absolute md:-bottom-4 md:left-3 md:mt-0">
+            <div className="glass-card-strong mt-2 inline-flex w-fit items-center gap-2 rounded-full px-3.5 py-2 text-caption shadow-[0_12px_28px_rgb(0_0_0/0.55)] sm:ml-2 md:absolute! md:-bottom-4 md:left-2 md:z-20 md:mt-0 md:ml-0">
               <CheckCircle2 className="size-3.5 text-(--glass-cyan)" aria-hidden="true" />
               <span className="font-medium text-(--glass-text)">{hero.toasts[1].title}</span>
               <span className="font-mono text-(--glass-cyan)">{hero.toasts[1].detail}</span>

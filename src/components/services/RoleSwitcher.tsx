@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, type KeyboardEvent } from 'react';
-import { Lock, LockOpen } from 'lucide-react';
+import { CheckCircle2, Lock } from 'lucide-react';
 import type { RoleSwitcherData } from '@/content/services/types';
 import { track } from '@/lib/analytics';
 import { cn } from '@/lib/cn';
@@ -136,7 +136,7 @@ export function RoleSwitcher({ slug, data }: RoleSwitcherProps) {
                     {mod.locked ? (
                       <Lock className="size-4 shrink-0 text-(--glass-amber)" aria-hidden="true" />
                     ) : (
-                      <LockOpen
+                      <CheckCircle2
                         className="size-4 shrink-0 text-(--glass-emerald)"
                         aria-hidden="true"
                       />

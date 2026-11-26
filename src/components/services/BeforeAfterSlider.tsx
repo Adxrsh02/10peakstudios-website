@@ -135,10 +135,10 @@ export function BeforeAfterSlider({ slug, data }: BeforeAfterSliderProps) {
       {/* Draggable Comparison Surface */}
       <div
         ref={containerRef}
-        className="glass-card-strong relative mx-auto min-h-[400px] w-full max-w-5xl overflow-hidden rounded-lg select-none sm:min-h-[430px]"
+        className="glass-card-strong relative mx-auto min-h-[500px] w-full max-w-5xl overflow-hidden rounded-lg select-none sm:min-h-[440px]"
       >
         {/* Underneath Layer: AFTER - Unified */}
-        <div className="flex h-full min-h-[400px] flex-col justify-between bg-[#12101c] p-5 sm:min-h-[430px] sm:p-9">
+        <div className="flex h-full min-h-[500px] flex-col justify-between bg-[#12101c] p-4 pb-12 sm:min-h-[440px] sm:p-9 sm:pb-12">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/12 px-3 py-1 font-mono text-caption text-(--glass-emerald)">
               <span className="size-2 rounded-full bg-emerald-400" aria-hidden="true" />
@@ -149,13 +149,13 @@ export function BeforeAfterSlider({ slug, data }: BeforeAfterSliderProps) {
             </span>
           </div>
 
-          <div className="my-auto grid grid-cols-1 gap-3 py-5 sm:grid-cols-3 sm:gap-4">
+          <div className="my-auto grid grid-cols-1 gap-2.5 py-3 sm:grid-cols-3 sm:gap-4 sm:py-5">
             {data.after.cards.map((card) => {
               const tone = getServiceExtendedTone(card.tone);
               return (
                 <div
                   key={card.label}
-                  className="flex flex-col gap-1.5 rounded-md border border-white/12 bg-white/5 p-4"
+                  className="flex flex-col gap-1 rounded-md border border-white/12 bg-white/5 p-3 sm:gap-1.5 sm:p-4"
                 >
                   <span className="text-caption text-(--glass-text-muted)">{card.label}</span>
                   <div className={cn('font-heading text-h4 font-semibold', tone.text)}>
@@ -170,7 +170,7 @@ export function BeforeAfterSlider({ slug, data }: BeforeAfterSliderProps) {
             })}
           </div>
 
-          <div className="flex flex-wrap items-center justify-between gap-2 rounded-md border border-white/10 bg-white/4 px-4 py-2.5 text-caption">
+          <div className="flex flex-wrap items-center justify-between gap-2 rounded-md border border-white/10 bg-white/4 px-3.5 py-2 text-caption sm:px-4 sm:py-2.5">
             <span className="inline-flex items-center gap-2 font-mono text-(--glass-text)">
               <CheckCircle2 className="size-4 text-(--glass-cyan)" aria-hidden="true" />
               {data.after.footerLeft}
@@ -183,7 +183,7 @@ export function BeforeAfterSlider({ slug, data }: BeforeAfterSliderProps) {
         <div
           style={{ clipPath: `inset(0 ${100 - pct}% 0 0)` }}
           className={cn(
-            'pointer-events-none absolute inset-0 flex flex-col justify-between bg-[#0b0a11] p-5 sm:p-9',
+            'pointer-events-none absolute inset-0 flex flex-col justify-between bg-[#0b0a11] p-4 pb-12 sm:p-9 sm:pb-12',
             !dragging && 'transition-[clip-path] duration-300 ease-out',
           )}
         >
@@ -197,12 +197,12 @@ export function BeforeAfterSlider({ slug, data }: BeforeAfterSliderProps) {
             </span>
           </div>
 
-          <div className="my-auto grid grid-cols-1 gap-3 py-5 opacity-90 sm:grid-cols-3 sm:gap-4">
+          <div className="my-auto grid grid-cols-1 gap-2.5 py-3 opacity-90 sm:grid-cols-3 sm:gap-4 sm:py-5">
             {data.before.cards.map((card, idx) => (
               <div
                 key={card.title}
                 className={cn(
-                  'rounded-md border p-3.5 text-caption',
+                  'rounded-md border p-3 text-caption sm:p-3.5',
                   card.tone === 'error' && 'border-rose-400/25 bg-rose-950/20 text-rose-100',
                   card.tone === 'amber' && 'border-amber-400/25 bg-amber-950/20 text-amber-100',
                   card.tone === 'neutral' && 'border-white/12 bg-white/5 text-(--glass-text-muted)',
@@ -225,7 +225,7 @@ export function BeforeAfterSlider({ slug, data }: BeforeAfterSliderProps) {
             ))}
           </div>
 
-          <div className="flex flex-wrap items-center justify-between gap-2 rounded-md border border-rose-400/25 bg-rose-950/25 px-4 py-2.5 font-mono text-caption text-rose-200">
+          <div className="flex flex-wrap items-center justify-between gap-2 rounded-md border border-rose-400/25 bg-rose-950/25 px-3.5 py-2 font-mono text-caption text-rose-200 sm:px-4 sm:py-2.5">
             <span>{data.before.footerLeft}</span>
             <span>{data.before.footerRight}</span>
           </div>
