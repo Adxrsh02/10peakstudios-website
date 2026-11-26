@@ -68,3 +68,47 @@
     }
   }
 }
+
+/* Print Stylesheet for Legal Documents (Privacy Policy, Terms, Privacy Choices) */
+@media print {
+  header,
+  footer,
+  [data-sticky-cta],
+  [data-slot='legal-reading-progress'],
+  [data-legal-toc],
+  .no-print {
+    display: none !important;
+  }
+
+  * {
+    background: transparent !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  body,
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  a[href^='http']::after,
+  a[href^='/']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.8em;
+    word-break: break-all;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  table,
+  blockquote {
+    break-inside: avoid;
+  }
+}
