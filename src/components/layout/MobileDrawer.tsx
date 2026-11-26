@@ -12,7 +12,7 @@ import {
   SheetDescription,
   SheetTitle,
 } from '@/components/ui/sheet';
-import { companyLinks, contactPath, megaMenu } from '@/content/navigation';
+import { companyLinks, contactPath, megaMenu, portfolioPath } from '@/content/navigation';
 
 type MobileDrawerProps = {
   whatsappHref: string | null;
@@ -87,6 +87,14 @@ export function MobileDrawer({ whatsappHref, open, onOpenChange }: MobileDrawerP
               </AccordionPrimitive.Item>
             ))}
           </AccordionPrimitive.Root>
+          <SheetClose asChild>
+            <Link
+              href={portfolioPath}
+              className="flex min-h-14 items-center border-b border-border font-heading text-h5 text-foreground"
+            >
+              Portfolio
+            </Link>
+          </SheetClose>
           <SheetClose asChild>
             <Link
               href={contactPath}

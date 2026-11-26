@@ -24,6 +24,7 @@ export const routes: RouteEntry[] = [
 ];
 
 export const contactPath = '/contact';
+export const portfolioPath = '/portfolio';
 
 /** Mega-menu columns: Build, Automate, Grow (PRD 6.3). */
 export const megaMenu = pillars.map((p) => ({
@@ -61,6 +62,7 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
     title: 'Company',
     links: [
       ...companyLinks.map(({ label, href }) => ({ label, href })),
+      { label: 'Portfolio', href: portfolioPath },
       { label: 'Contact', href: contactPath },
     ],
   },

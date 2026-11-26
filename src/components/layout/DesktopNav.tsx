@@ -12,7 +12,7 @@ import {
   NavigationMenuTrigger,
   navTriggerClass,
 } from '@/components/ui/navigation-menu';
-import { companyLinks, contactPath, megaMenu } from '@/content/navigation';
+import { companyLinks, contactPath, megaMenu, portfolioPath } from '@/content/navigation';
 import { site } from '@/content/site';
 import { cn } from '@/lib/cn';
 
@@ -119,6 +119,12 @@ export function DesktopNav() {
               ))}
             </ul>
           </NavigationMenuContent>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild className={navTriggerClass}>
+            <Link href={portfolioPath}>Portfolio</Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
 
         <NavigationMenuItem>
