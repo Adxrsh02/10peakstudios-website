@@ -4,6 +4,7 @@
 @import '../styles/motion.css';
 @import '../styles/loader.css';
 @import '../styles/components.css';
+@import '../styles/service-glass.css';
 
 /* Base (Design.md 7 section 6, 5.4) */
 @layer base {

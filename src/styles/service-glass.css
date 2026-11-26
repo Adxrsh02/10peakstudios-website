@@ -1,0 +1,293 @@
+/* Scoped "Dark Glass Aurora" design tokens and glass utilities for service template routes.
+   Strictly isolated under [data-theme="glass"] and [data-header-theme="dark-glass"] so the rest
+   of the 10PeakStudio light-theme site and global tokens remain completely unchanged. */
+
+[data-theme='glass'] {
+  --glass-canvas: #07060d;
+  --glass-canvas-elevated: #0e0b1a;
+  --glass-surface: rgb(15 13 21 / 0.72);
+  --glass-surface-strong: rgb(15 13 21 / 0.86);
+  --glass-surface-subtle: rgb(255 255 255 / 0.04);
+  --glass-surface-hover: rgb(255 255 255 / 0.07);
+  --glass-border: rgb(255 255 255 / 0.14);
+  --glass-border-strong: rgb(255 255 255 / 0.24);
+  --glass-highlight-top: linear-gradient(
+    90deg,
+    rgb(255 255 255 / 0.3) 0%,
+    rgb(167 67 248 / 0.22) 50%,
+    rgb(255 255 255 / 0) 100%
+  );
+  --glass-violet: var(--color-peak-violet); /* #8e21fc */
+  --glass-violet-deep: var(--color-deep-violet); /* #480bb4 */
+  --glass-lilac: var(--color-lilac-spark); /* #a743f8 */
+  --glass-link: var(--color-inverse-link); /* #c38bff */
+  --glass-cyan: #4cd7f6;
+  --glass-cyan-soft: rgb(76 215 246 / 0.14);
+  --glass-text: var(--color-summit-white); /* #fcfcfc */
+  --glass-text-muted: #c8c2dc; /* >= 4.5:1 on #07060d & dark glass */
+  --glass-text-meta: var(--color-inverse-muted); /* #a9a7bb for labels/captions */
+  --glass-blur: blur(10px);
+  --glass-spotlight-x: 50%;
+  --glass-spotlight-y: 50%;
+
+  color-scheme: dark;
+  background-color: var(--glass-canvas);
+  color: var(--glass-text);
+}
+
+@media (min-width: 768px) {
+  [data-theme='glass'] {
+    --glass-blur: blur(20px) saturate(135%);
+  }
+}
+
+[data-theme='glass'] :focus-visible {
+  outline: 2px solid var(--glass-link);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgb(142 33 252 / 0.32);
+}
+
+/* Luminous glass surface card with top specular border highlight */
+[data-theme='glass'] .glass-card {
+  position: relative;
+  background-color: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 20px 50px -24px rgb(0 0 0 / 0.72),
+    inset 0 1px 0 0 rgb(255 255 255 / 0.14);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+[data-theme='glass'] .glass-card-strong {
+  position: relative;
+  background-color: var(--glass-surface-strong);
+  border: 1px solid rgb(167 67 248 / 0.48);
+  box-shadow:
+    0 24px 60px -20px rgb(91 16 224 / 0.42),
+    inset 0 1px 0 0 rgb(255 255 255 / 0.2);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+[data-theme='glass'] .glass-card-static {
+  position: relative;
+  background-color: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  box-shadow: inset 0 1px 0 0 rgb(255 255 255 / 0.12);
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  [data-theme='glass'] .glass-card,
+  [data-theme='glass'] .glass-card-strong {
+    background-color: rgb(15 13 21 / 0.94);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+[data-theme='glass'] .glass-specular::before {
+  content: '';
+  position: absolute;
+  inset-inline: 1.5rem;
+  top: 0;
+  height: 1px;
+  background: var(--glass-highlight-top);
+  pointer-events: none;
+}
+
+/* Primary & secondary glass CTA pills (white text guaranteed >= 4.5:1 on brand violet) */
+[data-theme='glass'] .glass-cta-primary {
+  background-image: linear-gradient(
+    115deg,
+    var(--color-deep-violet) 0%,
+    var(--color-peak-violet) 52%,
+    var(--color-lilac-spark) 100%
+  );
+  color: #ffffff;
+  border: 1px solid rgb(255 255 255 / 0.24);
+  box-shadow: 0 8px 28px -6px rgb(142 33 252 / 0.52);
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard),
+    filter var(--duration-fast) var(--ease-standard);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  [data-theme='glass'] .glass-cta-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 34px -4px rgb(167 67 248 / 0.62);
+    filter: brightness(1.06);
+  }
+}
+
+[data-theme='glass'] .glass-cta-secondary {
+  background-color: rgb(255 255 255 / 0.06);
+  color: var(--glass-text);
+  border: 1px solid var(--glass-border-strong);
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard);
+}
+
+@media (hover: hover) {
+  [data-theme='glass'] .glass-cta-secondary:hover {
+    background-color: rgb(255 255 255 / 0.11);
+    border-color: rgb(195 139 255 / 0.55);
+  }
+}
+
+/* Display brand-gradient headline accent (>= 28px display headings only) */
+[data-theme='glass'] .glass-gradient-text {
+  background-image: linear-gradient(95deg, #c38bff 0%, #a743f8 50%, #4cd7f6 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Cursor spotlight overlay (active only on fine-pointer hover devices) */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  [data-theme='glass'] .glass-spotlight {
+    --spot-x: 50%;
+    --spot-y: 50%;
+    --spot-opacity: 0;
+  }
+  [data-theme='glass'] .glass-spotlight::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: var(--spot-opacity);
+    transition: opacity var(--duration-base) var(--ease-standard);
+    background: radial-gradient(
+      340px circle at var(--spot-x) var(--spot-y),
+      rgb(167 67 248 / 0.16),
+      rgb(76 215 246 / 0.06) 45%,
+      transparent 75%
+    );
+  }
+  [data-theme='glass'] .glass-spotlight:hover {
+    --spot-opacity: 1;
+  }
+}
+
+/* Ambient aurora field drift (GPU transform-only, paused on Tier 0 / reduced-motion) */
+@keyframes service-aurora-drift-a {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(3%, 4%, 0) scale(1.06);
+  }
+}
+
+@keyframes service-aurora-drift-b {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-4%, -3%, 0) scale(1.05);
+  }
+}
+
+[data-theme='glass'] .service-aurora-blob-a {
+  animation: service-aurora-drift-a 18s ease-in-out infinite;
+  will-change: transform;
+}
+
+[data-theme='glass'] .service-aurora-blob-b {
+  animation: service-aurora-drift-b 22s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Service tech marquee (GPU translateX, paused on hover/focus/explicit pause/reduced-motion) */
+@keyframes service-marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+[data-theme='glass'] .service-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: service-marquee-scroll 34s linear infinite;
+}
+
+[data-theme='glass'] .service-marquee-viewport:hover .service-marquee-track,
+[data-theme='glass'] .service-marquee-viewport:focus-within .service-marquee-track,
+[data-theme='glass'] .service-marquee-viewport[data-paused='true'] .service-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme='glass'] .service-aurora-blob-a,
+  [data-theme='glass'] .service-aurora-blob-b,
+  [data-theme='glass'] .service-marquee-track {
+    animation: none !important;
+  }
+}
+
+html[data-motion-tier='0'] [data-theme='glass'] .service-aurora-blob-a,
+html[data-motion-tier='0'] [data-theme='glass'] .service-aurora-blob-b,
+html[data-motion-tier='0'] [data-theme='glass'] .service-marquee-track {
+  animation: none !important;
+}
+
+/* Scoped dark-glass header for glass service routes ONLY.
+   Keeps dropdown viewports strictly readable on white popover while turning the top bar dark glass. */
+[data-header-theme='dark-glass'] {
+  background-color: rgb(7 6 13 / 0.72);
+  border-color: rgb(255 255 255 / 0.12);
+  color: #fcfcfc;
+  backdrop-filter: blur(12px) saturate(130%);
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
+}
+
+[data-header-theme='dark-glass'][data-scrolled] {
+  background-color: rgb(7 6 13 / 0.88);
+  border-color: rgb(255 255 255 / 0.16);
+}
+
+[data-header-theme='dark-glass'] [data-slot='navigation-menu-trigger'],
+[data-header-theme='dark-glass']
+  [data-slot='navigation-menu-list']
+  > li
+  > [data-slot='navigation-menu-link'],
+[data-header-theme='dark-glass'] [data-mobile-menu-trigger] {
+  color: #fcfcfc;
+}
+
+@media (hover: hover) {
+  [data-header-theme='dark-glass'] [data-slot='navigation-menu-trigger']:hover,
+  [data-header-theme='dark-glass'] [data-slot='navigation-menu-trigger'][data-state='open'],
+  [data-header-theme='dark-glass']
+    [data-slot='navigation-menu-list']
+    > li
+    > [data-slot='navigation-menu-link']:hover,
+  [data-header-theme='dark-glass'] [data-mobile-menu-trigger]:hover {
+    background-color: rgb(255 255 255 / 0.1);
+    color: #ffffff;
+  }
+}
+
+[data-header-theme='dark-glass'] [data-slot='navigation-menu-viewport'] {
+  --background: #ffffff;
+  --foreground: #14111e;
+  --card: #ffffff;
+  --popover: #ffffff;
+  --popover-foreground: #14111e;
+  --secondary: #f6f5fa;
+  --surface-sunken: #f6f5fa;
+  --muted-foreground: #5e5a70;
+  --border: #d7d6e1;
+  --brand-accent: #8e21fc;
+  --link: #7a1ae0;
+  --primary: #8e21fc;
+  color: #14111e;
+}
