@@ -93,8 +93,11 @@ test.describe('Web App Development service page', () => {
     if (isDesktop(width)) {
       const servicesTrigger = page.getByRole('button', { name: 'Services' });
       await servicesTrigger.click();
-      await expect(page.getByRole('link', { name: /View all services/i })).toBeVisible();
+      const viewAll = page.getByRole('link', { name: /View all services/i });
+      await expect(viewAll).toBeVisible();
+      await page.mouse.move(0, 300);
       await page.keyboard.press('Escape');
+      await expect(viewAll).toBeHidden();
     }
 
     // Zero horizontal overflow
