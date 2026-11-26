@@ -23,6 +23,10 @@
   --glass-link: var(--color-inverse-link); /* #c38bff */
   --glass-cyan: #4cd7f6;
   --glass-cyan-soft: rgb(76 215 246 / 0.14);
+  --glass-emerald: #6ee7b7;
+  --glass-emerald-soft: rgb(16 185 129 / 0.14);
+  --glass-amber: #fcd34d;
+  --glass-amber-soft: rgb(245 158 11 / 0.14);
   --glass-text: var(--color-summit-white); /* #fcfcfc */
   --glass-text-muted: #c8c2dc; /* >= 4.5:1 on #07060d & dark glass */
   --glass-text-meta: var(--color-inverse-muted); /* #a9a7bb for labels/captions */
@@ -255,13 +259,90 @@
   animation: service-hero-line-rise 0.54s var(--ease-peak-rise) 0.08s both;
 }
 
+@keyframes service-orbit-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes service-orbit-counter {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes service-feed-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
+@keyframes service-blink-cursor {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+[data-theme='glass'] .service-orbit-ring {
+  animation: service-orbit-spin 42s linear infinite;
+}
+
+[data-theme='glass'] .service-orbit-counter {
+  animation: service-orbit-counter 42s linear infinite;
+}
+
+[data-theme='glass'] .service-orbit-container:hover .service-orbit-ring,
+[data-theme='glass'] .service-orbit-container:focus-within .service-orbit-ring,
+[data-theme='glass'] .service-orbit-container[data-paused='true'] .service-orbit-ring,
+[data-theme='glass'] .service-orbit-container:hover .service-orbit-counter,
+[data-theme='glass'] .service-orbit-container:focus-within .service-orbit-counter,
+[data-theme='glass'] .service-orbit-container[data-paused='true'] .service-orbit-counter {
+  animation-play-state: paused;
+}
+
+[data-theme='glass'] .service-feed-track {
+  animation: service-feed-scroll 18s linear infinite;
+}
+
+[data-theme='glass'] .service-feed-viewport:hover .service-feed-track,
+[data-theme='glass'] .service-feed-viewport:focus-within .service-feed-track,
+[data-theme='glass'] .service-feed-viewport[data-paused='true'] .service-feed-track {
+  animation-play-state: paused;
+}
+
+[data-theme='glass'] .service-cursor-blink {
+  animation: service-blink-cursor 1s steps(2, start) infinite;
+}
+
+[data-theme='glass'] .service-cursor-blink[data-paused='true'] {
+  animation: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-theme='glass'] .service-aurora-blob-a,
   [data-theme='glass'] .service-aurora-blob-b,
   [data-theme='glass'] .service-marquee-track,
   [data-theme='glass'] .service-progress-bar,
   [data-theme='glass'] .service-hero-line-1,
-  [data-theme='glass'] .service-hero-line-2 {
+  [data-theme='glass'] .service-hero-line-2,
+  [data-theme='glass'] .service-orbit-ring,
+  [data-theme='glass'] .service-orbit-counter,
+  [data-theme='glass'] .service-feed-track,
+  [data-theme='glass'] .service-cursor-blink {
     animation: none !important;
   }
 }
@@ -271,7 +352,11 @@ html[data-motion-tier='0'] [data-theme='glass'] .service-aurora-blob-b,
 html[data-motion-tier='0'] [data-theme='glass'] .service-marquee-track,
 html[data-motion-tier='0'] [data-theme='glass'] .service-progress-bar,
 html[data-motion-tier='0'] [data-theme='glass'] .service-hero-line-1,
-html[data-motion-tier='0'] [data-theme='glass'] .service-hero-line-2 {
+html[data-motion-tier='0'] [data-theme='glass'] .service-hero-line-2,
+html[data-motion-tier='0'] [data-theme='glass'] .service-orbit-ring,
+html[data-motion-tier='0'] [data-theme='glass'] .service-orbit-counter,
+html[data-motion-tier='0'] [data-theme='glass'] .service-feed-track,
+html[data-motion-tier='0'] [data-theme='glass'] .service-cursor-blink {
   animation: none !important;
 }
 

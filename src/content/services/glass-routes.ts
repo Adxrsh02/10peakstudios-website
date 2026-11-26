@@ -5,7 +5,10 @@ import type { ServiceSlug } from '@/lib/schemas/lead';
  * "Dark Glass Aurora" layout & navbar treatment. Kept free of copy strings so layout/client
  * components never bundle service page content across unrelated routes.
  */
-export const GLASS_SERVICE_SLUGS: readonly ServiceSlug[] = ['website-development'];
+export const GLASS_SERVICE_SLUGS: readonly ServiceSlug[] = [
+  'website-development',
+  'web-app-development',
+];
 
 export const GLASS_SERVICE_ROUTES: readonly string[] = GLASS_SERVICE_SLUGS.map(
   (slug) => `/services/${slug}`,

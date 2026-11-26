@@ -7,7 +7,11 @@ export type AnalyticsEvent =
   | 'service_view'
   | 'service_cta_click'
   | 'service_tab_change'
+  | 'service_product_switch'
+  | 'service_role_switch'
+  | 'service_engagement_toggle'
   | 'service_faq_open'
+  | 'before_after_drag'
   | 'form_start'
   | 'form_step'
   | 'form_error'
@@ -32,6 +36,10 @@ const ALLOWED_PARAMS = new Set([
   'service_slug',
   'pillar',
   'tab_id',
+  'product_id',
+  'role_id',
+  'model_id',
+  'slider_pct',
   'faq_index',
   'form_id',
   'step',
