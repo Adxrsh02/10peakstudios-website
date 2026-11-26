@@ -19,16 +19,16 @@ const TERMS_TOC: LegalTocItem[] = [
   { id: 'acceptance', number: '01', title: 'Acceptance of Terms' },
   { id: 'who-we-are', number: '02', title: 'Who We Are' },
   { id: 'acceptable-use', number: '03', title: 'Using This Website' },
-  { id: 'services-and-proposals', number: '04', title: 'Services &amp; Proposals' },
+  { id: 'services-and-proposals', number: '04', title: 'Services & Proposals' },
   { id: 'intellectual-property', number: '05', title: 'Intellectual Property' },
-  { id: 'portfolio-case-studies', number: '06', title: 'Portfolio &amp; Research Projects' },
-  { id: 'third-party-services', number: '07', title: 'Third-Party Links &amp; Tools' },
+  { id: 'portfolio-case-studies', number: '06', title: 'Portfolio & Research Projects' },
+  { id: 'third-party-services', number: '07', title: 'Third-Party Links & Tools' },
   { id: 'disclaimers', number: '08', title: 'Disclaimers' },
   { id: 'limitation-of-liability', number: '09', title: 'Limitation of Liability' },
   { id: 'indemnity', number: '10', title: 'Indemnity' },
-  { id: 'privacy', number: '11', title: 'Privacy &amp; Cookies' },
+  { id: 'privacy', number: '11', title: 'Privacy & Cookies' },
   { id: 'changes', number: '12', title: 'Changes to Terms' },
-  { id: 'governing-law', number: '13', title: 'Governing Law &amp; Jurisdiction' },
+  { id: 'governing-law', number: '13', title: 'Governing Law & Jurisdiction' },
   { id: 'contact', number: '14', title: 'Contact' },
 ];
 
@@ -81,7 +81,9 @@ export default function TermsPage() {
               title="Using This Website"
               inShort="Use this site lawfully without automated scraping, security probing, or contact form abuse."
             >
-              <p>You agree to use this website strictly for lawful business or personal evaluation:</p>
+              <p>
+                You agree to use this website strictly for lawful business or personal evaluation:
+              </p>
               <ul className="list-disc space-y-1.5 pl-6">
                 <li>
                   Do not run aggressive scraping, automated harvesting, or traffic floods that
@@ -130,9 +132,9 @@ export default function TermsPage() {
               </p>
               <p>
                 You are granted a limited, non-exclusive, revocable license to view and print pages
-                for legitimate personal or prospective business evaluation. You may not copy, modify,
-                republish, mirror, or commercially exploit our brand assets or site code without
-                prior written consent.
+                for legitimate personal or prospective business evaluation. You may not copy,
+                modify, republish, mirror, or commercially exploit our brand assets or site code
+                without prior written consent.
               </p>
             </LegalSection>
 
@@ -144,7 +146,10 @@ export default function TermsPage() {
             >
               <p>
                 Our{' '}
-                <Link href="/portfolio" className="font-medium text-link underline underline-offset-2">
+                <Link
+                  href="/portfolio"
+                  className="font-medium text-link underline underline-offset-2"
+                >
                   Portfolio
                 </Link>{' '}
                 showcases engineering case studies, in-house builds, and technical R&amp;D work.
@@ -152,10 +157,12 @@ export default function TermsPage() {
                 remain the property of their respective owners.
               </p>
               <p>
-                <strong className="text-foreground">Important Notice on Research &amp; Demo Builds:</strong>{' '}
-                Research-stage or prototype systems (for example, deep-learning medical imaging R&amp;D
-                such as our Automated Fundus Image Screening case study) are shared solely as
-                technical capability demonstrations. They are{' '}
+                <strong className="text-foreground">
+                  Important Notice on Research &amp; Demo Builds:
+                </strong>{' '}
+                Research-stage or prototype systems (for example, deep-learning medical imaging
+                R&amp;D such as our Automated Fundus Image Screening case study) are shared solely
+                as technical capability demonstrations. They are{' '}
                 <strong className="text-foreground">
                   not certified medical devices, regulated commercial products, or substitutes for
                   qualified clinical, financial, or legal advice
@@ -200,11 +207,11 @@ export default function TermsPage() {
             >
               <p>
                 To the maximum extent permitted under applicable Indian law, {legalConfig.brandName}{' '}
-                and its team members shall not be liable for any indirect, incidental, consequential,
-                or special damages—or loss of data, revenue, or business opportunity—arising from
-                your access to, inability to access, or reliance upon free informational content on
-                this website. Nothing in these terms limits liability that cannot legally be excluded
-                under Indian law.
+                and its team members shall not be liable for any indirect, incidental,
+                consequential, or special damages—or loss of data, revenue, or business
+                opportunity—arising from your access to, inability to access, or reliance upon free
+                informational content on this website. Nothing in these terms limits liability that
+                cannot legally be excluded under Indian law.
               </p>
             </LegalSection>
 
@@ -217,8 +224,8 @@ export default function TermsPage() {
               <p>
                 You agree to indemnify and hold harmless {legalConfig.brandName} from reasonable
                 third-party claims, losses, or liabilities arising directly from your unlawful use
-                of this website, automated attack/abuse of <code>/api/contact</code>, or violation of
-                these Terms and Conditions.
+                of this website, automated attack/abuse of <code>/api/contact</code>, or violation
+                of these Terms and Conditions.
               </p>
             </LegalSection>
 
@@ -230,7 +237,10 @@ export default function TermsPage() {
             >
               <p>
                 Your use of this website is also subject to our{' '}
-                <Link href="/privacy" className="font-medium text-link underline underline-offset-2">
+                <Link
+                  href="/privacy"
+                  className="font-medium text-link underline underline-offset-2"
+                >
                   Privacy Policy
                 </Link>{' '}
                 and{' '}
@@ -252,8 +262,8 @@ export default function TermsPage() {
             >
               <p>
                 We may update these Terms and Conditions periodically to reflect legal, operational,
-                or site changes. Continued use of {legalConfig.websiteUrl} after an updated version is
-                published constitutes acceptance of the revised terms.
+                or site changes. Continued use of {legalConfig.websiteUrl} after an updated version
+                is published constitutes acceptance of the revised terms.
               </p>
             </LegalSection>
 
@@ -264,10 +274,11 @@ export default function TermsPage() {
               inShort={`These terms are governed by the laws of India, with courts at ${legalConfig.jurisdictionCity}.`}
             >
               <p>
-                These Terms and Conditions are governed by and construed in accordance with the
-                laws of <strong className="text-foreground">India</strong>. Any disputes arising out
-                of or relating to this website shall be subject to the exclusive jurisdiction of the
-                competent courts at <strong className="text-foreground">{legalConfig.jurisdictionCity}</strong>.
+                These Terms and Conditions are governed by and construed in accordance with the laws
+                of <strong className="text-foreground">India</strong>. Any disputes arising out of
+                or relating to this website shall be subject to the exclusive jurisdiction of the
+                competent courts at{' '}
+                <strong className="text-foreground">{legalConfig.jurisdictionCity}</strong>.
               </p>
             </LegalSection>
 
@@ -286,7 +297,10 @@ export default function TermsPage() {
                   {legalConfig.contactEmail}
                 </a>{' '}
                 or sent via{' '}
-                <Link href="/contact" className="font-medium text-link underline underline-offset-2">
+                <Link
+                  href="/contact"
+                  className="font-medium text-link underline underline-offset-2"
+                >
                   /contact
                 </Link>
                 .
