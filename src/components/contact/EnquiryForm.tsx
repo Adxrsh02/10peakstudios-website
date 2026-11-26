@@ -394,6 +394,17 @@ export function EnquiryForm({ turnstileSiteKey, whatsappNumber }: EnquiryFormPro
               <Link href="/privacy" className="text-primary underline hover:text-primary-hover">
                 Privacy Policy
               </Link>
+              . See also our{' '}
+              <Link href="/terms" className="text-primary underline hover:text-primary-hover">
+                Terms
+              </Link>{' '}
+              and{' '}
+              <Link
+                href="/privacy-choices"
+                className="text-primary underline hover:text-primary-hover"
+              >
+                Privacy Choices
+              </Link>
               .
             </span>
           </label>

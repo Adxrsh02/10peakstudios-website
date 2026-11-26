@@ -73,6 +73,8 @@ describe('content integrity', () => {
       '/about',
       '/portfolio',
       '/contact',
+      '/privacy',
+      '/terms',
     ]);
   });
 });
