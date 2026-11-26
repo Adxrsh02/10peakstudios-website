@@ -58,6 +58,7 @@ export type PortfolioProject = PortfolioFrontmatter & {
   challenges: ChallengeSolutionPair[];
   extraSections: MarkdownSection[];
   tocItems: Array<{ id: string; label: string }>;
+  lastModified: string;
 };
 
 export type PortfolioSearchRecord = {
@@ -93,6 +94,7 @@ export function validatePortfolioMarkdown(
   rawMarkdown: string,
   expectedSlug: string,
   filePathForError: string,
+  lastModified: string = new Date().toISOString(),
 ): PortfolioProject {
   const { frontmatter, body } = splitFrontmatterAndBody(rawMarkdown);
   const parsed = portfolioFrontmatterSchema.safeParse(frontmatter);
@@ -184,6 +186,7 @@ export function validatePortfolioMarkdown(
     challenges,
     extraSections,
     tocItems,
+    lastModified,
   };
 }
 
@@ -206,8 +209,14 @@ export function getAllPortfolioProjects(dir: string = PORTFOLIO_DIR): PortfolioP
   for (const file of files) {
     const fullPath = path.join(dir, file);
     const raw = fs.readFileSync(fullPath, 'utf8');
+    const mtimeIso = fs.statSync(fullPath).mtime.toISOString();
     const expectedSlug = file.replace(/\.md$/, '');
-    const project = validatePortfolioMarkdown(raw, expectedSlug, `content/portfolio/${file}`);
+    const project = validatePortfolioMarkdown(
+      raw,
+      expectedSlug,
+      `content/portfolio/${file}`,
+      mtimeIso,
+    );
     if (project.published) {
       loaded.push(project);
     }

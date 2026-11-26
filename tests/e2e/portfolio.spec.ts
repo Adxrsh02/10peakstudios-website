@@ -100,10 +100,13 @@ test.describe('Portfolio & Case Study pages', () => {
   });
 
   for (const path of ['/portfolio', CASE_STUDY_PATH]) {
-    test(`axe accessibility + single H1 + noindex metadata check on ${path}`, async ({ page }) => {
+    test(`axe accessibility + single H1 + index, follow metadata check on ${path}`, async ({
+      page,
+    }) => {
       await quietVisit(page, path);
       const robotsMeta = await page.locator('meta[name="robots"]').getAttribute('content');
-      expect(robotsMeta).toContain('noindex');
+      expect(robotsMeta).toContain('index');
+      expect(robotsMeta).not.toContain('noindex');
 
       const h1Count = await page.locator('main h1').count();
       expect(h1Count).toBe(1);

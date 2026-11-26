@@ -74,9 +74,9 @@ describe('portfolio schema & markdown pipeline', () => {
     expect(p1?.confirmedMetrics.length).toBe(4);
   });
 
-  it('keeps portfolio non-indexable until threshold (>= 3 projects) is met', () => {
+  it('marks portfolio indexable once threshold (>= 1 project) is met', () => {
     const projects = getAllPortfolioProjects();
-    expect(isPortfolioIndexable()).toBe(projects.length >= 3);
+    expect(isPortfolioIndexable()).toBe(projects.length >= 1);
   });
 
   it('computes deterministic portfolio stats from real files', () => {

@@ -1,4 +1,4 @@
-export const PORTFOLIO_INDEXABLE_THRESHOLD = 3;
+export const PORTFOLIO_INDEXABLE_THRESHOLD = 1;
 
 export const PORTFOLIO_INDUSTRIES = [
   {

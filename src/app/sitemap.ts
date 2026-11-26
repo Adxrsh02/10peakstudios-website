@@ -41,7 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ]),
     ...getAllPortfolioProjects().map((p) => ({
       url: `${site.url}/portfolio/${p.slug}`,
-      lastModified,
+      lastModified: p.lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     })),
