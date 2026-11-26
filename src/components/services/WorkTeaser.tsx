@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { SplitHeading } from '@/components/motion/SplitHeading';
-import type { ServicePageContent } from '@/content/services/types';
+import type { WorkTeaserData } from '@/content/services/types';
 import { ServiceCtaLink } from './ServiceCtaLink';
 import { GlassSpotlight } from './motion/GlassSpotlight';
 
 type WorkTeaserProps = {
   slug: string;
-  workTeaser: ServicePageContent['workTeaser'];
+  workTeaser: WorkTeaserData;
 };
 
 export function WorkTeaser({ slug, workTeaser }: WorkTeaserProps) {

@@ -1,11 +1,11 @@
 import { Reveal } from '@/components/motion/Reveal';
-import type { ServicePageContent } from '@/content/services/types';
+import type { ProcessTimelineData } from '@/content/services/types';
 import { cn } from '@/lib/cn';
 import { getServiceAccent } from './ServiceIcon';
 import { GlassSpotlight } from './motion/GlassSpotlight';
 import { TimelineDraw } from './motion/TimelineDraw';
 
-export function ProcessTimeline({ process }: { process: ServicePageContent['process'] }) {
+export function ProcessTimeline({ process }: { process: ProcessTimelineData }) {
   return (
     <section aria-labelledby="process-heading" className="space-y-8">
       <div className="flex flex-col items-start gap-2">

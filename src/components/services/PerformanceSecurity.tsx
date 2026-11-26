@@ -1,16 +1,12 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import type { ServicePageContent } from '@/content/services/types';
+import type { PerformanceSecurityData } from '@/content/services/types';
 import { cn } from '@/lib/cn';
 import { getServiceAccent, ServiceIcon } from './ServiceIcon';
 import { CountUp } from './motion/CountUp';
 import { GlassSpotlight } from './motion/GlassSpotlight';
 
-export function PerformanceSecurity({
-  benchmarks,
-}: {
-  benchmarks: ServicePageContent['benchmarks'];
-}) {
+export function PerformanceSecurity({ benchmarks }: { benchmarks: PerformanceSecurityData }) {
   const { speed, security } = benchmarks;
 
   return (

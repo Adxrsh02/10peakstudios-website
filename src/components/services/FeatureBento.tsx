@@ -1,11 +1,11 @@
 import { Zap } from 'lucide-react';
 import { Reveal } from '@/components/motion/Reveal';
-import type { ServicePageContent } from '@/content/services/types';
+import type { FeatureBentoData } from '@/content/services/types';
 import { cn } from '@/lib/cn';
 import { getServiceAccent, ServiceIcon } from './ServiceIcon';
 import { GlassSpotlight } from './motion/GlassSpotlight';
 
-export function FeatureBento({ features }: { features: ServicePageContent['features'] }) {
+export function FeatureBento({ features }: { features: FeatureBentoData }) {
   const { spotlightTile, gaugeTile, smallTiles } = features;
 
   return (

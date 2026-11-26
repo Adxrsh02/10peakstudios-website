@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { ArrowRight, CheckCircle2, Eye } from 'lucide-react';
-import type { ServicePageContent } from '@/content/services/types';
+import type { ServiceHeroData } from '@/content/services/types';
 import { cn } from '@/lib/cn';
 import { HeroConsoleFloat } from './HeroConsoleFloat';
 import { ServiceCtaLink } from './ServiceCtaLink';
@@ -9,7 +9,7 @@ import { AnimatedProgressBar } from './motion/CountUp';
 
 type ServiceHeroProps = {
   slug: string;
-  hero: ServicePageContent['hero'];
+  hero: ServiceHeroData;
 };
 
 export function ServiceHero({ slug, hero }: ServiceHeroProps) {

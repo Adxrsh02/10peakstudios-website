@@ -30,7 +30,22 @@ export type ServiceIconName =
   | 'key-round'
   | 'refresh-cw'
   | 'check-circle-2'
-  | 'zap';
+  | 'zap'
+  | 'handshake'
+  | 'user-check'
+  | 'calendar-check'
+  | 'wrench'
+  | 'database'
+  | 'network'
+  | 'server'
+  | 'terminal'
+  | 'trending-up'
+  | 'clock'
+  | 'check'
+  | 'activity'
+  | 'users'
+  | 'file-spreadsheet'
+  | 'git-branch';
 
 export type ServiceAccentTone = 'violet' | 'lilac' | 'cyan';
 
@@ -81,6 +96,470 @@ export type ServiceFaqItem = {
   published: boolean;
 };
 
+/* ---------- Existing Website Development Section Data Shapes ---------- */
+
+export type ServiceHeroData = {
+  eyebrow: string;
+  icon: ServiceIconName;
+  titleLead: string;
+  titleAccent: string;
+  summary: string;
+  primaryCtaLabel: string;
+  secondaryCtaLabel: string;
+  secondaryCtaHref: string;
+  miniStats: {
+    value: string;
+    suffix?: string;
+    label: string;
+    accent: ServiceAccentTone;
+  }[];
+  pipelineCard: {
+    title: string;
+    badge: string;
+    footerLabel: string;
+    footerBadge: string;
+    footerProgress: number;
+    previewUrl: string;
+    stages: ServicePipelineStage[];
+  };
+  /** Optional Cloudinary URL or public ID ([CLOUDINARY_URL] left unset until uploaded). */
+  heroPreviewImage?: string | undefined;
+  heroPreviewAlt?: string | undefined;
+};
+
+export type TrustMarqueeData = {
+  label: string;
+  items: string[];
+};
+
+export type ProblemCardsData = {
+  eyebrow: string;
+  titleLead: string;
+  titleAccent: string;
+  items: {
+    title: string;
+    description: string;
+    icon: ServiceIconName;
+    accent: ServiceAccentTone;
+  }[];
+};
+
+export type FeatureBentoData = {
+  eyebrow: string;
+  titleLead: string;
+  titleAccent: string;
+  titleEnd: string;
+  spotlightTile: {
+    eyebrow: string;
+    title: string;
+    description: string;
+  };
+  gaugeTile: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    centerLabel: string;
+    caption: string;
+  };
+  smallTiles: {
+    title: string;
+    description: string;
+    icon: ServiceIconName;
+    accent: ServiceAccentTone;
+  }[];
+};
+
+export type TypeTabsData = {
+  eyebrow: string;
+  title: string;
+  tabs: ServiceTypeTab[];
+};
+
+export type SearchVisibilityData = {
+  eyebrow: string;
+  titleLead: string;
+  titleAccent: string;
+  lead: string;
+  cards: {
+    code: string;
+    title: string;
+    description: string;
+    footerLabel: string;
+    icon: ServiceIconName;
+    accent: ServiceAccentTone;
+  }[];
+  preview: {
+    searchHeading: string;
+    aiHeading: string;
+    aiBadge: string;
+  };
+};
+
+export type AudienceGridData = {
+  eyebrow: string;
+  title: string;
+  items: {
+    title: string;
+    description: string;
+    icon: ServiceIconName;
+    accent: ServiceAccentTone;
+  }[];
+};
+
+export type ProcessTimelineData = {
+  eyebrow: string;
+  title: string;
+  steps: {
+    number: string;
+    code: string;
+    title: string;
+    description: string;
+    accent: ServiceAccentTone;
+  }[];
+};
+
+export type PerformanceSecurityData = {
+  speed: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    footnote: string;
+    gauges: {
+      label: string;
+      targetValue: number;
+      displayValue: string;
+      accent: ServiceAccentTone;
+    }[];
+  };
+  security: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    items: {
+      label: string;
+      icon: ServiceIconName;
+    }[];
+    linkLabel: string;
+    linkHref: string;
+  };
+};
+
+export type PackagesData = {
+  eyebrow: string;
+  title: string;
+  footnote: string;
+  tiers: ServicePackageTier[];
+};
+
+export type WorkTeaserData = {
+  eyebrow: string;
+  title: string;
+  cardEyebrow: string;
+  cardTitle: string;
+  cardDescription: string;
+  ctaLabel: string;
+  ctaHref: string;
+  /** Optional Cloudinary URL or public ID ([CLOUDINARY_URL] left unset until uploaded). */
+  workImage?: string | undefined;
+  workImageAlt?: string | undefined;
+};
+
+export type ServiceFaqData = {
+  eyebrow: string;
+  title: string;
+  items: ServiceFaqItem[];
+};
+
+export type ServiceCtaData = {
+  eyebrow: string;
+  titleLead: string;
+  titleAccent: string;
+  description: string;
+  primaryLabel: string;
+  whatsappLabel: string;
+};
+
+/* ---------- Full-Stack Web App Section Data Shapes ---------- */
+
+export type AppWindowHeroData = {
+  eyebrowPillar: string;
+  eyebrowService: string;
+  titleLead: string;
+  titleAccent: string;
+  summary: string;
+  primaryCtaLabel: string;
+  secondaryCtaLabel: string;
+  secondaryCtaHref: string;
+  highlights: string[];
+  windowUrl: string;
+  userInitials: string;
+  sampleLabel: string;
+  navItems: string[];
+  kpis: {
+    label: string;
+    value: string;
+    meta: string;
+    tone: ServiceAccentTone;
+  }[];
+  chartTitle: string;
+  chartTag: string;
+  orders: {
+    id: string;
+    label: string;
+    status: string;
+    tone: 'emerald' | 'amber' | 'lilac';
+  }[];
+  toasts: {
+    title: string;
+    detail: string;
+    tone: 'emerald' | 'lilac';
+  }[];
+  heroMockImage?: string | undefined;
+  heroMockAlt?: string | undefined;
+};
+
+export type BeforeAfterSliderData = {
+  eyebrow: string;
+  titleLead: string;
+  titleAccent: string;
+  dragLabel: string;
+  before: {
+    badge: string;
+    tag: string;
+    cards: {
+      title: string;
+      lines: string[];
+      tone: 'error' | 'amber' | 'neutral';
+    }[];
+    footerLeft: string;
+    footerRight: string;
+  };
+  after: {
+    badge: string;
+    tag: string;
+    cards: {
+      label: string;
+      value: string;
+      note: string;
+      tone: ServiceAccentTone;
+    }[];
+    footerLeft: string;
+    footerRight: string;
+  };
+  painPoints: {
+    title: string;
+    description: string;
+    icon: ServiceIconName;
+    accent: ServiceAccentTone;
+  }[];
+};
+
+export type ProductSwitcherItem = {
+  id: string;
+  title: string;
+  description: string;
+  icon: ServiceIconName;
+  fitText: string;
+  mockup: {
+    headerLabel: string;
+    sampleLabel: string;
+    metrics: { label: string; value: string; delta: string; tone: ServiceAccentTone }[];
+    rowsTitle: string;
+    rows: {
+      primary: string;
+      secondary: string;
+      badge: string;
+      tone: 'emerald' | 'amber' | 'cyan';
+    }[];
+  };
+};
+
+export type ProductSwitcherData = {
+  eyebrow: string;
+  title: string;
+  products: ProductSwitcherItem[];
+};
+
+export type ExplodedArchitectureData = {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  layers: {
+    number: string;
+    title: string;
+    tag: string;
+    description: string;
+    icon: ServiceIconName;
+    accent: ServiceAccentTone;
+  }[];
+};
+
+export type FingerprintScanData = {
+  eyebrow: string;
+  titleLead: string;
+  titleAccent: string;
+  titleEnd: string;
+  statusBadge: string;
+  capabilities: {
+    label: string;
+    icon: ServiceIconName;
+    accent: ServiceAccentTone;
+  }[];
+  disclaimer: string;
+};
+
+export type RoleModuleItem = {
+  id: string;
+  label: string;
+  value: string;
+  status: string;
+  locked: boolean;
+  ariaLockedLabel?: string;
+};
+
+export type RoleViewItem = {
+  id: string;
+  label: string;
+  indicatorTitle: string;
+  badgeText: string;
+  modules: RoleModuleItem[];
+};
+
+export type RoleSwitcherData = {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  roles: RoleViewItem[];
+};
+
+export type ActivityIntegrationsData = {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  feedTitle: string;
+  sampleLabel: string;
+  events: {
+    text: string;
+    timeAgo: string;
+    icon: ServiceIconName;
+    tone: ServiceAccentTone | 'emerald' | 'amber';
+  }[];
+  hubTitle: string;
+  hubSubtitle: string;
+  coreLabel: string;
+  coreSublabel: string;
+  nodes: {
+    label: string;
+    tone: ServiceAccentTone | 'emerald' | 'amber';
+  }[];
+  protocols: string[];
+};
+
+export type SprintBoardData = {
+  eyebrow: string;
+  title: string;
+  columns: {
+    step: string;
+    cardTag: string;
+    title: string;
+    status: string;
+    accent: ServiceAccentTone | 'emerald' | 'amber';
+    active?: boolean;
+  }[];
+  guarantees: string[];
+};
+
+export type GrowthPathData = {
+  eyebrow: string;
+  title: string;
+  stages: {
+    stageLabel: string;
+    badge?: string | undefined;
+    timelineConfirmed: boolean;
+    fallbackBadge: string;
+    title: string;
+    description: string;
+    deliverableLabel: string;
+    accent: ServiceAccentTone;
+  }[];
+};
+
+export type EngineRoomData = {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  terminals: {
+    filename: string;
+    comment: string;
+    stackLine: string;
+    outputLine: string;
+    accent: ServiceAccentTone;
+  }[];
+};
+
+export type EngagementModelItem = {
+  id: string;
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  price: string;
+  priceConfirmed: boolean;
+  fallbackPrice: string;
+  priceCaption: string;
+  popular?: boolean;
+  badgeText?: string;
+  features: string[];
+  ctaLabel: string;
+  ctaHref: string;
+  accent: ServiceAccentTone;
+};
+
+export type EngagementModelsData = {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  models: EngagementModelItem[];
+};
+
+export type TerminalCtaData = {
+  promptText: string;
+  titleLead: string;
+  titleAccent: string;
+  titleEnd: string;
+  description: string;
+  primaryLabel: string;
+  whatsappLabel: string;
+};
+
+/* ---------- Composable Sections Discriminated Union ---------- */
+
+export type ServiceSectionBlock =
+  | { type: 'serviceHero'; data: ServiceHeroData }
+  | { type: 'trustMarquee'; data: TrustMarqueeData }
+  | { type: 'problemCards'; data: ProblemCardsData }
+  | { type: 'featureBento'; data: FeatureBentoData }
+  | { type: 'typeTabs'; data: TypeTabsData }
+  | { type: 'searchVisibility'; data: SearchVisibilityData }
+  | { type: 'audienceGrid'; data: AudienceGridData }
+  | { type: 'processTimeline'; data: ProcessTimelineData }
+  | { type: 'performanceSecurity'; data: PerformanceSecurityData }
+  | { type: 'packages'; data: PackagesData }
+  | { type: 'workTeaser'; data: WorkTeaserData }
+  | { type: 'serviceFaq'; data: ServiceFaqData }
+  | { type: 'serviceCta'; data: ServiceCtaData }
+  | { type: 'appWindowHero'; data: AppWindowHeroData }
+  | { type: 'beforeAfterSlider'; data: BeforeAfterSliderData }
+  | { type: 'productSwitcher'; data: ProductSwitcherData }
+  | { type: 'explodedArchitecture'; data: ExplodedArchitectureData }
+  | { type: 'fingerprintScan'; data: FingerprintScanData }
+  | { type: 'roleSwitcher'; data: RoleSwitcherData }
+  | { type: 'activityIntegrations'; data: ActivityIntegrationsData }
+  | { type: 'sprintBoard'; data: SprintBoardData }
+  | { type: 'growthPath'; data: GrowthPathData }
+  | { type: 'engineRoom'; data: EngineRoomData }
+  | { type: 'engagementModels'; data: EngagementModelsData }
+  | { type: 'terminalCta'; data: TerminalCtaData };
+
 export type ServicePageContent = {
   slug: ServiceSlug;
   theme: 'glass';
@@ -90,172 +569,5 @@ export type ServicePageContent = {
     ogImage: string;
     indexable: boolean;
   };
-  hero: {
-    eyebrow: string;
-    icon: ServiceIconName;
-    titleLead: string;
-    titleAccent: string;
-    summary: string;
-    primaryCtaLabel: string;
-    secondaryCtaLabel: string;
-    secondaryCtaHref: string;
-    miniStats: {
-      value: string;
-      suffix?: string;
-      label: string;
-      accent: ServiceAccentTone;
-    }[];
-    pipelineCard: {
-      title: string;
-      badge: string;
-      footerLabel: string;
-      footerBadge: string;
-      footerProgress: number;
-      previewUrl: string;
-      stages: ServicePipelineStage[];
-    };
-    /** Optional Cloudinary URL or public ID ([CLOUDINARY_URL] left unset until uploaded). */
-    heroPreviewImage?: string | undefined;
-    heroPreviewAlt?: string | undefined;
-  };
-  marquee: {
-    label: string;
-    items: string[];
-  };
-  problems: {
-    eyebrow: string;
-    titleLead: string;
-    titleAccent: string;
-    items: {
-      title: string;
-      description: string;
-      icon: ServiceIconName;
-      accent: ServiceAccentTone;
-    }[];
-  };
-  features: {
-    eyebrow: string;
-    titleLead: string;
-    titleAccent: string;
-    titleEnd: string;
-    spotlightTile: {
-      eyebrow: string;
-      title: string;
-      description: string;
-    };
-    gaugeTile: {
-      eyebrow: string;
-      title: string;
-      description: string;
-      centerLabel: string;
-      caption: string;
-    };
-    smallTiles: {
-      title: string;
-      description: string;
-      icon: ServiceIconName;
-      accent: ServiceAccentTone;
-    }[];
-  };
-  typeTabs: {
-    eyebrow: string;
-    title: string;
-    tabs: ServiceTypeTab[];
-  };
-  searchVisibility: {
-    eyebrow: string;
-    titleLead: string;
-    titleAccent: string;
-    lead: string;
-    cards: {
-      code: string;
-      title: string;
-      description: string;
-      footerLabel: string;
-      icon: ServiceIconName;
-      accent: ServiceAccentTone;
-    }[];
-    preview: {
-      searchHeading: string;
-      aiHeading: string;
-      aiBadge: string;
-    };
-  };
-  audience: {
-    eyebrow: string;
-    title: string;
-    items: {
-      title: string;
-      description: string;
-      icon: ServiceIconName;
-      accent: ServiceAccentTone;
-    }[];
-  };
-  process: {
-    eyebrow: string;
-    title: string;
-    steps: {
-      number: string;
-      code: string;
-      title: string;
-      description: string;
-      accent: ServiceAccentTone;
-    }[];
-  };
-  benchmarks: {
-    speed: {
-      eyebrow: string;
-      title: string;
-      description: string;
-      footnote: string;
-      gauges: {
-        label: string;
-        targetValue: number;
-        displayValue: string;
-        accent: ServiceAccentTone;
-      }[];
-    };
-    security: {
-      eyebrow: string;
-      title: string;
-      description: string;
-      items: {
-        label: string;
-        icon: ServiceIconName;
-      }[];
-      linkLabel: string;
-      linkHref: string;
-    };
-  };
-  packages: {
-    eyebrow: string;
-    title: string;
-    footnote: string;
-    tiers: ServicePackageTier[];
-  };
-  workTeaser: {
-    eyebrow: string;
-    title: string;
-    cardEyebrow: string;
-    cardTitle: string;
-    cardDescription: string;
-    ctaLabel: string;
-    ctaHref: string;
-    /** Optional Cloudinary URL or public ID ([CLOUDINARY_URL] left unset until uploaded). */
-    workImage?: string | undefined;
-    workImageAlt?: string | undefined;
-  };
-  faq: {
-    eyebrow: string;
-    title: string;
-    items: ServiceFaqItem[];
-  };
-  finalCta: {
-    eyebrow: string;
-    titleLead: string;
-    titleAccent: string;
-    description: string;
-    primaryLabel: string;
-    whatsappLabel: string;
-  };
+  sections: ServiceSectionBlock[];
 };

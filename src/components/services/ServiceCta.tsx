@@ -1,10 +1,10 @@
 import { ArrowRight, MessageCircle } from 'lucide-react';
-import type { ServicePageContent } from '@/content/services/types';
+import type { ServiceCtaData } from '@/content/services/types';
 import { ServiceCtaLink } from './ServiceCtaLink';
 
 type ServiceCtaProps = {
   slug: string;
-  finalCta: ServicePageContent['finalCta'];
+  finalCta: ServiceCtaData;
   whatsappHref: string | null;
 };
 

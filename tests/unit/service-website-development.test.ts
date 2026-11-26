@@ -1,6 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { isGlassServiceRoute } from '@/content/services/glass-routes';
-import { getServicePageContent, isServicePageLiveAndIndexable } from '@/content/services/registry';
+import {
+  findServiceSection,
+  getServicePageContent,
+  isServicePageLiveAndIndexable,
+} from '@/content/services/registry';
 import { serviceBreadcrumbJsonLd, serviceJsonLd, servicePageMetadata } from '@/lib/seo-service';
 
 describe('Website Development service content & gating', () => {
@@ -9,19 +13,30 @@ describe('Website Development service content & gating', () => {
     expect(content).not.toBeNull();
     if (!content) return;
 
-    for (const tier of content.packages.tiers) {
+    const packages = findServiceSection(content, 'packages');
+    const faq = findServiceSection(content, 'serviceFaq');
+    const hero = findServiceSection(content, 'serviceHero');
+    const workTeaser = findServiceSection(content, 'workTeaser');
+
+    expect(packages).toBeDefined();
+    expect(faq).toBeDefined();
+    expect(hero).toBeDefined();
+    expect(workTeaser).toBeDefined();
+
+    for (const tier of packages?.tiers ?? []) {
       expect(tier.price).toBe('Custom quote');
       expect(tier.price).not.toContain('PLACEHOLDER');
       expect(tier.scopeNote).toBeUndefined();
     }
 
-    expect(content.faq.items.length).toBe(5);
-    expect(content.faq.items.some((i) => i.question.includes('Who owns'))).toBe(false);
-    expect(content.hero.heroPreviewImage).toBeUndefined();
-    expect(content.workTeaser.workImage).toBeUndefined();
+    expect(faq?.items.length).toBe(5);
+    expect(faq?.items.some((i) => i.question.includes('Who owns'))).toBe(false);
+    expect(hero?.heroPreviewImage).toBeUndefined();
+    expect(workTeaser?.workImage).toBeUndefined();
 
     const serialized = JSON.stringify(content);
     expect(serialized).not.toContain('[PLACEHOLDER');
+    expect(serialized).not.toContain('[CONFIRM');
     expect(serialized).not.toContain('[X]');
     expect(serialized).not.toContain('[CLOUDINARY_URL');
   });
@@ -29,6 +44,7 @@ describe('Website Development service content & gating', () => {
   it('derives dark-glass navbar routes cleanly from single config', () => {
     expect(isGlassServiceRoute('/services/website-development')).toBe(true);
     expect(isGlassServiceRoute('/services/website-development/')).toBe(true);
+    expect(isGlassServiceRoute('/services/web-app-development')).toBe(true);
     expect(isGlassServiceRoute('/')).toBe(false);
     expect(isGlassServiceRoute('/services/ai-automation')).toBe(false);
     expect(isGlassServiceRoute('/contact')).toBe(false);

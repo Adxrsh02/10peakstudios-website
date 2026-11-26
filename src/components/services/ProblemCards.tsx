@@ -1,10 +1,10 @@
 import { Reveal } from '@/components/motion/Reveal';
-import type { ServicePageContent } from '@/content/services/types';
+import type { ProblemCardsData } from '@/content/services/types';
 import { cn } from '@/lib/cn';
 import { getServiceAccent, ServiceIcon } from './ServiceIcon';
 import { GlassSpotlight } from './motion/GlassSpotlight';
 
-export function ProblemCards({ problems }: { problems: ServicePageContent['problems'] }) {
+export function ProblemCards({ problems }: { problems: ProblemCardsData }) {
   return (
     <section aria-labelledby="problems-heading" className="space-y-8">
       <div className="flex flex-col items-start gap-2">

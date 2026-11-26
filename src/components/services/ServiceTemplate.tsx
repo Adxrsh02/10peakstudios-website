@@ -1,5 +1,6 @@
 import { JsonLd } from '@/components/seo/JsonLd';
-import type { ServicePageContent } from '@/content/services/types';
+import { findServiceSection } from '@/content/services/registry';
+import type { ServicePageContent, ServiceSectionBlock } from '@/content/services/types';
 import { faqJsonLd } from '@/lib/seo';
 import { serviceBreadcrumbJsonLd, serviceJsonLd } from '@/lib/seo-service';
 import { AudienceGrid } from './AudienceGrid';
@@ -23,16 +24,70 @@ type ServiceTemplateProps = {
   whatsappHref: string | null;
 };
 
+function renderSection(
+  block: ServiceSectionBlock,
+  idx: number,
+  slug: string,
+  whatsappHref: string | null,
+) {
+  switch (block.type) {
+    case 'serviceHero':
+      return <ServiceHero key={`serviceHero-${idx}`} slug={slug} hero={block.data} />;
+    case 'trustMarquee':
+      return <TrustMarquee key={`trustMarquee-${idx}`} marquee={block.data} />;
+    case 'problemCards':
+      return <ProblemCards key={`problemCards-${idx}`} problems={block.data} />;
+    case 'featureBento':
+      return <FeatureBento key={`featureBento-${idx}`} features={block.data} />;
+    case 'typeTabs':
+      return <TypeTabs key={`typeTabs-${idx}`} slug={slug} typeTabs={block.data} />;
+    case 'searchVisibility':
+      return <SearchVisibility key={`searchVisibility-${idx}`} searchVisibility={block.data} />;
+    case 'audienceGrid':
+      return <AudienceGrid key={`audienceGrid-${idx}`} audience={block.data} />;
+    case 'processTimeline':
+      return <ProcessTimeline key={`processTimeline-${idx}`} process={block.data} />;
+    case 'performanceSecurity':
+      return <PerformanceSecurity key={`performanceSecurity-${idx}`} benchmarks={block.data} />;
+    case 'packages':
+      return <Packages key={`packages-${idx}`} slug={slug} packages={block.data} />;
+    case 'workTeaser':
+      return <WorkTeaser key={`workTeaser-${idx}`} slug={slug} workTeaser={block.data} />;
+    case 'serviceFaq':
+      return (
+        <ServiceFaq
+          key={`serviceFaq-${idx}`}
+          slug={slug}
+          eyebrow={block.data.eyebrow}
+          title={block.data.title}
+          items={block.data.items}
+        />
+      );
+    case 'serviceCta':
+      return (
+        <ServiceCta
+          key={`serviceCta-${idx}`}
+          slug={slug}
+          finalCta={block.data}
+          whatsappHref={whatsappHref}
+        />
+      );
+    default:
+      return null;
+  }
+}
+
 /**
- * Reusable SSG Service Page Template ("Dark Glass Aurora").
- * Adding a new service page requires only registering a typed content object under
- * `src/content/services/`, with zero duplicate JSX or section markup.
+ * Composable SSG Service Page Template ("Dark Glass Aurora").
+ * Renders any ordered `sections[]` array declared in `src/content/services/*.ts`.
  */
 export function ServiceTemplate({ serviceName, content, whatsappHref }: ServiceTemplateProps) {
-  const faqSchemaItems = content.faq.items.map((item) => ({
-    question: item.question,
-    answer: item.answer,
-  }));
+  const faqSection = findServiceSection(content, 'serviceFaq');
+  const faqSchemaItems =
+    faqSection?.items.map((item) => ({
+      question: item.question,
+      answer: item.answer,
+    })) ?? [];
 
   const structuredData = [
     serviceJsonLd({
@@ -49,24 +104,9 @@ export function ServiceTemplate({ serviceName, content, whatsappHref }: ServiceT
       <AuroraBackground />
 
       <div className="relative z-10 container-wide flex flex-col gap-16 pb-16 sm:gap-20 sm:pb-24 lg:gap-24">
-        <ServiceHero slug={content.slug} hero={content.hero} />
-        <TrustMarquee marquee={content.marquee} />
-        <ProblemCards problems={content.problems} />
-        <FeatureBento features={content.features} />
-        <TypeTabs slug={content.slug} typeTabs={content.typeTabs} />
-        <SearchVisibility searchVisibility={content.searchVisibility} />
-        <AudienceGrid audience={content.audience} />
-        <ProcessTimeline process={content.process} />
-        <PerformanceSecurity benchmarks={content.benchmarks} />
-        <Packages slug={content.slug} packages={content.packages} />
-        <WorkTeaser slug={content.slug} workTeaser={content.workTeaser} />
-        <ServiceFaq
-          slug={content.slug}
-          eyebrow={content.faq.eyebrow}
-          title={content.faq.title}
-          items={content.faq.items}
-        />
-        <ServiceCta slug={content.slug} finalCta={content.finalCta} whatsappHref={whatsappHref} />
+        {content.sections.map((block, idx) =>
+          renderSection(block, idx, content.slug, whatsappHref),
+        )}
       </div>
 
       <JsonLd data={structuredData} />

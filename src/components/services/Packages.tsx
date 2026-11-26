@@ -1,14 +1,14 @@
 import { Check } from 'lucide-react';
 import { Reveal } from '@/components/motion/Reveal';
 import { SplitHeading } from '@/components/motion/SplitHeading';
-import type { ServicePageContent } from '@/content/services/types';
+import type { PackagesData } from '@/content/services/types';
 import { cn } from '@/lib/cn';
 import { ServiceCtaLink } from './ServiceCtaLink';
 import { GlassSpotlight } from './motion/GlassSpotlight';
 
 type PackagesProps = {
   slug: string;
-  packages: ServicePageContent['packages'];
+  packages: PackagesData;
 };
 
 export function Packages({ slug, packages }: PackagesProps) {

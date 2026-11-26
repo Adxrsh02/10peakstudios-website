@@ -1,10 +1,10 @@
 import { Reveal } from '@/components/motion/Reveal';
-import type { ServicePageContent } from '@/content/services/types';
+import type { AudienceGridData } from '@/content/services/types';
 import { cn } from '@/lib/cn';
 import { getServiceAccent, ServiceIcon } from './ServiceIcon';
 import { GlassSpotlight } from './motion/GlassSpotlight';
 
-export function AudienceGrid({ audience }: { audience: ServicePageContent['audience'] }) {
+export function AudienceGrid({ audience }: { audience: AudienceGridData }) {
   return (
     <section aria-labelledby="audience-heading" className="space-y-8">
       <div className="flex flex-col items-start gap-2">

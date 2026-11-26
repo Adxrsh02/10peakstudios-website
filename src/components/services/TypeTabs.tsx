@@ -2,13 +2,13 @@
 
 import { useState, type KeyboardEvent } from 'react';
 import { CheckCircle2 } from 'lucide-react';
-import type { ServicePageContent } from '@/content/services/types';
+import type { TypeTabsData } from '@/content/services/types';
 import { track } from '@/lib/analytics';
 import { cn } from '@/lib/cn';
 
 type TypeTabsProps = {
   slug: string;
-  typeTabs: ServicePageContent['typeTabs'];
+  typeTabs: TypeTabsData;
 };
 
 /**

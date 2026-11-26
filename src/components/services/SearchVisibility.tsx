@@ -1,15 +1,11 @@
 import { Sparkles } from 'lucide-react';
 import { Reveal } from '@/components/motion/Reveal';
-import type { ServicePageContent } from '@/content/services/types';
+import type { SearchVisibilityData } from '@/content/services/types';
 import { cn } from '@/lib/cn';
 import { getServiceAccent, ServiceIcon } from './ServiceIcon';
 import { GlassSpotlight } from './motion/GlassSpotlight';
 
-export function SearchVisibility({
-  searchVisibility,
-}: {
-  searchVisibility: ServicePageContent['searchVisibility'];
-}) {
+export function SearchVisibility({ searchVisibility }: { searchVisibility: SearchVisibilityData }) {
   return (
     <section aria-labelledby="search-visibility-heading" className="space-y-8">
       <div className="flex max-w-3xl flex-col items-start gap-2">
