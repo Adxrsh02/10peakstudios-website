@@ -65,7 +65,7 @@ test.describe('Legal pages, Privacy Choices & GPC', () => {
 
     const width = page.viewportSize()?.width ?? 1440;
     if (isDesktop(width)) {
-      const toc = page.getByRole('navigation', { name: 'Table of contents' });
+      const toc = page.getByRole('navigation', { name: 'Document sections' });
       await expect(toc).toBeVisible();
       await toc.getByRole('link', { name: /Grievance Officer/i }).click();
       await expect(page).toHaveURL(/#grievance-officer/);
@@ -73,7 +73,7 @@ test.describe('Legal pages, Privacy Choices & GPC', () => {
       const drawerBtn = page.getByRole('button', { name: /On this page/i });
       await expect(drawerBtn).toBeVisible();
       await drawerBtn.click();
-      await page.getByRole('link', { name: /13\s+Grievance Officer/i }).click();
+      await page.getByRole('link', { name: /13\.\s*Grievance Officer/i }).click();
       await expect(page).toHaveURL(/#grievance-officer/);
     }
   });
