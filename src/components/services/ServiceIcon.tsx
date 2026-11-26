@@ -127,6 +127,30 @@ const ACCENT_STYLES: Record<
   },
 };
 
+const EXTENDED_TONE_STYLES = {
+  ...ACCENT_STYLES,
+  emerald: {
+    badge: 'bg-[rgb(16_185_129/0.14)] border-[rgb(110_231_183/0.32)] text-[#6ee7b7]',
+    text: 'text-[#6ee7b7]',
+    bar: 'from-emerald-500 to-teal-300',
+    dot: 'bg-emerald-400 border-emerald-400',
+    border: 'border-emerald-400/35',
+  },
+  amber: {
+    badge: 'bg-[rgb(245_158_11/0.14)] border-[rgb(252_211_77/0.32)] text-[#fcd34d]',
+    text: 'text-[#fcd34d]',
+    bar: 'from-amber-500 to-amber-300',
+    dot: 'bg-amber-400 border-amber-400',
+    border: 'border-amber-400/35',
+  },
+} as const;
+
+export type ServiceExtendedTone = keyof typeof EXTENDED_TONE_STYLES;
+
 export function getServiceAccent(tone: ServiceAccentTone) {
   return ACCENT_STYLES[tone];
+}
+
+export function getServiceExtendedTone(tone: ServiceExtendedTone) {
+  return EXTENDED_TONE_STYLES[tone];
 }
