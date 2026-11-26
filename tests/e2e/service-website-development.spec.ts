@@ -69,7 +69,8 @@ test.describe('Website Development service page', () => {
       await page.keyboard.press('Escape');
     }
 
-    // CTA navigates to /contact?service=website-development and preselects chip
+    // Scroll cleanly to hero and verify CTA navigates to /contact?service=website-development and preselects chip
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
     await page
       .locator('main')
       .getByRole('link', { name: /Start a project/i })

@@ -8,26 +8,26 @@ export function AuroraBackground() {
     <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
       {/* Primary brand violet top bloom */}
       <div
-        className="service-aurora-blob-a absolute -top-[18%] left-1/2 h-[34rem] w-[58rem] -translate-x-1/2 rounded-full opacity-30 blur-[110px]"
+        className="service-aurora-blob-a absolute -top-[22%] left-1/2 h-[38rem] w-[62rem] -translate-x-1/2 rounded-full opacity-35"
         style={{
           background:
-            'radial-gradient(closest-side, rgb(142 33 252 / 0.55), rgb(72 11 180 / 0.25) 60%, transparent 100%)',
+            'radial-gradient(closest-side, rgb(142 33 252 / 0.55) 0%, rgb(72 11 180 / 0.22) 45%, rgb(72 11 180 / 0.05) 75%, transparent 100%)',
         }}
       />
       {/* Mid-page lilac spark flare */}
       <div
-        className="service-aurora-blob-b absolute top-[38%] -left-[12%] h-[36rem] w-[36rem] rounded-full opacity-22 blur-[120px]"
+        className="service-aurora-blob-b absolute top-[35%] -left-[16%] h-[40rem] w-[40rem] rounded-full opacity-25"
         style={{
           background:
-            'radial-gradient(closest-side, rgb(167 67 248 / 0.45), rgb(142 33 252 / 0.14) 65%, transparent 100%)',
+            'radial-gradient(closest-side, rgb(167 67 248 / 0.48) 0%, rgb(142 33 252 / 0.16) 48%, transparent 100%)',
         }}
       />
       {/* Lower spectral cyan resonance */}
       <div
-        className="service-aurora-blob-a absolute right-[-10%] bottom-[8%] h-[36rem] w-[40rem] rounded-full opacity-22 blur-[115px]"
+        className="service-aurora-blob-a absolute right-[-14%] bottom-[4%] h-[40rem] w-[44rem] rounded-full opacity-25"
         style={{
           background:
-            'radial-gradient(closest-side, rgb(76 215 246 / 0.35), rgb(0 97 114 / 0.18) 65%, transparent 100%)',
+            'radial-gradient(closest-side, rgb(76 215 246 / 0.36) 0%, rgb(0 97 114 / 0.14) 50%, transparent 100%)',
         }}
       />
       {/* Architectural radial-masked hairline grid */}
