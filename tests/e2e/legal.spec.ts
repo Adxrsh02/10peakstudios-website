@@ -73,7 +73,10 @@ test.describe('Legal pages, Privacy Choices & GPC', () => {
       const drawerBtn = page.getByRole('button', { name: /On this page/i });
       await expect(drawerBtn).toBeVisible();
       await drawerBtn.click();
-      await page.getByRole('link', { name: /13\.\s*Grievance Officer/i }).click();
+      await page
+        .getByRole('navigation', { name: 'On this page' })
+        .getByRole('link', { name: /Grievance Officer/i })
+        .click();
       await expect(page).toHaveURL(/#grievance-officer/);
     }
   });
