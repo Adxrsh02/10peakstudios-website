@@ -11,7 +11,15 @@ export type AnalyticsEvent =
   | 'generate_lead'
   | 'whatsapp_click'
   | 'email_click'
-  | 'consent_update';
+  | 'consent_update'
+  | 'portfolio_search'
+  | 'portfolio_filter'
+  | 'case_study_view'
+  | 'case_study_cta_click'
+  | 'github_click'
+  | 'live_demo_click'
+  | 'gallery_open'
+  | 'video_play';
 
 const ALLOWED_PARAMS = new Set([
   'cta_id',
@@ -27,6 +35,14 @@ const ALLOWED_PARAMS = new Set([
   'timeline',
   'analytics',
   'session_insights',
+  'project_slug',
+  'industry',
+  'filter_type',
+  'filter_value',
+  'results_count',
+  'query_length',
+  'media_label',
+  'provider',
 ]);
 
 type Params = Record<string, string | number | undefined>;
