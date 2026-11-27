@@ -144,38 +144,36 @@ export type ProcessPageContent = {
 };
 
 const HERO_BLUR =
-  'data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAAAwBACdASoQABQAPtFUo0uoJKMhsAgBABoJYgCdMoMzG0a9WgL+/v6KcgAA/vH2f5aDhfeyT/pnt/taa4y39Sm+farsUfvJaI1qRu9hCicPLLqwRK2u6Gbh0OdLstW5KL/dw/XgHlzcGnOmCIhhnDL7rcFO6X+IIb9eQnkuOfwIU17PDP+/SstiUktKHOu33X6tzCWB7bNARU+Q8krtZDQtUSsTHwkv8AryeAG5zoT0QQHOb8AAAA==';
+  'data:image/webp;base64,UklGRsgAAABXRUJQVlA4ILwAAABQBACdASoQABUAPtFUo0uoJKMhsAgBABoJaACdMoAlthJKmENKh/EktkTgAP7x92YRkhMHSwXd79pMi2BoLSqH0u89XmSYjYm1rOGFOAlX0dKh4ioidN4/HhNQ/jrMuMuH0R8+hKKgLFnJxkLX0HCaKdf7KvPZ212Gir/xHxYp+hXNnP7WN+KaqRPA2lO9fOMcu0Uc9rK0ctk0A6VlfXkQKTPo/PhxFAupx5u0pVuArEEVXv9C25gW7AAAAA==';
 
 const ONLINE_CALL_BLUR =
   'data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAABwAgCdASoQAAwAAsBMJYgCdAYsFwXBIIIrSStAAP7nWEyoW1oBKKcgAO/00UzblBwHuGJ35yC0+sPMnstnGvNS7o3/+bY/K39qLOduX52817AoeJ5adC+LFJx2GThSm/wHfF7RP2OxUOQpdOkzpI+QfIUAz4EAAAA=';
 
 const LAUNCH_BLUR =
-  'data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoQAAwAAsBMJYgCdAEO+YlpVk0AAP73eaYogbSk1aTTDoGh2zUXpJSr+UmLUiZgmvHqhDZejB5NqqMlGkQbKCyhdyZNE1gAAAA=';
+  'data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAwAgCdASoQAAwAAsBMJYgCdAEPEA7qHWJcoAD+93mmKIG0pNKxt0xoogjtKYEKXl0ZRH4t4vYEXeLuXlnf8EV87junmMrVD+cAAA==';
 
 const HERO_MEETING_IMAGE: ProcessImageSlot = {
-  // Replace with uploaded hww-hero-meeting URL (Cloudinary cloud: lta722n4)
-  src: '[CLOUDINARY_URL]',
+  src: 'https://res.cloudinary.com/lta722n4/image/upload/v1795792385/hww-hero-meeting.png',
   alt: 'Engineers and designers sketching product wireframes with a client around a sunlit studio table',
   width: 896,
-  height: 1120,
+  height: 1200,
   aspectClass: 'aspect-[4/5]',
   blurDataURL: HERO_BLUR,
   fallbackLabel: 'hww-hero-meeting · Discovery workshop',
 };
 
 const IN_PERSON_CARD_IMAGE: ProcessImageSlot = {
-  // Replace with uploaded hww-hero-meeting URL (Cloudinary cloud: lta722n4)
-  src: '[CLOUDINARY_URL]',
+  src: 'https://res.cloudinary.com/lta722n4/image/upload/v1795792385/hww-hero-meeting.png',
   alt: 'In-person project discovery workshop seated around wireframe sketches',
   width: 896,
-  height: 672,
+  height: 1200,
   aspectClass: 'aspect-[4/3]',
   blurDataURL: HERO_BLUR,
   fallbackLabel: 'hww-hero-meeting · On-site discovery',
 };
 
 const ONLINE_CALL_IMAGE: ProcessImageSlot = {
-  // Replace with uploaded hww-online-call URL (Cloudinary cloud: lta722n4)
+  // Pending clean upload: uploaded hww-online-call.png still shows the "MUMBAI" mug; use _upload/hww-online-call.webp
   src: '[CLOUDINARY_URL]',
   alt: 'Studio strategist on a remote video call reviewing interface wireframes on a laptop',
   width: 928,
@@ -186,11 +184,10 @@ const ONLINE_CALL_IMAGE: ProcessImageSlot = {
 };
 
 const LAUNCH_IMAGE: ProcessImageSlot = {
-  // Replace with uploaded hww-launch URL (Cloudinary cloud: lta722n4)
-  src: '[CLOUDINARY_URL]',
+  src: 'https://res.cloudinary.com/lta722n4/image/upload/v1795791792/screen.png',
   alt: 'Evening product launch telemetry displayed across mobile and desktop analytics views',
-  width: 1192,
-  height: 894,
+  width: 1200,
+  height: 896,
   aspectClass: 'aspect-[4/3]',
   blurDataURL: LAUNCH_BLUR,
   fallbackLabel: 'hww-launch · Go-live telemetry',
@@ -198,7 +195,7 @@ const LAUNCH_IMAGE: ProcessImageSlot = {
 
 /**
  * Typed content singleton for How We Work (/about/process, PRD 8.5, Rules.md RUL-CNT-09).
- * Keep `seo.indexable = false` until `[CLOUDINARY_URL]` slots are replaced with real uploaded URLs.
+ * Keep `seo.indexable = false` until remaining `[CLOUDINARY_URL]` slots (Online Call & Camps 03/05) are replaced.
  */
 export const processContent: ProcessPageContent = {
   seo: {
