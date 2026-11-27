@@ -6,6 +6,7 @@ import { faqJsonLd } from '@/lib/seo';
 import { serviceBreadcrumbJsonLd, serviceJsonLd } from '@/lib/seo-service';
 import { AppWindowHero } from './AppWindowHero';
 import { AudienceGrid } from './AudienceGrid';
+import { DigitalMarketingSimulatorProvider } from './DigitalMarketingSimulator';
 import { ExplodedArchitecture } from './ExplodedArchitecture';
 import { FeatureBento } from './FeatureBento';
 import { GrowthPath } from './GrowthPath';
@@ -13,12 +14,16 @@ import { Packages } from './Packages';
 import { PerformanceSecurity } from './PerformanceSecurity';
 import { ProblemCards } from './ProblemCards';
 import { ProcessTimeline } from './ProcessTimeline';
+import { ReportPreview } from './ReportPreview';
 import { SearchVisibility } from './SearchVisibility';
 import { ServiceCta } from './ServiceCta';
 import { ServiceFaq } from './ServiceFaq';
 import { ServiceHero } from './ServiceHero';
+import { SignalHero } from './SignalHero';
+import { SignalPath } from './SignalPath';
 import { TerminalCta } from './TerminalCta';
 import { TrustMarquee } from './TrustMarquee';
+import { TrustNeverAlways } from './TrustNeverAlways';
 import { TypeTabs } from './TypeTabs';
 import { WorkTeaser } from './WorkTeaser';
 import { AuroraBackground } from './motion/AuroraBackground';
@@ -38,6 +43,18 @@ const SprintBoard = dynamic(() => import('./SprintBoard').then((m) => m.SprintBo
 const EngineRoom = dynamic(() => import('./EngineRoom').then((m) => m.EngineRoom));
 const EngagementModels = dynamic(() =>
   import('./EngagementModels').then((m) => m.EngagementModels),
+);
+const VisibilityLadder = dynamic(() =>
+  import('./VisibilityLadder').then((m) => m.VisibilityLadder),
+);
+const VisibilityQuiz = dynamic(() => import('./VisibilityQuiz').then((m) => m.VisibilityQuiz));
+const TrafficFlow = dynamic(() => import('./TrafficFlow').then((m) => m.TrafficFlow));
+const GrowthControlRoom = dynamic(() =>
+  import('./GrowthControlRoom').then((m) => m.GrowthControlRoom),
+);
+const CodeFlip = dynamic(() => import('./CodeFlip').then((m) => m.CodeFlip));
+const GrowthSpeedSlider = dynamic(() =>
+  import('./GrowthSpeedSlider').then((m) => m.GrowthSpeedSlider),
 );
 
 type ServiceTemplateProps = {
@@ -125,6 +142,26 @@ function renderSection(
           whatsappHref={whatsappHref}
         />
       );
+    case 'signalHero':
+      return <SignalHero key={`signalHero-${idx}`} slug={slug} data={block.data} />;
+    case 'visibilityLadder':
+      return <VisibilityLadder key={`visibilityLadder-${idx}`} slug={slug} data={block.data} />;
+    case 'visibilityQuiz':
+      return <VisibilityQuiz key={`visibilityQuiz-${idx}`} slug={slug} data={block.data} />;
+    case 'trafficFlow':
+      return <TrafficFlow key={`trafficFlow-${idx}`} slug={slug} data={block.data} />;
+    case 'growthControlRoom':
+      return <GrowthControlRoom key={`growthControlRoom-${idx}`} slug={slug} data={block.data} />;
+    case 'codeFlip':
+      return <CodeFlip key={`codeFlip-${idx}`} slug={slug} data={block.data} />;
+    case 'trustNeverAlways':
+      return <TrustNeverAlways key={`trustNeverAlways-${idx}`} data={block.data} />;
+    case 'reportPreview':
+      return <ReportPreview key={`reportPreview-${idx}`} data={block.data} />;
+    case 'signalPath':
+      return <SignalPath key={`signalPath-${idx}`} data={block.data} />;
+    case 'growthSpeedSlider':
+      return <GrowthSpeedSlider key={`growthSpeedSlider-${idx}`} slug={slug} data={block.data} />;
   }
 }
 
@@ -155,9 +192,11 @@ export function ServiceTemplate({ serviceName, content, whatsappHref }: ServiceT
       <AuroraBackground />
 
       <div className="relative z-10 container-wide flex flex-col gap-16 pb-16 sm:gap-20 sm:pb-24 lg:gap-24">
-        {content.sections.map((block, idx) =>
-          renderSection(block, idx, content.slug, whatsappHref),
-        )}
+        <DigitalMarketingSimulatorProvider>
+          {content.sections.map((block, idx) =>
+            renderSection(block, idx, content.slug, whatsappHref),
+          )}
+        </DigitalMarketingSimulatorProvider>
       </div>
 
       <JsonLd data={structuredData} />

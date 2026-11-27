@@ -1,3 +1,4 @@
+import { digitalMarketingContent } from './digital-marketing';
 import type { ServicePageContent, ServiceSectionBlock } from './types';
 import { webAppDevelopmentContent } from './web-app-development';
 import { websiteDevelopmentContent } from './website-development';
@@ -5,6 +6,7 @@ import { websiteDevelopmentContent } from './website-development';
 const SERVICE_CONTENT_REGISTRY: Partial<Record<string, ServicePageContent>> = {
   [websiteDevelopmentContent.slug]: websiteDevelopmentContent,
   [webAppDevelopmentContent.slug]: webAppDevelopmentContent,
+  [digitalMarketingContent.slug]: digitalMarketingContent,
 };
 
 const hasForbiddenToken = (value: string | undefined): boolean =>
@@ -101,6 +103,20 @@ function sanitizeSection(block: ServiceSectionBlock): ServiceSectionBlock {
               model.priceConfirmed && !hasForbiddenToken(model.price)
                 ? model.price
                 : model.fallbackPrice,
+          })),
+        },
+      };
+    case 'growthSpeedSlider':
+      return {
+        type: 'growthSpeedSlider',
+        data: {
+          ...block.data,
+          plans: block.data.plans.map((plan) => ({
+            ...plan,
+            price:
+              plan.priceConfirmed && !hasForbiddenToken(plan.price)
+                ? plan.price
+                : plan.fallbackPrice,
           })),
         },
       };
