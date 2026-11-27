@@ -298,7 +298,6 @@ export function VisibilityLadder({ slug, data }: VisibilityLadderProps) {
               return (
                 <article
                   key={stage.id}
-                  aria-hidden={!isActive ? true : undefined}
                   className={cn(
                     'glass-card-strong glass-specular rounded-lg p-5 motion-reduce:block! sm:p-7',
                     isActive ? 'block' : 'hidden [html[data-motion-tier="0"]_&]:block!',
