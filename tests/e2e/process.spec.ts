@@ -10,7 +10,7 @@ test.describe('How We Work (/about/process)', () => {
 
     await expect(page.locator('[data-theme="ascent"]')).toBeVisible();
     await expect(page.locator('header[data-header-theme="dark-glass"]')).toHaveCount(0);
-    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /index,\s*follow/);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
       'href',
       'https://10peakstudios.com/about/process',

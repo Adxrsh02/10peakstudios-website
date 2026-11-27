@@ -52,24 +52,24 @@ describe('/about/process content and integrity', () => {
     ]);
   });
 
-  it('meets SEO length budgets and stays noindex while Cloudinary slots are pending', () => {
+  it('meets SEO length budgets and is indexable now that image slots are filled', () => {
     expect(processContent.seo.title.length).toBeLessThanOrEqual(45);
     expect(`${processContent.seo.title} | 10PeakStudio`.length).toBeLessThanOrEqual(60);
     expect(processContent.seo.description.length).toBeGreaterThanOrEqual(110);
     expect(processContent.seo.description.length).toBeLessThanOrEqual(160);
-    expect(isProcessPageIndexable()).toBe(false);
+    expect(isProcessPageIndexable()).toBe(true);
   });
 
   it('swaps Cloudinary URLs cleanly via resolveProcessImage when a URL is supplied', () => {
-    const pending = resolveProcessImage(processContent.hero.image);
-    expect(pending.src).toBeUndefined();
-
-    const populated = resolveProcessImage({
+    const pendingFixture = {
       ...processContent.hero.image,
-      src: 'https://res.cloudinary.com/lta722n4/image/upload/v1/hww-hero-meeting.webp',
-    });
+      src: '',
+    };
+    expect(resolveProcessImage(pendingFixture).src).toBeUndefined();
+
+    const populated = resolveProcessImage(processContent.hero.image);
     expect(populated.src).toBe(
-      'https://res.cloudinary.com/lta722n4/image/upload/v1/hww-hero-meeting.webp',
+      'https://res.cloudinary.com/lta722n4/image/upload/v1795792385/hww-hero-meeting.png',
     );
   });
 

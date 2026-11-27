@@ -194,7 +194,6 @@ const LAUNCH_IMAGE: ProcessImageSlot = {
 
 /**
  * Typed content singleton for How We Work (/about/process, PRD 8.5, Rules.md RUL-CNT-09).
- * Keep `seo.indexable = false` until remaining `[CLOUDINARY_URL]` slots (Online Call & Camps 03/05) are replaced.
  */
 export const processContent: ProcessPageContent = {
   seo: {
@@ -202,9 +201,7 @@ export const processContent: ProcessPageContent = {
     description:
       'See how 10PeakStudio takes a project from first call to prototype, validation, build and launch with clear approvals at every step.',
     path: '/about/process',
-    // Flip to true after uploading WebP assets to Cloudinary and replacing `[CLOUDINARY_URL]` values
-    indexable: false,
-    // Replace with uploaded hww-hero-meeting Cloudinary URL when live
+    indexable: true,
     ogImage: '/og/home.png',
   },
 
@@ -297,9 +294,9 @@ export const processContent: ProcessPageContent = {
         description: 'We design the key screens and make a clickable prototype.',
         whatYouGet: 'A prototype you can click through on your phone and laptop.',
         yourPart: 'Try it and tell us what feels wrong.',
-        // Swappable field: supply Cloudinary URL here once regenerated (hww-prototype-review)
+        // Swappable field: add regenerated Cloudinary URL here to replace the coded glass panel
         image: {
-          src: '[CLOUDINARY_URL]',
+          src: '',
           alt: 'Clickable desktop and mobile interface prototype review',
           width: 1200,
           height: 896,
@@ -340,9 +337,9 @@ export const processContent: ProcessPageContent = {
         description: 'We develop in stages and share progress on a private preview link.',
         whatYouGet: 'Regular demos on a private preview link and a test version to try.',
         yourPart: 'Test and give feedback.',
-        // Swappable field: supply Cloudinary URL here once regenerated (hww-build)
+        // Swappable field: add regenerated Cloudinary URL here to replace the coded glass panel
         image: {
-          src: '[CLOUDINARY_URL]',
+          src: '',
           alt: 'Staged engineering build with automated checks and private preview link',
           width: 1200,
           height: 896,

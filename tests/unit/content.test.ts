@@ -74,6 +74,7 @@ describe('content integrity', () => {
       '/services/web-app-development',
       '/services/digital-marketing',
       '/about',
+      '/about/process',
       '/portfolio',
       '/contact',
       '/privacy',
