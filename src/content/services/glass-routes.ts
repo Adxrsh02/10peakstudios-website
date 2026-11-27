@@ -30,6 +30,10 @@ export const SERVICE_STICKY_CTA_OVERRIDES: Partial<Record<string, ServiceStickyC
     label: 'Free audit',
     href: '/contact?service=digital-marketing',
   },
+  '/about/process': {
+    label: 'Book a call',
+    href: '/contact',
+  },
 };
 
 export function normalizeServicePathname(pathname: string | null | undefined): string | null {

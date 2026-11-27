@@ -21,6 +21,10 @@ export type AnalyticsEvent =
   | 'control_node_open'
   | 'code_flip_toggle'
   | 'growth_plan_change'
+  | 'process_cta_click'
+  | 'ascent_camp_view'
+  | 'ascent_complete'
+  | 'process_faq_open'
   | 'form_start'
   | 'form_step'
   | 'form_error'
@@ -71,6 +75,7 @@ const ALLOWED_PARAMS = new Set([
   'traffic_type',
   'view_mode',
   'plan_id',
+  'camp_number',
 ]);
 
 type Params = Record<string, string | number | undefined>;

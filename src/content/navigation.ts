@@ -1,3 +1,4 @@
+import { isProcessPageIndexable } from './process';
 import { pillars, servicePath, services, servicesByPillar } from './services';
 import { isServicePageLiveAndIndexable } from './services/registry';
 import type { NavLink, PillarId, RouteEntry } from './types';
@@ -16,7 +17,12 @@ export const routes: RouteEntry[] = [
     prd: '8.3',
   })),
   { path: '/about', title: 'About', status: 'live', prd: '8.4' },
-  { path: '/about/process', title: 'How We Work', status: 'stub', prd: '8.5' },
+  {
+    path: '/about/process',
+    title: 'How We Work',
+    status: isProcessPageIndexable() ? 'live' : 'stub',
+    prd: '8.5',
+  },
   { path: '/security', title: 'Security by Design', status: 'stub', prd: '8.6' },
   { path: '/portfolio', title: 'Portfolio', status: 'live', prd: 'R2' },
   { path: '/contact', title: 'Contact', status: 'live', prd: '8.7' },

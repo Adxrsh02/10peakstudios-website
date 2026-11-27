@@ -1,0 +1,236 @@
+/* Scoped "The Ascent" light-to-dark tokens and utilities for /about/process.
+   Strictly isolated under [data-theme="ascent"] so global tokens, Home, About, Contact,
+   and dark-glass service routes remain completely unchanged (Rules.md RUL-ST-01..03). */
+
+[data-theme='ascent'] {
+  --ascent-white: #ffffff;
+  --ascent-paper: #f7f6fb;
+  --ascent-glass-bg: rgb(255 255 255 / 0.72);
+  --ascent-glass-bg-strong: rgb(255 255 255 / 0.9);
+  --ascent-glass-border: #e9e5f5;
+  --ascent-ink: #0e0b1a;
+  --ascent-ink-muted: #4a4560;
+  --ascent-violet: var(--color-peak-violet); /* #8e21fc */
+  --ascent-violet-deep: var(--color-deep-violet); /* #480bb4 */
+  --ascent-lilac: var(--color-lilac-spark); /* #a743f8 */
+  --ascent-glow: var(--color-glow-violet); /* #5b10e0 */
+  --ascent-purple-shadow: 0 20px 50px rgb(91 16 224 / 0.14);
+  --ascent-card-shadow: 0 8px 30px rgb(91 16 224 / 0.08);
+
+  /* Dark summit tokens for The Ascent lower stage, Approval Gates, and Final CTA */
+  --ascent-dark-canvas: #07060d;
+  --ascent-dark-dusk: #1a122b;
+  --ascent-dark-elevated: #0e0b1a;
+  --ascent-dark-surface: rgb(255 255 255 / 0.05);
+  --ascent-dark-surface-strong: rgb(15 13 21 / 0.86);
+  --ascent-dark-border: rgb(255 255 255 / 0.14);
+  --ascent-dark-border-strong: rgb(255 255 255 / 0.24);
+  --ascent-dark-text: var(--color-summit-white); /* #fcfcfc */
+  --ascent-dark-muted: #c8c2dc; /* >= 4.5:1 WCAG AA on #07060d & #0e0b1a */
+  --ascent-dark-meta: var(--color-inverse-muted); /* #a9a7bb */
+  --ascent-cyan: #4cd7f6;
+  --ascent-cyan-soft: rgb(76 215 246 / 0.14);
+
+  /* Light blur capped at 12px on mobile per performance & visual guidelines */
+  --ascent-blur: blur(12px) saturate(125%);
+  --ascent-night-opacity: 0;
+
+  background-color: var(--ascent-white);
+  color: var(--ascent-ink);
+  overflow-x: clip;
+}
+
+@media (min-width: 768px) {
+  [data-theme='ascent'] {
+    --ascent-blur: blur(16px) saturate(135%);
+  }
+}
+
+[data-theme='ascent'] :focus-visible {
+  outline: 2px solid var(--ascent-violet);
+  outline-offset: 2px;
+}
+
+[data-theme='ascent'] .ascent-dark :focus-visible {
+  outline: 2px solid var(--color-inverse-link);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgb(142 33 252 / 0.32);
+}
+
+/* Light theme surface panels */
+[data-theme='ascent'] .ascent-light-glass {
+  background-color: var(--ascent-glass-bg);
+  border: 1px solid var(--ascent-glass-border);
+  box-shadow: var(--ascent-card-shadow);
+  backdrop-filter: var(--ascent-blur);
+  -webkit-backdrop-filter: var(--ascent-blur);
+}
+
+[data-theme='ascent'] .ascent-light-frame {
+  background: linear-gradient(180deg, var(--ascent-white) 0%, var(--ascent-paper) 100%);
+  border: 1px solid var(--ascent-glass-border);
+  box-shadow: var(--ascent-purple-shadow);
+}
+
+[data-theme='ascent'] .ascent-chip-light {
+  background-color: var(--ascent-glass-bg-strong);
+  border: 1px solid var(--ascent-glass-border);
+  box-shadow: 0 10px 25px rgb(91 16 224 / 0.15);
+  backdrop-filter: var(--ascent-blur);
+  -webkit-backdrop-filter: var(--ascent-blur);
+}
+
+/* Dark theme surface panels */
+[data-theme='ascent'] .ascent-dark {
+  color-scheme: dark;
+  background-color: var(--ascent-dark-canvas);
+  color: var(--ascent-dark-text);
+}
+
+[data-theme='ascent'] .ascent-dark-glass {
+  background-color: var(--ascent-dark-surface);
+  border: 1px solid var(--ascent-dark-border);
+  box-shadow:
+    0 20px 50px -24px rgb(0 0 0 / 0.75),
+    inset 0 1px 0 0 rgb(255 255 255 / 0.14);
+  backdrop-filter: var(--ascent-blur);
+  -webkit-backdrop-filter: var(--ascent-blur);
+}
+
+[data-theme='ascent'] .ascent-dark-glass-strong {
+  background-color: var(--ascent-dark-surface-strong);
+  border: 1px solid rgb(167 67 248 / 0.44);
+  box-shadow:
+    0 24px 60px -20px rgb(91 16 224 / 0.4),
+    inset 0 1px 0 0 rgb(255 255 255 / 0.18);
+  backdrop-filter: var(--ascent-blur);
+  -webkit-backdrop-filter: var(--ascent-blur);
+}
+
+/* Brand violet pill buttons scoped to Ascent light & dark sections */
+[data-theme='ascent'] .ascent-cta-primary {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-deep-violet) 0%,
+    var(--color-peak-violet) 60%,
+    var(--color-lilac-spark) 100%
+  );
+  color: var(--ascent-white);
+  border: 1px solid rgb(255 255 255 / 0.22);
+  box-shadow: 0 8px 28px -4px rgb(91 16 224 / 0.42);
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+@media (hover: hover) {
+  [data-theme='ascent'] .ascent-cta-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 34px -4px rgb(142 33 252 / 0.52);
+  }
+}
+
+/* Scroll-linked white-to-night gradient backdrop in The Ascent */
+[data-theme='ascent'] .ascent-stage-sky {
+  background: linear-gradient(
+    180deg,
+    var(--ascent-paper) 0%,
+    #ede8fa 22%,
+    #291847 64%,
+    var(--ascent-dark-canvas) 100%
+  );
+}
+
+[data-theme='ascent'] .ascent-stage-night-layer {
+  background: radial-gradient(
+    ellipse 85% 65% at 50% 20%,
+    rgb(91 16 224 / 0.28) 0%,
+    rgb(26 18 43 / 0.94) 55%,
+    var(--ascent-dark-canvas) 100%
+  );
+  opacity: var(--ascent-night-opacity);
+  will-change: opacity;
+}
+
+/* Under reduced motion or no-JS/Tier 0, show full static light-to-night backdrop cleanly */
+@media (prefers-reduced-motion: reduce) {
+  [data-theme='ascent'] .ascent-stage-night-layer {
+    opacity: 0.96;
+  }
+}
+
+html[data-motion-tier='0'] [data-theme='ascent'] .ascent-stage-night-layer {
+  opacity: 0.96;
+}
+
+/* Rising clip-path mask reveal for editorial imagery (CSS fallback + JS trigger) */
+@keyframes ascent-mask-rise {
+  from {
+    clip-path: inset(10% 0 0 0 round 1.375rem);
+    transform: scale(1.04);
+    opacity: 0.85;
+  }
+  to {
+    clip-path: inset(0 0 0 0 round 1.375rem);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+[data-theme='ascent'] .ascent-mask-reveal[data-revealed='true'] {
+  animation: ascent-mask-rise var(--duration-reveal) var(--ease-peak-rise) both;
+}
+
+/* Gate unlock glow pulse */
+@keyframes ascent-gate-unlock {
+  0% {
+    box-shadow: 0 0 0 0 rgb(142 33 252 / 0.45);
+    transform: scale(0.97);
+  }
+  50% {
+    box-shadow: 0 0 28px 4px rgb(167 67 248 / 0.45);
+    transform: scale(1.05);
+  }
+  100% {
+    box-shadow: 0 0 18px 0 rgb(91 16 224 / 0.28);
+    transform: scale(1);
+  }
+}
+
+[data-theme='ascent'] .ascent-gate-badge[data-unlocked='true'] {
+  animation: ascent-gate-unlock 650ms var(--ease-peak-rise) both;
+}
+
+/* Gentle CSS star twinkle: opacity-only, paused offscreen / hidden tabs */
+@keyframes ascent-star-twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+[data-theme='ascent'] .ascent-star {
+  animation: ascent-star-twinkle var(--star-duration, 3.6s) ease-in-out var(--star-delay, 0s)
+    infinite;
+}
+
+[data-theme='ascent'] [data-paused='true'] .ascent-star {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme='ascent'] .ascent-star,
+  [data-theme='ascent'] .ascent-mask-reveal[data-revealed='true'],
+  [data-theme='ascent'] .ascent-gate-badge[data-unlocked='true'] {
+    animation: none !important;
+  }
+}
+
+html[data-motion-tier='0'] [data-theme='ascent'] .ascent-star,
+html[data-motion-tier='0'] [data-theme='ascent'] .ascent-mask-reveal[data-revealed='true'],
+html[data-theme='ascent'] [data-motion-tier='0'] .ascent-gate-badge[data-unlocked='true'] {
+  animation: none !important;
+}
