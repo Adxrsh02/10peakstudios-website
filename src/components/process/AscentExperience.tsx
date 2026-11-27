@@ -26,6 +26,7 @@ export function AscentExperience({ ascent }: AscentExperienceProps) {
   } | null>(null);
   const viewedRef = useRef<Set<number>>(new Set([1]));
   const completedRef = useRef(false);
+  const manualNavUntilRef = useRef(0);
 
   const [activeCamp, setActiveCamp] = useState(1);
   const [starsOpacity, setStarsOpacity] = useState(0.25);
@@ -72,6 +73,7 @@ export function AscentExperience({ ascent }: AscentExperienceProps) {
     mm.add('(max-width: 1023px)', () => {
       setDesktopPinned(false);
       const line = mobileLineRef.current;
+      let lastMobileBucket = 1;
       if (line) {
         gsap.fromTo(
           line,
@@ -90,12 +92,17 @@ export function AscentExperience({ ascent }: AscentExperienceProps) {
                   (0.15 + self.progress * 0.85).toFixed(2),
                 );
                 setStarsOpacity(0.15 + self.progress * 0.85);
-                const bucket = Math.min(
-                  totalCamps,
-                  Math.max(1, Math.round(self.progress * (totalCamps - 1)) + 1),
-                );
-                setActiveCamp((prev) => (prev === bucket ? prev : bucket));
-                markCampViewed(bucket);
+                if (self.isActive && performance.now() > manualNavUntilRef.current) {
+                  const bucket = Math.min(
+                    totalCamps,
+                    Math.max(1, Math.round(self.progress * (totalCamps - 1)) + 1),
+                  );
+                  if (bucket !== lastMobileBucket) {
+                    lastMobileBucket = bucket;
+                    setActiveCamp(bucket);
+                    markCampViewed(bucket);
+                  }
+                }
               },
             },
           },
@@ -114,7 +121,8 @@ export function AscentExperience({ ascent }: AscentExperienceProps) {
 
         // Compute horizontal pan after layout updates for pinned rail
         const distance = () => Math.max(0, rail.scrollWidth - viewport.clientWidth);
-        const scrollBudget = () => Math.round(window.innerHeight * 1.45);
+        const scrollBudget = () =>
+          Math.round(Math.min(Math.max(distance(), 640), window.innerHeight * 1.1));
         let lastBucket = 1;
 
         const tl = gsap.timeline({
@@ -129,7 +137,7 @@ export function AscentExperience({ ascent }: AscentExperienceProps) {
               const p = self.progress;
               skySection.style.setProperty('--ascent-night-opacity', (0.15 + p * 0.85).toFixed(2));
               setStarsOpacity(p > 0.35 ? Math.min(1, (p - 0.35) / 0.45) : 0.15);
-              if (self.isActive) {
+              if (self.isActive && performance.now() > manualNavUntilRef.current) {
                 const bucket = Math.min(
                   totalCamps,
                   Math.max(1, Math.round(p * (totalCamps - 1)) + 1),
@@ -181,6 +189,7 @@ export function AscentExperience({ ascent }: AscentExperienceProps) {
   const stepToCamp = useCallback(
     (targetStep: number) => {
       const clamped = Math.min(totalCamps, Math.max(1, targetStep));
+      manualNavUntilRef.current = performance.now() + 900;
       setActiveCamp(clamped);
       markCampViewed(clamped);
 

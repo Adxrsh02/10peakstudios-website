@@ -64,7 +64,7 @@ export function ProcessPhotoFrame({
               dark ? 'bg-(--ascent-dark-canvas)/70' : 'bg-(--ascent-white)/78 backdrop-blur-md',
             )}
           />
-          <div className="relative z-10 flex items-center justify-between">
+          <div className="relative z-10 flex flex-wrap items-center justify-between gap-2 pt-2">
             <span
               className={cn(
                 'inline-flex items-center gap-1.5 rounded-pill border px-2.5 py-1 font-mono text-[11px] font-medium tracking-wider uppercase',
@@ -100,7 +100,7 @@ export function ProcessPhotoFrame({
               <circle cx="170" cy="20" r="5" fill="var(--ascent-cyan)" />
             </svg>
           </div>
-          <div className="relative z-10">
+          <div className="relative z-10 pb-8">
             <span
               className={cn(
                 'block font-mono text-caption font-medium',
