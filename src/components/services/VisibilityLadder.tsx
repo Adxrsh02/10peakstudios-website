@@ -46,6 +46,7 @@ export function VisibilityLadder({ slug, data }: VisibilityLadderProps) {
   useMotionEffect(
     sectionRef,
     ({ gsap, ScrollTrigger }, _t, root) => {
+      let lastBucket = -1;
       const mm = gsap.matchMedia();
       mm.add('(min-width: 1024px)', () => {
         ScrollTrigger.create({
@@ -56,7 +57,10 @@ export function VisibilityLadder({ slug, data }: VisibilityLadderProps) {
           scrub: true,
           anticipatePin: 1,
           onUpdate: (self) => {
+            if (!self.isActive) return;
             const next = Math.min(count - 1, Math.floor(self.progress * count));
+            if (next === lastBucket) return;
+            lastBucket = next;
             setActiveIdx(next);
             if (next === count - 1 && !completedRef.current) {
               completedRef.current = true;

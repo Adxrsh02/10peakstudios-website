@@ -46,6 +46,12 @@ test.describe('Digital Marketing service page', () => {
     // Responsive overflow check across target widths & mobile sticky "Free audit" CTA bar
     for (const width of [360, 390, 414, 768, 1024, 1440, 1920]) {
       await page.setViewportSize({ width, height: 844 });
+      await page.evaluate(
+        () =>
+          new Promise<void>((resolve) =>
+            requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+          ),
+      );
       const overflow = await page.evaluate(
         () => document.documentElement.scrollWidth > window.innerWidth,
       );

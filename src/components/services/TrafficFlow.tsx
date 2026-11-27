@@ -120,7 +120,7 @@ export function TrafficFlow({ slug, data }: TrafficFlowProps) {
             ) : (
               <Pause className="size-3.5" aria-hidden="true" />
             )}
-            <span>{paused ? 'Play' : 'Pause'}</span>
+            <span>{paused ? 'Resume' : 'Pause'}</span>
           </button>
         </div>
       </div>

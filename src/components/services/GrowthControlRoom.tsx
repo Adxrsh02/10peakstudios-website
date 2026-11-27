@@ -131,7 +131,6 @@ export function GrowthControlRoom({ slug, data }: GrowthControlRoomProps) {
         <button
           type="button"
           aria-pressed={paused}
-          aria-label={paused ? 'Resume control ring rotation' : 'Pause control ring rotation'}
           onClick={() => setPaused((p) => !p)}
           className="hidden min-h-10 items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 font-mono text-caption text-(--glass-text-muted) hover:bg-white/10 md:inline-flex"
         >
