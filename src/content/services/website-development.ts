@@ -300,8 +300,9 @@ export const websiteDevelopmentContent: ServicePageContent = {
           },
           {
             code: 'AIO',
-            title: 'AI Overview Readiness',
-            description: 'Structured data and factual entity signals for AI summaries.',
+            title: 'AI Optimization',
+            description:
+              'Structured, consistent business data so AI agents can understand, trust and act on it.',
             footerLabel: 'Structured Schema Signals',
             icon: 'sparkles',
             accent: 'lilac',

@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { contactPath } from '@/content/navigation';
+import { getServiceStickyCta } from '@/content/services/glass-routes';
 import { cn } from '@/lib/cn';
 
 /**
@@ -13,6 +15,10 @@ import { cn } from '@/lib/cn';
  * the consent banner is open, or while the on-screen keyboard is visible.
  */
 export function StickyCtaBar({ whatsappHref }: { whatsappHref: string | null }) {
+  const pathname = usePathname();
+  const stickyOverride = getServiceStickyCta(pathname);
+  const primaryLabel = stickyOverride?.label ?? 'Start a project';
+  const primaryHref = stickyOverride?.href ?? contactPath;
   const [pastHero, setPastHero] = useState(false);
   const [keyboard, setKeyboard] = useState(false);
 
@@ -55,8 +61,8 @@ export function StickyCtaBar({ whatsappHref }: { whatsappHref: string | null }) 
         className={cn('mx-auto grid max-w-xl gap-3', whatsappHref ? 'grid-cols-2' : 'grid-cols-1')}
       >
         <Button asChild size="md" className="w-full px-4">
-          <Link href={contactPath} data-cta="sticky-start" data-cta-location="sticky_bar">
-            Start a project
+          <Link href={primaryHref} data-cta="sticky-start" data-cta-location="sticky_bar">
+            {primaryLabel}
             <ArrowRight aria-hidden="true" strokeWidth={1.75} />
           </Link>
         </Button>

@@ -9,6 +9,11 @@ import { Button } from '@/components/ui/button';
 import { contact } from '@/content/contact';
 import { track } from '@/lib/analytics';
 import {
+  clearQuizPrefillFromSession,
+  formatQuizPrefillMessage,
+  readQuizPrefillFromSession,
+} from '@/lib/digital-marketing-quiz';
+import {
   BUDGET_BANDS,
   leadSchema,
   SERVICE_SLUGS,
@@ -85,10 +90,14 @@ export function EnquiryForm({ turnstileSiteKey, whatsappNumber }: EnquiryFormPro
   const startedAtRef = useRef<number>(0);
   const hasTrackedStartRef = useRef(false);
 
-  // Capture UTM parameters and start timer
+  // Capture timer and hydrate optional Digital Marketing quiz summary from sessionStorage
   useEffect(() => {
     startedAtRef.current = Date.now();
-  }, []);
+    if (urlService !== 'digital-marketing') return;
+    const prefill = readQuizPrefillFromSession();
+    if (!prefill) return;
+    setMessage((current) => (current.trim() ? current : formatQuizPrefillMessage(prefill)));
+  }, [urlService]);
 
   const handleFieldFocus = () => {
     if (!hasTrackedStartRef.current) {

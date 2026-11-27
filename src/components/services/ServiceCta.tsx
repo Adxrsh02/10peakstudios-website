@@ -1,5 +1,6 @@
-import { ArrowRight, MessageCircle } from 'lucide-react';
+import { ArrowRight, MessageCircle, Radar } from 'lucide-react';
 import type { ServiceCtaData } from '@/content/services/types';
+import { cn } from '@/lib/cn';
 import { ServiceCtaLink } from './ServiceCtaLink';
 
 type ServiceCtaProps = {
@@ -9,15 +10,33 @@ type ServiceCtaProps = {
 };
 
 export function ServiceCta({ slug, finalCta, whatsappHref }: ServiceCtaProps) {
+  const isSignal = finalCta.variant === 'signal';
+
   return (
     <section aria-labelledby="service-final-cta-heading" className="relative pt-4 pb-6">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 mx-auto max-w-4xl rounded-full bg-gradient-to-r from-[#480bb4] via-[#8e21fc] to-[#4cd7f6] opacity-25 blur-[110px]"
+        className="pointer-events-none absolute inset-0 mx-auto max-w-4xl rounded-full bg-gradient-to-r from-[#480bb4] via-[#8e21fc] to-[#4cd7f6] opacity-25 blur-[96px]"
       />
 
       <div className="glass-card-strong glass-specular relative flex flex-col items-center gap-5 overflow-hidden rounded-lg p-8 text-center sm:p-12 md:p-14">
-        <span className="eyebrow-bracket font-mono text-caption font-medium tracking-[0.12em] text-(--glass-cyan) uppercase">
+        {isSignal && (
+          <>
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute top-1/2 left-1/2 size-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#c38bff]/15 sm:size-96"
+            />
+            <div className="relative z-10 flex size-14 items-center justify-center rounded-full border border-[#c38bff]/45 bg-[#8e21fc]/25 text-[#e1c4ff] shadow-[0_0_28px_rgb(142_33_252/0.45)]">
+              <Radar className="size-7" aria-hidden="true" strokeWidth={1.6} />
+            </div>
+          </>
+        )}
+
+        <span
+          className={cn(
+            'eyebrow-bracket relative z-10 font-mono text-caption font-medium tracking-[0.12em] text-(--glass-cyan) uppercase',
+          )}
+        >
           {finalCta.eyebrow}
         </span>
 

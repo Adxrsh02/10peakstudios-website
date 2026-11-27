@@ -12,6 +12,15 @@ export type AnalyticsEvent =
   | 'service_engagement_toggle'
   | 'service_faq_open'
   | 'before_after_drag'
+  | 'brand_simulator_used'
+  | 'visibility_ladder_complete'
+  | 'quiz_start'
+  | 'quiz_complete'
+  | 'audit_cta_click'
+  | 'traffic_type_change'
+  | 'control_node_open'
+  | 'code_flip_toggle'
+  | 'growth_plan_change'
   | 'form_start'
   | 'form_step'
   | 'form_error'
@@ -57,6 +66,11 @@ const ALLOWED_PARAMS = new Set([
   'query_length',
   'media_label',
   'provider',
+  'quiz_level',
+  'node_id',
+  'traffic_type',
+  'view_mode',
+  'plan_id',
 ]);
 
 type Params = Record<string, string | number | undefined>;

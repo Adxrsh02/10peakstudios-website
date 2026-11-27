@@ -45,7 +45,16 @@ export type ServiceIconName =
   | 'activity'
   | 'users'
   | 'file-spreadsheet'
-  | 'git-branch';
+  | 'git-branch'
+  | 'radar'
+  | 'map-pin'
+  | 'sliders-horizontal'
+  | 'code-2'
+  | 'circle-x'
+  | 'file-text'
+  | 'film'
+  | 'phone-call'
+  | 'target';
 
 export type ServiceAccentTone = 'violet' | 'lilac' | 'cyan';
 
@@ -277,6 +286,8 @@ export type ServiceCtaData = {
   description: string;
   primaryLabel: string;
   whatsappLabel: string;
+  variant?: 'default' | 'signal';
+  trustNotes?: string[];
 };
 
 /* ---------- Full-Stack Web App Section Data Shapes ---------- */
@@ -531,6 +542,216 @@ export type TerminalCtaData = {
   whatsappLabel: string;
 };
 
+/* ---------- Digital Marketing Section Data Shapes ---------- */
+
+export type SignalHeroData = {
+  eyebrowPillar: string;
+  eyebrowService: string;
+  titleLead: string;
+  titleAccent: string;
+  summary: string;
+  simulatorTitle: string;
+  simulatorTag: string;
+  brandLabel: string;
+  brandPlaceholder: string;
+  defaultBrand: string;
+  cityLabel: string;
+  cityPlaceholder: string;
+  defaultCity: string;
+  submitLabel: string;
+  secondaryCtaLabel: string;
+  secondaryCtaHref: string;
+  tertiaryCtaLabel: string;
+  tertiaryCtaHref: string;
+  privacyNote: string;
+  radarBadges: { label: string; icon: ServiceIconName; tone: ServiceAccentTone }[];
+};
+
+export type VisibilityLadderStage = {
+  id: string;
+  stepNumber: string;
+  code: string;
+  title: string;
+  shortTagline: string;
+  stageCode: string;
+  queryTemplate: string;
+  simulatedLabel: string;
+  explanationTitle: string;
+  explanation: string;
+  accent: ServiceAccentTone;
+};
+
+export type VisibilityLadderData = {
+  eyebrow: string;
+  titleLead: string;
+  titleAccent: string;
+  lead: string;
+  stages: VisibilityLadderStage[];
+  summaryFormula: { code: string; text: string; tone: ServiceAccentTone }[];
+  summaryCtaLabel: string;
+  summaryCtaHref: string;
+};
+
+export type VisibilityQuizQuestion = {
+  id: string;
+  tag: string;
+  question: string;
+  detail: string;
+  gapRecommendation: string;
+  priority: number;
+};
+
+export type VisibilityQuizLevel = {
+  level: 'Invisible' | 'Listed' | 'Answered' | 'Recommended';
+  badge: string;
+  minScore: number;
+  maxScore: number;
+  summary: string;
+};
+
+export type VisibilityQuizData = {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  questions: VisibilityQuizQuestion[];
+  levels: VisibilityQuizLevel[];
+  ctaLabel: string;
+};
+
+export type TrafficFlowBusinessType = {
+  id: 'product-brand' | 'local-service' | 'b2b-saas';
+  label: string;
+  sources: {
+    id: string;
+    label: string;
+    weight: number;
+    icon: ServiceIconName;
+    tone: ServiceAccentTone;
+  }[];
+  outcomes: {
+    id: string;
+    title: string;
+    detail: string;
+    icon: ServiceIconName;
+    tone: ServiceAccentTone;
+  }[];
+};
+
+export type TrafficFlowData = {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  exampleNote: string;
+  hubTitle: string;
+  hubSubtitle: string;
+  hubFootnote: string;
+  types: TrafficFlowBusinessType[];
+};
+
+export type GrowthControlNode = {
+  id: string;
+  number: string;
+  title: string;
+  shortLabel: string;
+  summary: string;
+  deliverables: string[];
+  icon: ServiceIconName;
+  accent: ServiceAccentTone;
+};
+
+export type GrowthControlRoomData = {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  hubTitle: string;
+  hubSubtitle: string;
+  nodes: GrowthControlNode[];
+};
+
+export type CodeFlipData = {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  filename: string;
+  humanQuestion: string;
+  humanAnswer: string;
+  humanMeta: string[];
+  jsonLdLines: { indent: number; key?: string; value: string; isPunctuation?: boolean }[];
+  footnote: string;
+};
+
+export type TrustNeverAlwaysData = {
+  eyebrow: string;
+  titleLead: string;
+  titleAccent: string;
+  lead: string;
+  neverTitle: string;
+  neverItems: string[];
+  alwaysTitle: string;
+  alwaysItems: string[];
+};
+
+export type ReportPreviewData = {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  reportTitle: string;
+  reportSubtitle: string;
+  sampleBadge: string;
+  kpis: {
+    label: string;
+    value: string;
+    note: string;
+    tone: ServiceAccentTone;
+  }[];
+  aiSweepTitle: string;
+  aiPlatforms: {
+    platform: string;
+    status: string;
+    tone: ServiceAccentTone;
+  }[];
+  highlights: string[];
+};
+
+export type SignalPathData = {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  steps: {
+    number: string;
+    title: string;
+    description: string;
+    phaseLabel: string;
+    accent: ServiceAccentTone;
+  }[];
+};
+
+export type GrowthSpeedPlan = {
+  id: string;
+  tierLabel: string;
+  title: string;
+  subtitle: string;
+  price: string;
+  priceConfirmed: boolean;
+  fallbackPrice: string;
+  billingCaption: string;
+  popular?: boolean;
+  badgeText?: string;
+  features: string[];
+  ctaLabel: string;
+  ctaHref: string;
+  accent: ServiceAccentTone;
+};
+
+export type GrowthSpeedSliderData = {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  sliderLabel: string;
+  plans: GrowthSpeedPlan[];
+  footnote: string;
+};
+
 /* ---------- Composable Sections Discriminated Union ---------- */
 
 export type ServiceSectionBlock =
@@ -558,11 +779,25 @@ export type ServiceSectionBlock =
   | { type: 'growthPath'; data: GrowthPathData }
   | { type: 'engineRoom'; data: EngineRoomData }
   | { type: 'engagementModels'; data: EngagementModelsData }
-  | { type: 'terminalCta'; data: TerminalCtaData };
+  | { type: 'terminalCta'; data: TerminalCtaData }
+  | { type: 'signalHero'; data: SignalHeroData }
+  | { type: 'visibilityLadder'; data: VisibilityLadderData }
+  | { type: 'visibilityQuiz'; data: VisibilityQuizData }
+  | { type: 'trafficFlow'; data: TrafficFlowData }
+  | { type: 'growthControlRoom'; data: GrowthControlRoomData }
+  | { type: 'codeFlip'; data: CodeFlipData }
+  | { type: 'trustNeverAlways'; data: TrustNeverAlwaysData }
+  | { type: 'reportPreview'; data: ReportPreviewData }
+  | { type: 'signalPath'; data: SignalPathData }
+  | { type: 'growthSpeedSlider'; data: GrowthSpeedSliderData };
 
 export type ServicePageContent = {
   slug: ServiceSlug;
   theme: 'glass';
+  stickyCta?: {
+    label: string;
+    href: string;
+  };
   seo: {
     title: string;
     description: string;

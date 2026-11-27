@@ -332,6 +332,55 @@
   animation: none;
 }
 
+@keyframes service-radar-sweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes service-signal-pulse {
+  0% {
+    transform: scale(0.84);
+    opacity: 0.45;
+  }
+  100% {
+    transform: scale(1.22);
+    opacity: 0;
+  }
+}
+
+@keyframes service-flow-dash {
+  0% {
+    stroke-dashoffset: 64;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+[data-theme='glass'] .service-radar-sweep {
+  animation: service-radar-sweep 9s linear infinite;
+}
+
+[data-theme='glass'] .service-signal-pulse {
+  animation: service-signal-pulse 3.6s var(--ease-peak-rise) infinite;
+}
+
+[data-theme='glass'] .service-flow-particle {
+  animation: service-flow-dash 2.2s linear infinite;
+}
+
+[data-theme='glass'] [data-paused='true'] .service-radar-sweep,
+[data-theme='glass'] [data-paused='true'] .service-signal-pulse,
+[data-theme='glass'] [data-paused='true'] .service-flow-particle,
+[data-theme='glass'] [data-paused='true'] .service-orbit-ring,
+[data-theme='glass'] [data-paused='true'] .service-orbit-counter {
+  animation-play-state: paused !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-theme='glass'] .service-aurora-blob-a,
   [data-theme='glass'] .service-aurora-blob-b,
@@ -342,7 +391,10 @@
   [data-theme='glass'] .service-orbit-ring,
   [data-theme='glass'] .service-orbit-counter,
   [data-theme='glass'] .service-feed-track,
-  [data-theme='glass'] .service-cursor-blink {
+  [data-theme='glass'] .service-cursor-blink,
+  [data-theme='glass'] .service-radar-sweep,
+  [data-theme='glass'] .service-signal-pulse,
+  [data-theme='glass'] .service-flow-particle {
     animation: none !important;
   }
 }
@@ -356,8 +408,17 @@ html[data-motion-tier='0'] [data-theme='glass'] .service-hero-line-2,
 html[data-motion-tier='0'] [data-theme='glass'] .service-orbit-ring,
 html[data-motion-tier='0'] [data-theme='glass'] .service-orbit-counter,
 html[data-motion-tier='0'] [data-theme='glass'] .service-feed-track,
-html[data-motion-tier='0'] [data-theme='glass'] .service-cursor-blink {
+html[data-motion-tier='0'] [data-theme='glass'] .service-cursor-blink,
+html[data-motion-tier='0'] [data-theme='glass'] .service-radar-sweep,
+html[data-motion-tier='0'] [data-theme='glass'] .service-signal-pulse,
+html[data-motion-tier='0'] [data-theme='glass'] .service-flow-particle {
   animation: none !important;
+}
+
+@media (max-width: 767px) {
+  [data-theme='glass'] {
+    --glass-blur: blur(12px) saturate(125%);
+  }
 }
 
 /* Scoped dark-glass header for glass service routes ONLY.
