@@ -45,6 +45,16 @@ function getServerServiceSnapshot(): ServiceSlug | null {
   return null;
 }
 
+function getQuizPrefillSnapshot(): string {
+  if (getServiceFromSearch() !== 'digital-marketing') return '';
+  const prefill = readQuizPrefillFromSession();
+  return prefill ? formatQuizPrefillMessage(prefill) : '';
+}
+
+function getServerEmptyString(): string {
+  return '';
+}
+
 type EnquiryFormProps = {
   turnstileSiteKey: string;
   whatsappNumber?: string | undefined;
@@ -74,7 +84,17 @@ export function EnquiryForm({ turnstileSiteKey, whatsappNumber }: EnquiryFormPro
   const setSelectedServices = (items: ServiceSlug[]) => setServiceChoice({ edited: true, items });
   const [budgetBand, setBudgetBand] = useState<BudgetBand | ''>('');
   const [timeline, setTimeline] = useState<Timeline | ''>('');
-  const [message, setMessage] = useState('');
+  const prefilledMessage = useSyncExternalStore(
+    subscribeLocation,
+    getQuizPrefillSnapshot,
+    getServerEmptyString,
+  );
+  const [messageChoice, setMessageChoice] = useState<{ edited: boolean; value: string }>({
+    edited: false,
+    value: '',
+  });
+  const message = messageChoice.edited ? messageChoice.value : prefilledMessage;
+  const setMessage = (value: string) => setMessageChoice({ edited: true, value });
   const [consent, setConsent] = useState(false);
   const [websiteHoneypot, setWebsiteHoneypot] = useState('');
   const [turnstileToken, setTurnstileToken] = useState('');
@@ -90,14 +110,10 @@ export function EnquiryForm({ turnstileSiteKey, whatsappNumber }: EnquiryFormPro
   const startedAtRef = useRef<number>(0);
   const hasTrackedStartRef = useRef(false);
 
-  // Capture timer and hydrate optional Digital Marketing quiz summary from sessionStorage
+  // Capture form engagement start timestamp
   useEffect(() => {
     startedAtRef.current = Date.now();
-    if (urlService !== 'digital-marketing') return;
-    const prefill = readQuizPrefillFromSession();
-    if (!prefill) return;
-    setMessage((current) => (current.trim() ? current : formatQuizPrefillMessage(prefill)));
-  }, [urlService]);
+  }, []);
 
   const handleFieldFocus = () => {
     if (!hasTrackedStartRef.current) {
@@ -162,6 +178,7 @@ export function EnquiryForm({ turnstileSiteKey, whatsappNumber }: EnquiryFormPro
         if (typeof window !== 'undefined' && result.leadId) {
           sessionStorage.setItem('tps.lead_submitted', result.leadId);
         }
+        clearQuizPrefillFromSession();
         router.push('/contact/thank-you');
         return;
       }
