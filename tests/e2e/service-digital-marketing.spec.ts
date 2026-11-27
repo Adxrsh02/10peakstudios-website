@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 import { isDesktop, quietVisit } from './helpers';
 
 test.describe('Digital Marketing service page', () => {
-  test('renders dark-glass theme, zero placeholders/banned copy, valid JSON-LD, and mobile swipe ladder @smoke', async ({
+  test('renders dark-glass theme, zero placeholders/banned copy, and valid JSON-LD @smoke', async ({
     page,
   }) => {
     await quietVisit(page, '/services/digital-marketing');
@@ -36,8 +36,13 @@ test.describe('Digital Marketing service page', () => {
     expect(combined).toContain('"@type":"BreadcrumbList"');
     expect(combined).toContain('"@type":"FAQPage"');
     expect(combined).not.toContain('ownership of our accounts');
+  });
 
-    // Step through visibility ladder on both mobile swipe / Next button and desktop
+  test('visibility ladder stepping, zero horizontal overflow across viewports, and sticky audit bar work', async ({
+    page,
+  }) => {
+    await quietVisit(page, '/services/digital-marketing');
+
     const nextBtn = page.getByRole('button', { name: /Next step/i });
     await nextBtn.scrollIntoViewIfNeeded();
     await nextBtn.click();
