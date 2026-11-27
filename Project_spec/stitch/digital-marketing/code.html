@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>10PeakStudio</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Sora:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary":"#580065","primary-fixed-dim":"#dbb8ff","primary-fixed":"#efdbff","on-secondary-fixed-variant":"#7c008e","surface-tint":"#dbb8ff","on-background":"#e6e0ec","tertiary":"#4cd7f6","inverse-surface":"#e6e0ec","inverse-on-surface":"#312f38","on-secondary-container":"#ffd8fd","surface-container":"#201e27","secondary":"#fbabff","on-tertiary-container":"#57dfff","tertiary-fixed-dim":"#4cd7f6","surface-container-highest":"#36333d","secondary-fixed":"#ffd6fd","on-primary-fixed":"#2b0052","on-surface-variant":"#cec2d6","on-tertiary-fixed-variant":"#004e5c","tertiary-container":"#006172","on-primary-container":"#e1c4ff","outline":"#988d9f","primary-container":"#7928ca","surface-container-high":"#2b2931","outline-variant":"#4c4354","on-error":"#690005","primary":"#dbb8ff","on-secondary-fixed":"#36003e","on-tertiary-fixed":"#001f26","on-tertiary":"#003640","surface-container-low":"#1c1a23","surface":"#14121a","surface-variant":"#36333d","surface-container-lowest":"#0f0d15","on-primary-fixed-variant":"#6600b7","error-container":"#93000a","error":"#ffb4ab","on-primary":"#470083","secondary-container":"#ae05c6","secondary-fixed-dim":"#fbabff","tertiary-fixed":"#acedff","surface-dim":"#14121a","on-error-container":"#ffdad6","inverse-primary":"#7f30d0","surface-bright":"#3a3841","background":"#14121a","on-surface":"#e6e0ec"},borderRadius:{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},spacing:{"margin-mobile":"1.25rem","space-2xl":"4rem","gutter":"1.5rem","margin":"4rem","margin-tablet":"2rem","space-lg":"1.5rem","space-3xl":"6rem","space-xs":"0.25rem","space-sm":"0.5rem","gutter-mobile":"1rem","space-md":"1rem","space-xl":"2.5rem"},fontFamily:{"headline-lg":["Sora"],"headline-sm":["Sora"],"headline-md":["Sora"],"label-md":["Inter"],"display-hero-mobile":["Sora"],"display-hero":["Sora"],"code-tech":["JetBrains Mono"],"body-lg":["Inter"],"label-sm":["Inter"],"title-md":["Sora"],"headline-lg-mobile":["Sora"],"body-sm":["Inter"],"body-md":["Inter"]},fontSize:{"headline-lg":["48px",{lineHeight:"56px",letterSpacing:"-0.03em",fontWeight:"600"}],"headline-sm":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-md":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"600"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.06em",fontWeight:"600"}],"display-hero-mobile":["40px",{lineHeight:"48px",letterSpacing:"-0.025em",fontWeight:"700"}],"display-hero":["72px",{lineHeight:"80px",letterSpacing:"-0.035em",fontWeight:"700"}],"code-tech":["12px",{lineHeight:"18px",letterSpacing:"-0.01em",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"28px",letterSpacing:"-0.005em",fontWeight:"400"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.08em",fontWeight:"500"}],"title-md":["18px",{lineHeight:"26px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-lg-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"600"}],"body-sm":["13px",{lineHeight:"20px",letterSpacing:"0.005em",fontWeight:"400"}],"body-md":["15px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"400"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface min-h-screen relative selection:bg-secondary-container selection:text-on-secondary-container"><div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden"><div class="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-primary-container/20 blur-[130px]"></div><div class="absolute top-[15%] -left-[10%] w-[600px] h-[450px] rounded-full bg-secondary-container/15 blur-[120px]"></div><div class="absolute top-[35%] -right-[10%] w-[550px] h-[400px] rounded-full bg-tertiary-container/15 blur-[120px]"></div><div class="absolute inset-0 bg-[radial-gradient(rgba(219,184,255,0.03)_1px,transparent_1px)] [background-size:32px_32px]"></div></div><header class="fixed top-0 inset-x-0 z-50 px-gutter-mobile md:px-gutter py-space-sm"><div class="max-w-7xl mx-auto h-16 rounded-full bg-surface-container-low/60 backdrop-blur-2xl px-space-md md:px-space-lg flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm group" data-path="services-overview" href="#"><div class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:rotate-12">diamond</span></div><span class="font-headline-sm text-title-md tracking-tight text-on-surface">10Peak<span class="text-primary">Studio</span></span></a><nav class="hidden lg:flex items-center gap-space-lg" data-active-classes="text-on-surface font-semibold"><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="services-overview" href="#">Services<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span></a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="company" href="#">Company</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="portfolio" href="#">Portfolio</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Contact</a></nav></div><div class="flex items-center gap-space-sm md:gap-space-md"><a class="hidden sm:inline-flex items-center justify-center px-space-lg py-space-sm rounded-full bg-gradient-to-r from-primary-container to-secondary-container text-on-primary font-headline-sm text-body-sm shadow-[0_0_20px_0_rgba(121,40,202,0.4)] hover:shadow-[0_0_28px_0_rgba(217,70,239,0.55)] transition-all" data-path="project-inquiry" href="#">Start a project →</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-transparent relative z-10"><div class="flex flex-col w-full relative">
+<!-- ========================================== -->
+<!-- 1. HERO SECTION: "TYPE YOUR BRAND"         -->
+<!-- ========================================== -->
+<section class="relative w-full overflow-hidden px-gutter-mobile md:px-gutter pt-space-xl pb-space-3xl">
+<!-- Atmospheric Underglow Specific to Hero -->
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-primary-container/20 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+<div class="absolute top-1/3 -right-20 w-[400px] h-[300px] bg-tertiary-container/15 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+<div class="max-w-7xl mx-auto flex flex-col gap-space-2xl">
+<!-- Eyebrow & Headline Header Stack -->
+<div class="flex flex-col items-start gap-space-md max-w-4xl">
+<div class="inline-flex items-center gap-space-sm px-space-md py-1 rounded-full bg-surface-container-high/80 border border-outline-variant/40 shadow-sm backdrop-blur-xl">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-code-tech text-code-tech text-primary tracking-wider uppercase">[ Grow ] Digital Marketing Architecture</span>
+</div>
+<h1 class="font-display-hero text-headline-lg md:text-display-hero tracking-tight leading-[1.05] text-on-surface">
+          Get found on Google.<br/>
+<span class="bg-gradient-to-r from-primary via-secondary to-tertiary bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(219,184,255,0.35)]">
+            Get recommended by AI.
+          </span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+          Your customers don’t just search anymore. They ask. We make sure your brand shows up in both places: the search results and the generative AI answers.
+        </p>
+</div>
+<!-- Interactive Dual Simulator Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch">
+<!-- Left: Interactive Brand Input Console (5 cols) -->
+<div class="lg:col-span-6 rounded-2xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-2xl p-space-lg md:p-space-xl flex flex-col justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4)] relative group overflow-hidden">
+<div class="absolute -top-24 -left-24 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col gap-space-md relative z-10">
+<div class="flex items-center justify-between">
+<span class="font-code-tech text-code-tech text-primary uppercase tracking-widest">[ Real-time Simulator ]</span>
+<span class="inline-flex items-center gap-1 font-code-tech text-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[14px]">tune</span> V4.2 Matrix
+              </span>
+</div>
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<label class="font-headline-sm text-body-sm text-on-surface flex items-center justify-between" for="brand-input">
+<span>Try it with your brand</span>
+<span class="text-on-surface-variant font-body-sm text-[12px]">Dynamic Injection</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[18px]">domain</span>
+<input class="w-full pl-10 pr-4 py-3 rounded-xl bg-surface-container-lowest/80 border border-outline-variant/40 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-body-md text-body-md" id="brand-input" placeholder="e.g. Sharma Dental" type="text" value="Sharma Dental"/>
+</div>
+</div>
+<div class="flex flex-col gap-space-sm">
+<label class="font-headline-sm text-body-sm text-on-surface" for="city-input">Target Geo / City</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[18px]">location_on</span>
+<input class="w-full pl-10 pr-4 py-3 rounded-xl bg-surface-container-lowest/80 border border-outline-variant/40 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-body-md text-body-md" id="city-input" placeholder="e.g. Navi Mumbai" type="text" value="Navi Mumbai"/>
+</div>
+</div>
+<!-- State Trigger Tabs -->
+<div class="pt-space-xs">
+<span class="font-code-tech text-label-sm text-on-surface-variant block mb-2">PREVIEW STATES:</span>
+<div class="grid grid-cols-3 gap-2">
+<button class="px-2 py-1.5 rounded-lg bg-surface-container-high/60 text-on-surface text-label-sm border border-outline-variant/40 hover:bg-surface-container-highest transition-colors font-code-tech" id="btn-state-default">Default</button>
+<button class="px-2 py-1.5 rounded-lg bg-primary-container/30 text-primary text-label-sm border border-primary/40 font-code-tech" id="btn-state-typing">Typing</button>
+<button class="px-2 py-1.5 rounded-lg bg-surface-container-high/60 text-on-surface text-label-sm border border-outline-variant/40 hover:bg-surface-container-highest transition-colors font-code-tech" id="btn-state-locked">Submitted</button>
+</div>
+</div>
+<button class="w-full mt-2 py-3.5 rounded-full bg-gradient-to-r from-primary-container via-secondary-container to-primary text-on-primary font-headline-sm text-body-sm shadow-[0_0_24px_rgba(121,40,202,0.4)] hover:shadow-[0_0_32px_rgba(219,184,255,0.6)] transition-all flex items-center justify-center gap-2 group" id="btn-run-simulation">
+<span>Show my visibility</span>
+<span class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+<p class="font-body-sm text-[12px] text-center text-outline">Simulated preview. No client tracking or cookies sent.</p>
+</div>
+<!-- Bottom CTAs -->
+<div class="flex items-center gap-space-sm pt-space-md border-t border-outline-variant/20 mt-space-md">
+<a class="flex-1 text-center py-2.5 px-4 rounded-full bg-surface-container-high/80 text-on-surface text-body-sm font-headline-sm border border-outline-variant/40 hover:border-primary/50 transition-colors" href="#audit-section">
+              Get free audit →
+            </a>
+<a class="flex-1 text-center py-2.5 px-4 rounded-full bg-transparent text-on-surface-variant hover:text-on-surface text-body-sm font-headline-sm transition-colors" href="#how-it-works">
+              How it works
+            </a>
+</div>
+</div>
+<!-- Right: "The Signal" Dynamic Visual Core (6 cols) -->
+<div class="lg:col-span-6 rounded-2xl bg-surface-container-lowest/90 border border-outline-variant/30 backdrop-blur-2xl p-space-lg flex flex-col items-center justify-center relative min-h-[380px] overflow-hidden shadow-2xl">
+<!-- Concentric Pulse Radar Background Rings -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-[420px] h-[420px] rounded-full border border-primary/10 animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+<div class="w-[310px] h-[310px] rounded-full border border-secondary/15 animate-[pulse_3s_ease-in-out_infinite]"></div>
+<div class="w-[200px] h-[200px] rounded-full border border-tertiary/20"></div>
+<div class="w-[110px] h-[110px] rounded-full bg-primary/5 border border-primary/30"></div>
+</div>
+<!-- Radar Sweeper Beam Effect -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-[380px] h-[380px] rounded-full bg-[conic-gradient(from_0deg,transparent_0deg,rgba(76,215,246,0.12)_45deg,transparent_60deg)] animate-[spin_8s_linear_infinite]"></div>
+</div>
+<!-- Central Brand Beacon Node -->
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="relative w-20 h-20 rounded-full bg-gradient-to-tr from-primary-container via-surface-container-high to-surface-container-highest border-2 border-primary/60 flex items-center justify-center shadow-[0_0_40px_rgba(219,184,255,0.5)]">
+<span class="material-symbols-outlined text-primary text-[32px] animate-pulse">radar</span>
+<span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-tertiary border-2 border-surface flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-surface"></span>
+</span>
+</div>
+<div class="text-center">
+<div class="font-headline-sm text-title-md text-on-surface font-semibold tracking-tight" id="beacon-brand-name">Sharma Dental</div>
+<div class="font-code-tech text-label-sm text-tertiary" id="beacon-city-name">LATENCY: OPTIMAL · NAVI MUMBAI</div>
+</div>
+</div>
+<!-- Incoming Particle Chips -->
+<div class="absolute top-8 left-8 px-3 py-1.5 rounded-full bg-surface-container-high/90 border border-tertiary/40 backdrop-blur-md flex items-center gap-1.5 shadow-lg animate-bounce" style="animation-duration: 3.2s;">
+<span class="material-symbols-outlined text-tertiary text-[14px]">search</span>
+<span class="font-code-tech text-label-sm text-on-surface">Search: #1 Target</span>
+</div>
+<div class="absolute top-10 right-10 px-3 py-1.5 rounded-full bg-surface-container-high/90 border border-primary/40 backdrop-blur-md flex items-center gap-1.5 shadow-lg animate-bounce" style="animation-duration: 4s;">
+<span class="material-symbols-outlined text-primary text-[14px]">psychology</span>
+<span class="font-code-tech text-label-sm text-on-surface">AI: Recommended</span>
+</div>
+<div class="absolute bottom-12 left-10 px-3 py-1.5 rounded-full bg-surface-container-high/90 border border-outline-variant/50 backdrop-blur-md flex items-center gap-1.5 shadow-lg">
+<span class="material-symbols-outlined text-secondary text-[14px]">map</span>
+<span class="font-code-tech text-label-sm text-on-surface">Maps: 4.9★ Local</span>
+</div>
+<div class="absolute bottom-10 right-8 px-3 py-1.5 rounded-full bg-surface-container-high/90 border border-secondary-container/50 backdrop-blur-md flex items-center gap-1.5 shadow-lg">
+<span class="material-symbols-outlined text-tertiary-fixed text-[14px]">bolt</span>
+<span class="font-code-tech text-label-sm text-on-surface">Ads: 3.4x Conv</span>
+</div>
+<!-- Telemetry Footer Overlay -->
+<div class="absolute bottom-2 inset-x-4 flex justify-between items-center text-outline font-code-tech text-[10px] pointer-events-none">
+<span>FREQUENCY: 2.45 GHz GENERATIVE</span>
+<span>POLAR: 360° BEAM</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 2. THE VISIBILITY LADDER: SEO → AEO → GEO → AIO -->
+<!-- ========================================== -->
+<section class="relative w-full px-gutter-mobile md:px-gutter py-space-3xl border-t border-outline-variant/15" id="how-it-works">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-2xl">
+<!-- Section Title -->
+<div class="flex flex-col items-start gap-space-sm max-w-3xl">
+<span class="font-code-tech text-code-tech text-primary uppercase tracking-widest">[ The four levels of visibility ]</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+          Being listed <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">isn’t enough anymore.</span>
+</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Search has graduated from ranked blue links to conversational recommendations and autonomous execution. Explore how your brand progresses through each tier.
+        </p>
+</div>
+<!-- Ladder Stage Component -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Left: 4-Step Interactive Vertical Rail (4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Step 1: SEO -->
+<div class="cursor-pointer p-space-md rounded-xl bg-surface-container-low/70 border border-primary/50 transition-all flex items-start gap-space-md group" id="step-nav-1" onclick="switchLadderStep(1)">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary font-code-tech text-title-md flex items-center justify-center shrink-0">01</div>
+<div>
+<div class="font-headline-sm text-title-md text-on-surface group-hover:text-primary transition-colors">SEO · Search List</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">"You’re in the list." Ranked organic index.</div>
+</div>
+</div>
+<!-- Step 2: AEO -->
+<div class="cursor-pointer p-space-md rounded-xl bg-surface-container-low/30 border border-outline-variant/20 hover:border-outline-variant/60 transition-all flex items-start gap-space-md group" id="step-nav-2" onclick="switchLadderStep(2)">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-on-surface-variant font-code-tech text-title-md flex items-center justify-center shrink-0">02</div>
+<div>
+<div class="font-headline-sm text-title-md text-on-surface group-hover:text-primary transition-colors">AEO · Answer Engine</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">"You’re the direct answer." Zero-click summary.</div>
+</div>
+</div>
+<!-- Step 3: GEO -->
+<div class="cursor-pointer p-space-md rounded-xl bg-surface-container-low/30 border border-outline-variant/20 hover:border-outline-variant/60 transition-all flex items-start gap-space-md group" id="step-nav-3" onclick="switchLadderStep(3)">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-on-surface-variant font-code-tech text-title-md flex items-center justify-center shrink-0">03</div>
+<div>
+<div class="font-headline-sm text-title-md text-on-surface group-hover:text-primary transition-colors">GEO · Generative AI</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">"AI recommends you." Conversational trust.</div>
+</div>
+</div>
+<!-- Step 4: AIO -->
+<div class="cursor-pointer p-space-md rounded-xl bg-surface-container-low/30 border border-outline-variant/20 hover:border-outline-variant/60 transition-all flex items-start gap-space-md group" id="step-nav-4" onclick="switchLadderStep(4)">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-on-surface-variant font-code-tech text-title-md flex items-center justify-center shrink-0">04</div>
+<div>
+<div class="font-headline-sm text-title-md text-on-surface group-hover:text-primary transition-colors">AIO · Actionable Agents</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">"AI acts on your behalf." Bookings &amp; transactions.</div>
+</div>
+</div>
+</div>
+<!-- Right: Dynamic UI Stage (8 cols) -->
+<div class="lg:col-span-8 rounded-2xl bg-surface-container-low/80 border border-outline-variant/30 backdrop-blur-2xl p-space-lg md:p-space-xl min-h-[460px] flex flex-col justify-between shadow-2xl relative">
+<!-- STAGE CONTENT 1 (SEO) -->
+<div class="flex flex-col gap-space-md" id="ladder-content-1">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-3">
+<span class="font-code-tech text-code-tech text-tertiary">STG-01: STANDARD SERP ENGINE</span>
+<span class="font-code-tech text-label-sm text-outline">QUERY: "best dentist in navi mumbai"</span>
+</div>
+<!-- Simulated Search Results -->
+<div class="space-y-3 pt-2">
+<div class="p-3 rounded-lg bg-surface-container-lowest/60 border border-outline-variant/20 flex flex-col gap-1 opacity-60">
+<span class="text-[12px] text-tertiary">https://citydentaltreatments.com</span>
+<span class="text-body-md text-on-surface font-headline-sm">Top 10 Dental Clinics in Navi Mumbai 2026 Directory</span>
+<span class="text-body-sm text-on-surface-variant">Browse clinics with user reviews, addresses and contact numbers...</span>
+</div>
+<!-- Brand Result Highlighted -->
+<div class="p-4 rounded-xl bg-primary-container/10 border border-primary/40 flex flex-col gap-1.5 shadow-[0_0_20px_rgba(121,40,202,0.15)]">
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span> https://sharmadental.clinic
+                  </span>
+<span class="font-code-tech text-[10px] px-2 py-0.5 rounded bg-primary-container/30 text-primary">RANK #1 ORGANIC</span>
+</div>
+<span class="text-title-md text-primary font-headline-sm">Sharma Dental Clinic | Multi-Speciality Pediatric &amp; Cosmetic Care</span>
+<span class="text-body-sm text-on-surface-variant">Premier dental surgery in Navi Mumbai. Advanced painless implants, clear aligners and emergency walk-ins. Rated 4.9★ by 450+ verified patients.</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-lowest/60 border border-outline-variant/20 flex flex-col gap-1 opacity-40">
+<span class="text-[12px] text-outline">https://dentalhub-india.net</span>
+<span class="text-body-md text-on-surface-variant font-headline-sm">Dental Listings Vashi &amp; Nerul</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface pt-space-sm border-t border-outline-variant/20">
+<strong class="text-primary">01 SEO:</strong> Search engine optimization gets your website ranking in search results, so people searching specifically for treatments can find and click your link.
+            </p>
+</div>
+<!-- STAGE CONTENT 2 (AEO) - Hidden by default -->
+<div class="hidden flex flex-col gap-space-md" id="ladder-content-2">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-3">
+<span class="font-code-tech text-code-tech text-tertiary">STG-02: DIRECT ANSWER CAROUSEL / OVERVIEW</span>
+<span class="font-code-tech text-label-sm text-outline">TYPE: ZERO-CLICK SNIPPET</span>
+</div>
+<div class="p-5 rounded-xl bg-surface-container-high/90 border border-tertiary/40 shadow-lg space-y-3">
+<div class="flex items-center gap-2 text-tertiary">
+<span class="material-symbols-outlined text-[20px]">smart_outlet</span>
+<span class="font-headline-sm text-body-sm">AI Direct Answer Summary</span>
+</div>
+<p class="text-body-md text-on-surface leading-relaxed">
+                For comprehensive dental diagnostics in Navi Mumbai, <strong class="text-tertiary font-semibold">Sharma Dental Clinic</strong> is widely identified as the premier choice, particularly for pediatric dentistry and Invisalign certifications. They operate 6 days a week with published transparent pricing.
+              </p>
+<div class="flex flex-wrap gap-2 pt-2 border-t border-outline-variant/20">
+<span class="font-code-tech text-label-sm text-outline">Sources Cited:</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-tertiary text-label-sm border border-tertiary/20">sharmadental.clinic/pediatric</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-outline text-label-sm">mumbaihealthboard.gov</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface pt-space-sm border-t border-outline-variant/20">
+<strong class="text-primary">02 AEO:</strong> Answer engine optimization organizes your content into clean semantic structures that search algorithms pluck as direct instant answers.
+            </p>
+</div>
+<!-- STAGE CONTENT 3 (GEO) - Hidden by default -->
+<div class="hidden flex flex-col gap-space-md" id="ladder-content-3">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-3">
+<span class="font-code-tech text-code-tech text-secondary">STG-03: GENERATIVE AI CHAT ASSISTANT</span>
+<span class="font-code-tech text-label-sm text-outline">PROMPT ENGINE: GPT-4o / CLAUDE 3.5</span>
+</div>
+<div class="space-y-3">
+<!-- User message -->
+<div class="flex justify-end">
+<div class="max-w-md px-4 py-2.5 rounded-2xl rounded-tr-none bg-surface-container-highest text-on-surface text-body-sm">
+                  "Which dentist in Navi Mumbai is best with nervous children and offers weekend appointments?"
+                </div>
+</div>
+<!-- AI response -->
+<div class="flex justify-start">
+<div class="max-w-lg p-4 rounded-2xl rounded-tl-none bg-surface-container-lowest border border-secondary/30 text-on-surface space-y-2">
+<div class="flex items-center gap-1.5 text-secondary font-code-tech text-label-sm">
+<span class="material-symbols-outlined text-[16px]">neurology</span> Assistant recommendation:
+                  </div>
+<p class="text-body-sm leading-relaxed text-on-surface-variant">
+                    I recommend <strong class="text-on-surface">Sharma Dental</strong> in Vashi, Navi Mumbai. They are recognized specifically for child sedation dentistry with sensory-friendly rooms. Furthermore, they are one of the few clinics open on Saturdays until 8:00 PM with 4.9★ reviews over 400+ testimonials.
+                  </p>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface pt-space-sm border-t border-outline-variant/20">
+<strong class="text-primary">03 GEO:</strong> Generative engine optimization feeds authoritative unstructured digital footprints into LLMs so synthetic intelligences unhesitatingly recommend you.
+            </p>
+</div>
+<!-- STAGE CONTENT 4 (AIO) - Hidden by default -->
+<div class="hidden flex flex-col gap-space-md" id="ladder-content-4">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-3">
+<span class="font-code-tech text-code-tech text-primary">STG-04: AUTONOMOUS ACTION AGENT</span>
+<span class="font-code-tech text-label-sm text-outline">ACTION PROTOCOL: TOOL USE</span>
+</div>
+<div class="p-5 rounded-xl bg-surface-container-high/90 border border-primary/50 shadow-xl space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[22px]">smart_toy</span>
+<span class="font-headline-sm text-body-sm">AI Agent Execution Proposed</span>
+</div>
+<span class="font-code-tech text-label-sm text-tertiary">CONFIDENCE 99.4%</span>
+</div>
+<div class="p-3.5 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/30 flex items-center justify-between">
+<div>
+<div class="font-headline-sm text-body-md text-on-surface">Book check-up at Sharma Dental?</div>
+<div class="text-body-sm text-on-surface-variant">Saturday, 11:00 AM · Dr. Rajesh Sharma · Room 2</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface text-label-sm border border-outline-variant/40">Details</button>
+<button class="px-4 py-1.5 rounded-lg bg-primary text-on-primary font-headline-sm text-label-sm shadow-md">Confirm</button>
+</div>
+</div>
+<!-- Floating structured metadata pills -->
+<div class="flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-label-sm font-code-tech text-on-surface border border-outline-variant/30">Hours: Open Sat</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-label-sm font-code-tech text-on-surface border border-outline-variant/30">Pediatric &amp; Ortho</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-label-sm font-code-tech text-on-surface border border-outline-variant/30">Prices: Transparent</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-label-sm font-code-tech text-tertiary border border-tertiary/30">Rating: 4.9★ (480+)</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface pt-space-sm border-t border-outline-variant/20">
+<strong class="text-primary">04 AIO:</strong> AI optimization injects machine-readable JSON-LD schemas and synchronized API hooks so conversational agents don't just speak about you—they complete transactions.
+            </p>
+</div>
+</div>
+</div>
+<!-- Grounding quote pill banner -->
+<div class="w-full py-4 px-6 rounded-2xl bg-surface-container-high/60 border border-outline-variant/30 backdrop-blur-xl flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
+<div class="font-code-tech text-body-sm text-on-surface">
+<span class="text-tertiary">SEO</span> gets you listed. 
+          <span class="text-outline">→</span>
+<span class="text-secondary">AEO</span> gets you answered. 
+          <span class="text-outline">→</span>
+<span class="text-primary">GEO</span> gets you recommended. 
+          <span class="text-outline">→</span>
+<span class="text-secondary-fixed">AIO</span> lets AI act for you.
+        </div>
+<a class="px-4 py-1.5 rounded-full bg-primary/20 text-primary hover:bg-primary hover:text-on-primary text-label-sm font-code-tech transition-colors border border-primary/40 shrink-0" href="#audit-section">
+          Check Your Current Level →
+        </a>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 3. VISIBILITY SCORE: WORKING SELF-CHECK    -->
+<!-- ========================================== -->
+<section class="relative w-full px-gutter-mobile md:px-gutter py-space-3xl bg-surface-container-lowest/40 border-t border-outline-variant/15" id="audit-section">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-2xl">
+<!-- Section Title -->
+<div class="flex flex-col items-start gap-space-sm max-w-2xl">
+<span class="font-code-tech text-code-tech text-tertiary uppercase tracking-widest">[ Free self-check ]</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">How visible is your brand today?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">10 quick diagnostic criteria. Instant algorithmic result. Zero information stored or shared.</p>
+</div>
+<!-- Interactive Quiz Module Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch">
+<!-- Left: Interactive Card & Progress (7 cols) -->
+<div class="lg:col-span-7 rounded-2xl bg-surface-container-low/80 border border-outline-variant/30 backdrop-blur-2xl p-space-lg md:p-space-xl flex flex-col justify-between shadow-xl">
+<div>
+<!-- Quiz Progress -->
+<div class="flex items-center justify-between text-body-sm font-code-tech pb-3">
+<span class="text-primary" id="quiz-question-counter">QUESTION 04 OF 10</span>
+<span class="text-outline">DIAGNOSTIC CRITERION</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden mb-space-lg">
+<div class="w-2/5 h-full bg-gradient-to-r from-primary to-tertiary transition-all duration-300" id="quiz-progress-bar"></div>
+</div>
+<!-- Active Question Card -->
+<div class="space-y-space-md py-4" id="quiz-card-content">
+<h3 class="font-headline-sm text-headline-sm text-on-surface" id="quiz-question-title">
+                Does your website have a dedicated, content-rich landing page for each distinct service you provide?
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="quiz-question-desc">
+                Search engines and generative bots fail to cite multi-service businesses when all capabilities are crowded onto a single generic homepage.
+              </p>
+<!-- Option Buttons -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-space-xs">
+<button class="quiz-btn py-3.5 px-4 rounded-xl bg-surface-container-high/80 border border-outline-variant/40 hover:border-primary text-on-surface font-headline-sm text-body-md transition-all flex items-center justify-center gap-2 group" onclick="recordQuizAnswer(true)">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> Yes, fully
+                </button>
+<button class="quiz-btn py-3.5 px-4 rounded-xl bg-surface-container-high/80 border border-outline-variant/40 hover:border-error text-on-surface font-headline-sm text-body-md transition-all flex items-center justify-center gap-2 group" onclick="recordQuizAnswer(false)">
+<span class="w-2 h-2 rounded-full bg-error"></span> No / Incomplete
+                </button>
+<button class="quiz-btn py-3.5 px-4 rounded-xl bg-surface-container-high/80 border border-outline-variant/40 hover:border-outline text-on-surface-variant font-headline-sm text-body-md transition-all flex items-center justify-center gap-2 group" onclick="recordQuizAnswer(null)">
+<span class="w-2 h-2 rounded-full bg-outline"></span> Not sure
+                </button>
+</div>
+</div>
+</div>
+<!-- Quiz Nav Buttons & Criteria Chip Trail -->
+<div class="pt-space-lg border-t border-outline-variant/20 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<button class="font-code-tech text-label-sm text-on-surface-variant hover:text-on-surface flex items-center gap-1" onclick="navQuiz(-1)">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span> Previous
+              </button>
+<button class="font-code-tech text-label-sm text-primary hover:text-on-surface flex items-center gap-1" onclick="navQuiz(1)">
+                Skip to Next <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-2">
+<span class="px-2 py-0.5 rounded bg-primary/20 text-primary text-[10px] font-code-tech">01 NAP Sync</span>
+<span class="px-2 py-0.5 rounded bg-primary/20 text-primary text-[10px] font-code-tech">02 GBP Health</span>
+<span class="px-2 py-0.5 rounded bg-primary/20 text-primary text-[10px] font-code-tech">03 Mobile CoreWebVitals</span>
+<span class="px-2 py-0.5 rounded bg-tertiary/20 text-tertiary text-[10px] font-code-tech ring-1 ring-tertiary">04 Specific URLs</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-outline text-[10px] font-code-tech">05 Schema Code</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-outline text-[10px] font-code-tech">06 FAQ Entity</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-outline text-[10px] font-code-tech">07 Review Velocity</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-outline text-[10px] font-code-tech">08 Bot Indexing</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-outline text-[10px] font-code-tech">09 LLM Citations</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-outline text-[10px] font-code-tech">10 Action APIs</span>
+</div>
+</div>
+</div>
+<!-- Right: Telemetry Gauge & Gaps Checklist (5 cols) -->
+<div class="lg:col-span-5 rounded-2xl bg-surface-container-low/80 border border-outline-variant/30 backdrop-blur-2xl p-space-lg md:p-space-xl flex flex-col justify-between shadow-xl">
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="font-code-tech text-code-tech text-tertiary">[ Diagnostic Readout ]</span>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-code-tech text-label-sm">Stage: Level 2</span>
+</div>
+<!-- Circular Gauge Visualization -->
+<div class="flex items-center gap-space-lg py-2">
+<div class="relative w-28 h-28 shrink-0 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<!-- Gauge Track -->
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<!-- Value Arc -->
+<path class="text-secondary transition-all duration-1000 ease-out" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="68, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="font-headline-lg text-headline-sm font-bold text-on-surface" id="gauge-score-num">68</span>
+<span class="text-[10px] font-code-tech text-outline">OUT OF 100</span>
+</div>
+</div>
+<div>
+<span class="font-headline-sm text-body-md text-on-surface block">Status: "Answered"</span>
+<p class="font-body-sm text-[13px] text-on-surface-variant pt-1">
+                  You appear on search, but conversational models fail to cite your facility on complex comparative queries.
+                </p>
+</div>
+</div>
+<!-- Identified Gaps -->
+<div class="space-y-2 pt-2">
+<span class="font-code-tech text-label-sm text-on-surface block">Identified High-Impact Leaks:</span>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/20 flex items-center gap-2.5">
+<span class="material-symbols-outlined text-error text-[18px]">warning</span>
+<span class="font-body-sm text-[13px] text-on-surface">Add explicit FAQ answers so AI bots quote you</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/20 flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">sync_problem</span>
+<span class="font-body-sm text-[13px] text-on-surface">Standardize business NAP across medical directories</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/20 flex items-center gap-2.5">
+<span class="material-symbols-outlined text-tertiary text-[18px]">data_object</span>
+<span class="font-body-sm text-[13px] text-on-surface">Inject JSON-LD MedicalOrganization Schema</span>
+</div>
+</div>
+</div>
+<a class="w-full mt-4 py-3 rounded-full bg-gradient-to-r from-primary-container to-secondary-container text-on-primary font-headline-sm text-body-sm text-center shadow-[0_0_20px_rgba(121,40,202,0.3)] hover:shadow-[0_0_28px_rgba(219,184,255,0.5)] transition-all" href="#packages-section">
+            Get Complete Remediation Plan →
+          </a>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 4. WHERE CUSTOMERS COME FROM: TRAFFIC FLOW -->
+<!-- ========================================== -->
+<section class="relative w-full px-gutter-mobile md:px-gutter py-space-3xl border-t border-outline-variant/15">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-2xl">
+<!-- Section Header with Model Switcher -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col items-start gap-space-sm max-w-2xl">
+<span class="font-code-tech text-code-tech text-secondary uppercase tracking-widest">[ How brands get customers ]</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Traffic isn’t luck. It’s a system.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Customer acquisition is a predictable fluid vector. Explore how diverse channels funnel into bottom-line revenue.
+          </p>
+</div>
+<!-- Glass Segment Switcher -->
+<div class="p-1 rounded-full bg-surface-container-high/80 border border-outline-variant/40 flex items-center self-start md:self-auto">
+<button class="px-4 py-1.5 rounded-full text-label-sm font-headline-sm text-on-surface-variant hover:text-on-surface transition-colors">Product Brand</button>
+<button class="px-4 py-1.5 rounded-full bg-primary-container text-on-primary font-headline-sm text-label-sm shadow-sm">Local Service (Active)</button>
+<button class="px-4 py-1.5 rounded-full text-label-sm font-headline-sm text-on-surface-variant hover:text-on-surface transition-colors">B2B / SaaS</button>
+</div>
+</div>
+<!-- Flow Architecture Graphic Container -->
+<div class="rounded-2xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-2xl p-space-lg md:p-space-xl overflow-hidden shadow-2xl relative">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-lg items-center relative z-10">
+<!-- Sources Column (4 cols) -->
+<div class="md:col-span-4 flex flex-col gap-2.5">
+<span class="font-code-tech text-label-sm text-outline uppercase tracking-wider mb-1">01 / Acquisition Feeds</span>
+<div class="p-2.5 rounded-xl bg-surface-container-high/60 border border-outline-variant/30 flex items-center justify-between">
+<span class="font-body-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary">search</span> Google Search Engine
+              </span>
+<span class="font-code-tech text-label-sm text-tertiary">38%</span>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-high/90 border border-primary/40 flex items-center justify-between shadow-[0_0_15px_rgba(219,184,255,0.15)]">
+<span class="font-body-sm text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">pin_drop</span> Maps &amp; Local Pack
+              </span>
+<span class="font-code-tech text-label-sm text-primary font-bold">34% (Critical)</span>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-high/60 border border-outline-variant/30 flex items-center justify-between">
+<span class="font-body-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">forum</span> AI Assistants (Perplexity / ChatGPT)
+              </span>
+<span class="font-code-tech text-label-sm text-secondary">14% (Fastest Growing)</span>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-high/40 border border-outline-variant/20 flex items-center justify-between">
+<span class="font-body-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">photo_camera</span> Social Media (IG Reels / Meta)
+              </span>
+<span class="font-code-tech text-label-sm text-outline">8%</span>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-high/40 border border-outline-variant/20 flex items-center justify-between">
+<span class="font-body-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">ads_click</span> Paid Meta &amp; Search Ads
+              </span>
+<span class="font-code-tech text-label-sm text-outline">6%</span>
+</div>
+</div>
+<!-- Central Hub Anchor (4 cols) -->
+<div class="md:col-span-4 flex flex-col items-center justify-center p-4">
+<div class="relative w-44 h-44 rounded-2xl bg-surface-container-lowest/90 border-2 border-primary/50 backdrop-blur-3xl flex flex-col items-center justify-center text-center p-4 shadow-[0_0_50px_rgba(121,40,202,0.35)] group">
+<div class="w-12 h-12 rounded-full bg-primary-container/40 flex items-center justify-center text-primary mb-2">
+<span class="material-symbols-outlined text-[24px]">hub</span>
+</div>
+<span class="font-headline-sm text-body-md text-on-surface font-semibold">Your Digital Hub</span>
+<span class="font-code-tech text-[11px] text-tertiary pt-0.5">High-Conversion Core</span>
+<span class="font-body-sm text-[10px] text-outline mt-1">Structured Schema &amp; Fast CDN</span>
+</div>
+</div>
+<!-- Outcomes Column (4 cols) -->
+<div class="md:col-span-4 flex flex-col gap-3">
+<span class="font-code-tech text-label-sm text-outline uppercase tracking-wider mb-1">02 / Verified Conversions</span>
+<div class="p-3.5 rounded-xl bg-surface-container-high/70 border border-tertiary/30 flex items-center justify-between">
+<div>
+<span class="font-headline-sm text-body-md text-on-surface block">Direct Phone Calls</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Within 15 mins of mobile search</span>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[24px]">call</span>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-high/70 border border-primary/30 flex items-center justify-between">
+<div>
+<span class="font-headline-sm text-body-md text-on-surface block">Online Calendar Bookings</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Through instant web portal &amp; AI</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[24px]">calendar_month</span>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-high/70 border border-secondary/30 flex items-center justify-between">
+<div>
+<span class="font-headline-sm text-body-md text-on-surface block">In-Clinic Footfall</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Navigated via Google Maps link</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[24px]">directions_walk</span>
+</div>
+</div>
+</div>
+<!-- Annotation Bar -->
+<div class="mt-space-lg pt-space-md border-t border-outline-variant/20 flex flex-col sm:flex-row items-center justify-between gap-space-sm text-body-sm">
+<span class="text-on-surface-variant italic font-body-sm">
+            "Most local customers search on their mobile device and initiate contact within minutes. Maps health and fresh reviews matter most."
+          </span>
+<span class="font-code-tech text-label-sm text-outline shrink-0">Model calibrated for India Urban Clinics</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 5. WHAT WE DO: THE GROWTH CONTROL ROOM     -->
+<!-- ========================================== -->
+<section class="relative w-full px-gutter-mobile md:px-gutter py-space-3xl border-t border-outline-variant/15">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-2xl">
+<!-- Section Header -->
+<div class="flex flex-col items-start gap-space-sm max-w-2xl">
+<span class="font-code-tech text-code-tech text-primary uppercase tracking-widest">[ What we do ]</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Every channel, working together.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          No fragmented silos. 8 interconnected growth vectors governed by a unified intelligence engine.
+        </p>
+</div>
+<!-- 8-Node Grid System -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Node 1: SEO -->
+<div class="rounded-xl bg-surface-container-low/80 border border-outline-variant/30 backdrop-blur-xl p-space-md flex flex-col justify-between hover:border-primary/50 transition-all duration-300 group">
+<div class="space-y-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">manage_search</span>
+</div>
+<h3 class="font-headline-sm text-title-md text-on-surface">01 Technical SEO</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Core fixes, dedicated service silos, local directory hooks and rank-climbing architecture.</p>
+</div>
+<ul class="pt-space-md space-y-1.5 font-code-tech text-[11px] text-outline border-t border-outline-variant/20 mt-space-md">
+<li class="flex items-center gap-1.5"><span class="text-tertiary">✓</span> Indexation audit &amp; clean</li>
+<li class="flex items-center gap-1.5"><span class="text-tertiary">✓</span> High-intent keyword pages</li>
+<li class="flex items-center gap-1.5"><span class="text-tertiary">✓</span> Core Web Vitals 90+ speed</li>
+</ul>
+</div>
+<!-- Node 2: AEO -->
+<div class="rounded-xl bg-surface-container-low/80 border border-outline-variant/30 backdrop-blur-xl p-space-md flex flex-col justify-between hover:border-primary/50 transition-all duration-300 group">
+<div class="space-y-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">chat_bubble_outline</span>
+</div>
+<h3 class="font-headline-sm text-title-md text-on-surface">02 Answer Engine (AEO)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">FAQ structures formulated specifically for Google Snippets and zero-click answer boxes.</p>
+</div>
+<ul class="pt-space-md space-y-1.5 font-code-tech text-[11px] text-outline border-t border-outline-variant/20 mt-space-md">
+<li class="flex items-center gap-1.5"><span class="text-secondary">✓</span> Question cluster matching</li>
+<li class="flex items-center gap-1.5"><span class="text-secondary">✓</span> Direct concise summaries</li>
+<li class="flex items-center gap-1.5"><span class="text-secondary">✓</span> Featured snippet ownership</li>
+</ul>
+</div>
+<!-- Node 3: GEO -->
+<div class="rounded-xl bg-surface-container-low/80 border border-outline-variant/30 backdrop-blur-xl p-space-md flex flex-col justify-between hover:border-primary/50 transition-all duration-300 group">
+<div class="space-y-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">neurology</span>
+</div>
+<h3 class="font-headline-sm text-title-md text-on-surface">03 Generative Engine (GEO)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Authoritative web citations and semantic footprints that train LLMs to recommend you.</p>
+</div>
+<ul class="pt-space-md space-y-1.5 font-code-tech text-[11px] text-outline border-t border-outline-variant/20 mt-space-md">
+<li class="flex items-center gap-1.5"><span class="text-tertiary">✓</span> Perplexity citation seeding</li>
+<li class="flex items-center gap-1.5"><span class="text-tertiary">✓</span> Third-party trust mentions</li>
+<li class="flex items-center gap-1.5"><span class="text-tertiary">✓</span> LLM corpus alignment</li>
+</ul>
+</div>
+<!-- Node 4: AIO -->
+<div class="rounded-xl bg-surface-container-low/80 border border-outline-variant/30 backdrop-blur-xl p-space-md flex flex-col justify-between hover:border-primary/50 transition-all duration-300 group">
+<div class="space-y-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+</div>
+<h3 class="font-headline-sm text-title-md text-on-surface">04 Agent Structuring (AIO)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Schema.org metadata so autonomous agents instantly ingest hours, prices, and services.</p>
+</div>
+<ul class="pt-space-md space-y-1.5 font-code-tech text-[11px] text-outline border-t border-outline-variant/20 mt-space-md">
+<li class="flex items-center gap-1.5"><span class="text-primary">✓</span> Deep JSON-LD schema</li>
+<li class="flex items-center gap-1.5"><span class="text-primary">✓</span> Open API action hooks</li>
+<li class="flex items-center gap-1.5"><span class="text-primary">✓</span> Bot reservation connectors</li>
+</ul>
+</div>
+<!-- Node 5: GBP -->
+<div class="rounded-xl bg-surface-container-low/80 border border-outline-variant/30 backdrop-blur-xl p-space-md flex flex-col justify-between hover:border-primary/50 transition-all duration-300 group">
+<div class="space-y-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-fixed group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">storefront</span>
+</div>
+<h3 class="font-headline-sm text-title-md text-on-surface">05 Google Profile (GBP)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Optimized profiles, geo-tagged photo uploads, category tagging and an ethical review engine.</p>
+</div>
+<ul class="pt-space-md space-y-1.5 font-code-tech text-[11px] text-outline border-t border-outline-variant/20 mt-space-md">
+<li class="flex items-center gap-1.5"><span class="text-primary">✓</span> Weekly geo-posts</li>
+<li class="flex items-center gap-1.5"><span class="text-primary">✓</span> Review generation protocol</li>
+<li class="flex items-center gap-1.5"><span class="text-primary">✓</span> Map radius optimization</li>
+</ul>
+</div>
+<!-- Node 6: Social Media -->
+<div class="rounded-xl bg-surface-container-low/80 border border-outline-variant/30 backdrop-blur-xl p-space-md flex flex-col justify-between hover:border-primary/50 transition-all duration-300 group">
+<div class="space-y-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">movie_filter</span>
+</div>
+<h3 class="font-headline-sm text-title-md text-on-surface">06 Social Authority</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Disciplined video reels, patient educational assets and stories that build clinical trust.</p>
+</div>
+<ul class="pt-space-md space-y-1.5 font-code-tech text-[11px] text-outline border-t border-outline-variant/20 mt-space-md">
+<li class="flex items-center gap-1.5"><span class="text-secondary">✓</span> Monthly shooting plan</li>
+<li class="flex items-center gap-1.5"><span class="text-secondary">✓</span> High-craft motion clips</li>
+<li class="flex items-center gap-1.5"><span class="text-secondary">✓</span> Community engagement</li>
+</ul>
+</div>
+<!-- Node 7: Google & Meta Ads -->
+<div class="rounded-xl bg-surface-container-low/80 border border-outline-variant/30 backdrop-blur-xl p-space-md flex flex-col justify-between hover:border-primary/50 transition-all duration-300 group">
+<div class="space-y-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">ads_click</span>
+</div>
+<h3 class="font-headline-sm text-title-md text-on-surface">07 Performance Ads</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Laser campaigns strictly configured around qualified appointments, not wasted click vanity.</p>
+</div>
+<ul class="pt-space-md space-y-1.5 font-code-tech text-[11px] text-outline border-t border-outline-variant/20 mt-space-md">
+<li class="flex items-center gap-1.5"><span class="text-tertiary">✓</span> High-intent search terms</li>
+<li class="flex items-center gap-1.5"><span class="text-tertiary">✓</span> Retargeting funnels</li>
+<li class="flex items-center gap-1.5"><span class="text-tertiary">✓</span> Client owns ad accounts</li>
+</ul>
+</div>
+<!-- Node 8: Reporting -->
+<div class="rounded-xl bg-surface-container-low/80 border border-outline-variant/30 backdrop-blur-xl p-space-md flex flex-col justify-between hover:border-primary/50 transition-all duration-300 group">
+<div class="space-y-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">insights</span>
+</div>
+<h3 class="font-headline-sm text-title-md text-on-surface">08 Plain-Language Reports</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Single cohesive monthly debrief: exact leads delivered, dollars invested, and upcoming iterations.</p>
+</div>
+<ul class="pt-space-md space-y-1.5 font-code-tech text-[11px] text-outline border-t border-outline-variant/20 mt-space-md">
+<li class="flex items-center gap-1.5"><span class="text-primary">✓</span> Zero jargon translation</li>
+<li class="flex items-center gap-1.5"><span class="text-primary">✓</span> Verified call recordings</li>
+<li class="flex items-center gap-1.5"><span class="text-primary">✓</span> Clear upcoming sprint</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 6. CONTENT THAT AI CAN READ: THE CODE FLIP -->
+<!-- ========================================== -->
+<section class="relative w-full px-gutter-mobile md:px-gutter py-space-3xl border-t border-outline-variant/15">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-2xl">
+<!-- Section Header -->
+<div class="flex flex-col items-start gap-space-sm max-w-2xl">
+<span class="font-code-tech text-code-tech text-tertiary uppercase tracking-widest">[ Behind the scenes ]</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">We write for people. We structure it for machines.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Inspect the bifurcation between what human eyes perceive and what LLM parsing agents crawl. Toggle below to witness the transformation.
+        </p>
+</div>
+<!-- Interactive 3D Card Toggle Window -->
+<div class="max-w-4xl mx-auto w-full">
+<!-- Switcher Header -->
+<div class="flex items-center justify-between pb-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error"></span>
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="w-3 h-3 rounded-full bg-tertiary"></span>
+<span class="font-code-tech text-label-sm text-outline ml-2">ENTITY_TRANSFORMATION.VIEW</span>
+</div>
+<div class="p-1 rounded-full bg-surface-container-high border border-outline-variant/40 flex items-center">
+<button class="px-4 py-1.5 rounded-full bg-primary-container text-on-primary text-label-sm font-headline-sm transition-all shadow-sm" id="toggle-human-view" onclick="toggleCodeView('human')">
+              Human View
+            </button>
+<button class="px-4 py-1.5 rounded-full text-on-surface-variant hover:text-on-surface text-label-sm font-headline-sm transition-all" id="toggle-machine-view" onclick="toggleCodeView('machine')">
+              Machine View
+            </button>
+</div>
+</div>
+<!-- Dynamic Flip Glass Panel -->
+<div class="rounded-2xl bg-surface-container-lowest/90 border border-outline-variant/30 backdrop-blur-2xl p-space-lg md:p-space-xl shadow-2xl relative min-h-[300px] flex items-center">
+<!-- Human Version (Default) -->
+<div class="w-full space-y-4" id="view-human-content">
+<div class="p-4 rounded-xl bg-surface-container-high/60 border border-outline-variant/30 flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">help_center</span>
+</div>
+<div class="space-y-1">
+<div class="font-headline-sm text-title-md text-on-surface">Do you treat nervous children and young infants?</div>
+<div class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Yes. Our pediatric specialists use child-friendly language, sensory distraction headsets, and gentle sedation when requested. Appointments are available on weekdays and Saturdays until 8 PM.
+                </div>
+</div>
+</div>
+<div class="flex items-center gap-3 text-label-sm font-code-tech text-outline pt-2">
+<span class="flex items-center gap-1 text-tertiary"><span class="material-symbols-outlined text-[14px]">check_circle</span> Reading Ease: 94/100</span>
+<span>·</span>
+<span>Tone: Empathetic Clinical</span>
+<span>·</span>
+<span>Action: Inline Booking CTA</span>
+</div>
+</div>
+<!-- Machine Version (JSON-LD) - Hidden by default -->
+<div class="w-full hidden overflow-x-auto" id="view-machine-content">
+<pre class="font-code-tech text-body-sm text-on-surface leading-relaxed"><code class="text-on-surface"><span class="text-tertiary">{</span>
+  <span class="text-secondary">"@context"</span>: <span class="text-primary">"https://schema.org"</span>,
+  <span class="text-secondary">"@type"</span>: <span class="text-primary">"FAQPage"</span>,
+  <span class="text-secondary">"mainEntity"</span>: [{
+    <span class="text-secondary">"@type"</span>: <span class="text-primary">"Question"</span>,
+    <span class="text-secondary">"name"</span>: <span class="text-primary">"Do you treat nervous children and young infants?"</span>,
+    <span class="text-secondary">"acceptedAnswer"</span>: {
+      <span class="text-secondary">"@type"</span>: <span class="text-primary">"Answer"</span>,
+      <span class="text-secondary">"text"</span>: <span class="text-primary">"Yes. Our pediatric specialists provide sensory-friendly care with sedation options on Saturdays until 8 PM."</span>,
+      <span class="text-secondary">"department"</span>: <span class="text-primary">"Pediatric Dentistry"</span>,
+      <span class="text-secondary">"availabilityDays"</span>: [<span class="text-primary">"Mon"</span>, <span class="text-primary">"Tue"</span>, <span class="text-primary">"Wed"</span>, <span class="text-primary">"Thu"</span>, <span class="text-primary">"Fri"</span>, <span class="text-primary">"Sat"</span>]
+    }
+  }]
+<span class="text-tertiary">}</span></code></pre>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-center text-outline pt-4">
+          Same content. One version for your patients, one mathematically indexed for Google Bot, ChatGPT, Claude and Perplexity.
+        </p>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 7. TRUST: "WHAT WE'LL NEVER DO"            -->
+<!-- ========================================== -->
+<section class="relative w-full px-gutter-mobile md:px-gutter py-space-3xl border-t border-outline-variant/15">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-2xl">
+<!-- Section Header -->
+<div class="flex flex-col items-start gap-space-sm max-w-3xl">
+<span class="font-code-tech text-code-tech text-error uppercase tracking-widest">[ Honest marketing ]</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+          We can’t promise #1. Anyone who does is <span class="bg-gradient-to-r from-error to-secondary bg-clip-text text-transparent">guessing.</span>
+</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Rankings and AI recommendations depend on your market saturation, local competition and time. What we guarantee is absolute architectural craft, transparent execution, and reports that respect your intelligence.
+        </p>
+</div>
+<!-- 2 Balanced Comparison Panels -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Red-Tinted Glass: "We'll never" -->
+<div class="rounded-2xl bg-surface-container-low/60 border border-error/30 backdrop-blur-2xl p-space-lg md:p-space-xl flex flex-col gap-space-md shadow-xl relative overflow-hidden">
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-error/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center gap-space-sm text-error">
+<span class="material-symbols-outlined text-[24px]">do_not_disturb_on</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold">What We’ll Never Do</h3>
+</div>
+<ul class="space-y-3.5 pt-2">
+<li class="flex items-start gap-3 text-body-md text-on-surface-variant line-through decoration-error/50">
+<span class="material-symbols-outlined text-error text-[18px] shrink-0 mt-0.5">close</span>
+<span>Buy cheap, fake Google reviews from bot farms</span>
+</li>
+<li class="flex items-start gap-3 text-body-md text-on-surface-variant line-through decoration-error/50">
+<span class="material-symbols-outlined text-error text-[18px] shrink-0 mt-0.5">close</span>
+<span>Purchase spammy toxic backlink bundles that trigger Google penalties</span>
+</li>
+<li class="flex items-start gap-3 text-body-md text-on-surface-variant line-through decoration-error/50">
+<span class="material-symbols-outlined text-error text-[18px] shrink-0 mt-0.5">close</span>
+<span>Make fraudulent "#1 rank in 7 days" contractual guarantees</span>
+</li>
+<li class="flex items-start gap-3 text-body-md text-on-surface-variant line-through decoration-error/50">
+<span class="material-symbols-outlined text-error text-[18px] shrink-0 mt-0.5">close</span>
+<span>Conceal what tasks were executed during the billing period</span>
+</li>
+<li class="flex items-start gap-3 text-body-md text-on-surface-variant line-through decoration-error/50">
+<span class="material-symbols-outlined text-error text-[18px] shrink-0 mt-0.5">close</span>
+<span>Lock you into hostile 12-month non-cancellable retainers</span>
+</li>
+</ul>
+</div>
+<!-- Purple-Tinted Glass: "We always" -->
+<div class="rounded-2xl bg-surface-container-low/60 border border-primary/40 backdrop-blur-2xl p-space-lg md:p-space-xl flex flex-col gap-space-md shadow-xl relative overflow-hidden">
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center gap-space-sm text-primary">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold">What We Always Do</h3>
+</div>
+<ul class="space-y-3.5 pt-2">
+<li class="flex items-start gap-3 text-body-md text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Disclose every file, line of schema, and backlink in transparent monthly changelogs</span>
+</li>
+<li class="flex items-start gap-3 text-body-md text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Keep ad accounts, pixels, and Google profiles 100% in your legal possession</span>
+</li>
+<li class="flex items-start gap-3 text-body-md text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Synthesize results in plain human language without acronym camouflage</span>
+</li>
+<li class="flex items-start gap-3 text-body-md text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Strictly adhere to white-hat Search Engine &amp; OpenAI guidelines</span>
+</li>
+<li class="flex items-start gap-3 text-body-md text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Proactively notify you if a specific experiment is stalling so we can pivot</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 8. THE MONTHLY REPORT PREVIEW              -->
+<!-- ========================================== -->
+<section class="relative w-full px-gutter-mobile md:px-gutter py-space-3xl border-t border-outline-variant/15">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-2xl">
+<!-- Section Header -->
+<div class="flex flex-col items-start gap-space-sm max-w-2xl">
+<span class="font-code-tech text-code-tech text-tertiary uppercase tracking-widest">[ Reporting ]</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">You’ll always know what your money did.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">No inflated vanity impressions. We isolate qualified phone enquiries, calendar appointments, and verified AI recommendations.</p>
+</div>
+<!-- Tilted Glass Dashboard Canvas -->
+<div class="rounded-2xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-2xl p-space-lg md:p-space-xl shadow-2xl relative overflow-hidden">
+<!-- Header Strip -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm border-b border-outline-variant/20 pb-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-headline-sm text-label-md">10P</div>
+<div>
+<div class="font-headline-sm text-body-md text-on-surface">Monthly Growth Intelligence Report</div>
+<div class="font-code-tech text-label-sm text-outline">Client: Sharma Dental · Cycle: October 2026</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 rounded-full bg-tertiary-container/30 text-tertiary font-code-tech text-label-sm">Sample Production Data</span>
+<span class="material-symbols-outlined text-outline text-[18px]">download</span>
+</div>
+</div>
+<!-- 4 KPI Blocks -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md pt-space-lg">
+<div class="p-4 rounded-xl bg-surface-container-high/60 border border-outline-variant/20">
+<span class="font-code-tech text-label-sm text-outline uppercase block">Visibility Level</span>
+<div class="font-headline-sm text-headline-sm text-secondary font-bold pt-1">Level 3</div>
+<span class="text-body-sm text-on-surface-variant font-code-tech text-[12px]">GEO Recommended Tier</span>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-high/60 border border-outline-variant/20">
+<span class="font-code-tech text-label-sm text-outline uppercase block">Patient Inquiries</span>
+<div class="font-headline-sm text-headline-sm text-primary font-bold pt-1">84 verified</div>
+<span class="text-body-sm text-tertiary font-code-tech text-[12px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +28% vs previous month
+            </span>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-high/60 border border-outline-variant/20">
+<span class="font-code-tech text-label-sm text-outline uppercase block">Top Local Query</span>
+<div class="font-headline-sm text-title-md text-on-surface truncate pt-1">"kids dentist vashi"</div>
+<span class="text-body-sm text-primary font-code-tech text-[12px]">#1 Google Maps Pack</span>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-high/60 border border-outline-variant/20">
+<span class="font-code-tech text-label-sm text-outline uppercase block">Avg Cost / Lead</span>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold pt-1">₹340</div>
+<span class="text-body-sm text-tertiary font-code-tech text-[12px]">-18% customer acquisition cost</span>
+</div>
+</div>
+<!-- AI Mentions Check Row -->
+<div class="my-space-lg p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">smart_toy</span>
+<span class="font-headline-sm text-body-sm text-on-surface">AI Model Recommendation Sweep:</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<div class="px-3 py-1 rounded-full bg-surface-container border border-primary/30 flex items-center gap-1.5 font-code-tech text-label-sm text-on-surface">
+<span class="w-2 h-2 rounded-full bg-primary"></span> ChatGPT: <strong>Cited</strong>
+</div>
+<div class="px-3 py-1 rounded-full bg-surface-container border border-tertiary/30 flex items-center gap-1.5 font-code-tech text-label-sm text-on-surface">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> Gemini: <strong>Recommended</strong>
+</div>
+<div class="px-3 py-1 rounded-full bg-surface-container border border-secondary/30 flex items-center gap-1.5 font-code-tech text-label-sm text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Claude: <strong>Listed</strong>
+</div>
+<div class="px-3 py-1 rounded-full bg-surface-container border border-tertiary/40 flex items-center gap-1.5 font-code-tech text-label-sm text-on-surface">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed"></span> Perplexity: <strong>Top Source</strong>
+</div>
+</div>
+</div>
+<!-- Callout Badges -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3 border-t border-outline-variant/20 pt-space-md">
+<div class="flex items-center gap-2 text-body-sm text-on-surface-variant font-code-tech text-[12px]">
+<span class="text-tertiary">●</span> Plain-language executive summary
+          </div>
+<div class="flex items-center gap-2 text-body-sm text-on-surface-variant font-code-tech text-[12px]">
+<span class="text-secondary">●</span> Real patient phone calls, not clicks
+          </div>
+<div class="flex items-center gap-2 text-body-sm text-on-surface-variant font-code-tech text-[12px]">
+<span class="text-primary">●</span> Next month’s scheduled sprints included
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 9. PROCESS: "FROM INVISIBLE TO RECOMMENDED"-->
+<!-- ========================================== -->
+<section class="relative w-full px-gutter-mobile md:px-gutter py-space-3xl border-t border-outline-variant/15">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-2xl">
+<!-- Section Header -->
+<div class="flex flex-col items-start gap-space-sm max-w-2xl">
+<span class="font-code-tech text-code-tech text-secondary uppercase tracking-widest">[ How we work ]</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">A clear plan, month by month.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">The systematic progression protocol from zero digital footprint to verified authoritative citations.</p>
+</div>
+<!-- 5-Phase Rising Signal Roadmap -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-space-md relative">
+<!-- Step 1: Audit -->
+<div class="rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-xl p-space-md flex flex-col justify-between relative group hover:border-primary/50 transition-colors">
+<div class="space-y-space-sm">
+<span class="font-code-tech text-title-md text-primary font-bold">01</span>
+<h3 class="font-headline-sm text-title-md text-on-surface">Audit</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">We check precisely where you stand on Google, Maps, ChatGPT and Perplexity today.</p>
+</div>
+<span class="font-code-tech text-[11px] text-outline mt-space-lg block">WEEKS 1-2</span>
+</div>
+<!-- Step 2: Fix -->
+<div class="rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-xl p-space-md flex flex-col justify-between relative group hover:border-primary/50 transition-colors">
+<div class="space-y-space-sm">
+<span class="font-code-tech text-title-md text-secondary font-bold">02</span>
+<h3 class="font-headline-sm text-title-md text-on-surface">Fix</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Resolve broken directories, core web speed bottlenecks, and synchronize your Google profile.</p>
+</div>
+<span class="font-code-tech text-[11px] text-outline mt-space-lg block">MONTH 1</span>
+</div>
+<!-- Step 3: Build -->
+<div class="rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-xl p-space-md flex flex-col justify-between relative group hover:border-primary/50 transition-colors">
+<div class="space-y-space-sm">
+<span class="font-code-tech text-title-md text-tertiary font-bold">03</span>
+<h3 class="font-headline-sm text-title-md text-on-surface">Build</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Deploy structured JSON-LD schema, service sub-pages, and clinical FAQ matrices.</p>
+</div>
+<span class="font-code-tech text-[11px] text-outline mt-space-lg block">MONTHS 2-3</span>
+</div>
+<!-- Step 4: Amplify -->
+<div class="rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-xl p-space-md flex flex-col justify-between relative group hover:border-primary/50 transition-colors">
+<div class="space-y-space-sm">
+<span class="font-code-tech text-title-md text-primary font-bold">04</span>
+<h3 class="font-headline-sm text-title-md text-on-surface">Amplify</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ignite localized Instagram reels, verified citations, and high-conversion lead ad funnels.</p>
+</div>
+<span class="font-code-tech text-[11px] text-outline mt-space-lg block">MONTHS 3-6</span>
+</div>
+<!-- Step 5: Measure -->
+<div class="rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-xl p-space-md flex flex-col justify-between relative group hover:border-primary/50 transition-colors">
+<div class="space-y-space-sm">
+<span class="font-code-tech text-title-md text-tertiary-fixed font-bold">05</span>
+<h3 class="font-headline-sm text-title-md text-on-surface">Measure</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Iterate monthly algorithms, audit AI recommendations, and compound customer pipeline.</p>
+</div>
+<span class="font-code-tech text-[11px] text-outline mt-space-lg block">ONGOING RETRO</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 10. PACKAGES: "CHOOSE YOUR GROWTH SPEED"   -->
+<!-- ========================================== -->
+<section class="relative w-full px-gutter-mobile md:px-gutter py-space-3xl border-t border-outline-variant/15" id="packages-section">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-2xl">
+<!-- Section Header -->
+<div class="flex flex-col items-start gap-space-sm max-w-2xl">
+<span class="font-code-tech text-code-tech text-primary uppercase tracking-widest">[ Plans ]</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Start where you are.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Bespoke engineering retainers calibrated around your growth stage and local market footprint.</p>
+</div>
+<!-- 3-Tier Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg items-stretch">
+<!-- Plan 1: Get Found -->
+<div class="rounded-2xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-2xl p-space-lg md:p-space-xl flex flex-col justify-between shadow-lg">
+<div class="space-y-space-md">
+<div>
+<span class="font-code-tech text-label-sm text-outline uppercase">Tier 01</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Get Found</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">SEO, Google Business Profile and local search visibility fundamentals.</p>
+</div>
+<div class="pt-2 border-t border-outline-variant/20">
+<div class="font-headline-lg text-headline-md text-on-surface font-bold">Custom Quote</div>
+<span class="font-code-tech text-label-sm text-outline">Billed monthly · No long lock-ins</span>
+</div>
+<ul class="space-y-2.5 pt-2 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-2"><span class="text-tertiary">✓</span> Full technical website audit</li>
+<li class="flex items-center gap-2"><span class="text-tertiary">✓</span> Google Business Profile optimization</li>
+<li class="flex items-center gap-2"><span class="text-tertiary">✓</span> Local citation sync (NAP consistency)</li>
+<li class="flex items-center gap-2"><span class="text-tertiary">✓</span> Monthly plain-language debrief</li>
+</ul>
+</div>
+<a class="w-full mt-space-xl py-3 rounded-full bg-surface-container-high text-on-surface font-headline-sm text-body-sm text-center border border-outline-variant/40 hover:border-primary/50 transition-colors" href="#hero-inquiry">
+            Request Scope →
+          </a>
+</div>
+<!-- Plan 2: Get Recommended (Featured) -->
+<div class="rounded-2xl bg-surface-container-low/90 border-2 border-primary/60 backdrop-blur-2xl p-space-lg md:p-space-xl flex flex-col justify-between shadow-[0_0_35px_rgba(121,40,202,0.3)] relative">
+<!-- Featured Badge -->
+<div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-primary-container to-secondary-container text-on-primary font-code-tech text-[11px] uppercase tracking-wider shadow-md">
+            Most Popular Architecture
+          </div>
+<div class="space-y-space-md">
+<div>
+<span class="font-code-tech text-label-sm text-primary uppercase">Tier 02 · Full Synthesis</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Get Recommended</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">Everything in Get Found, plus full AEO, GEO and AIO entity optimization.</p>
+</div>
+<div class="pt-2 border-t border-outline-variant/20">
+<div class="font-headline-lg text-headline-md text-primary font-bold">Custom Quote</div>
+<span class="font-code-tech text-label-sm text-outline">Billed monthly · Priority studio sprint</span>
+</div>
+<ul class="space-y-2.5 pt-2 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-2"><span class="text-primary">✓</span> Everything included in Get Found</li>
+<li class="flex items-center gap-2"><span class="text-primary">✓</span> AEO FAQ content &amp; schema architecture</li>
+<li class="flex items-center gap-2"><span class="text-primary">✓</span> Generative engine (GEO) citation footprint</li>
+<li class="flex items-center gap-2"><span class="text-primary">✓</span> Agent-readable Schema.org injection</li>
+<li class="flex items-center gap-2"><span class="text-primary">✓</span> Bi-weekly algorithmic monitoring</li>
+</ul>
+</div>
+<a class="w-full mt-space-xl py-3 rounded-full bg-gradient-to-r from-primary-container to-secondary-container text-on-primary font-headline-sm text-body-sm text-center shadow-[0_0_24px_rgba(121,40,202,0.4)] hover:shadow-[0_0_32px_rgba(219,184,255,0.6)] transition-all" href="#hero-inquiry">
+            Get Recommended →
+          </a>
+</div>
+<!-- Plan 3: Full Growth -->
+<div class="rounded-2xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-2xl p-space-lg md:p-space-xl flex flex-col justify-between shadow-lg">
+<div class="space-y-space-md">
+<div>
+<span class="font-code-tech text-label-sm text-outline uppercase">Tier 03</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Full Growth</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">Complete system: organic recommendations, creative reels and paid ad engines.</p>
+</div>
+<div class="pt-2 border-t border-outline-variant/20">
+<div class="font-headline-lg text-headline-md text-on-surface font-bold">Custom Quote</div>
+<span class="font-code-tech text-label-sm text-outline">Complete Studio Management</span>
+</div>
+<ul class="space-y-2.5 pt-2 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-2"><span class="text-tertiary">✓</span> Everything in Get Recommended</li>
+<li class="flex items-center gap-2"><span class="text-tertiary">✓</span> Dedicated video reels &amp; social media calendar</li>
+<li class="flex items-center gap-2"><span class="text-tertiary">✓</span> Google &amp; Meta lead ad campaign management</li>
+<li class="flex items-center gap-2"><span class="text-tertiary">✓</span> Dedicated Studio Director channel</li>
+</ul>
+</div>
+<a class="w-full mt-space-xl py-3 rounded-full bg-surface-container-high text-on-surface font-headline-sm text-body-sm text-center border border-outline-variant/40 hover:border-primary/50 transition-colors" href="#hero-inquiry">
+            Request Scope →
+          </a>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-outline text-center">
+        * Ad spend is paid directly to advertising networks and is not included. Every partnership starts with an uncompromising free visibility audit.
+      </p>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 11. FAQ ACCORDION                          -->
+<!-- ========================================== -->
+<section class="relative w-full px-gutter-mobile md:px-gutter py-space-3xl border-t border-outline-variant/15">
+<div class="max-w-4xl mx-auto flex flex-col gap-space-2xl">
+<!-- Section Header -->
+<div class="flex flex-col items-start gap-space-sm">
+<span class="font-code-tech text-code-tech text-tertiary uppercase tracking-widest">[ Clarity ]</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Frequently asked questions.</h2>
+</div>
+<!-- FAQ Container -->
+<div class="space-y-3">
+<!-- Q1 (First Open) -->
+<div class="faq-item rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-xl overflow-hidden transition-colors">
+<button class="w-full p-space-md flex items-center justify-between text-left" onclick="toggleFaq(this)">
+<span class="font-headline-sm text-title-md text-on-surface">Can you get us to #1 on Google or ChatGPT?</span>
+<span class="material-symbols-outlined text-primary text-[20px] transition-transform rotate-180 faq-icon">expand_more</span>
+</button>
+<div class="faq-answer px-space-md pb-space-md text-body-md text-on-surface-variant leading-relaxed">
+            No honest practitioner can guarantee a fixed #1 placement because search algorithms and LLM training corpuses are constantly evolving. What we promise is mathematically rigorous optimization, bulletproof schema structures, and verifiable signals that give your brand the absolute highest statistical likelihood of being selected.
+          </div>
+</div>
+<!-- Q2 -->
+<div class="faq-item rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-xl overflow-hidden transition-colors">
+<button class="w-full p-space-md flex items-center justify-between text-left" onclick="toggleFaq(this)">
+<span class="font-headline-sm text-title-md text-on-surface">What is the difference between SEO, AEO, GEO and AIO?</span>
+<span class="material-symbols-outlined text-outline text-[20px] transition-transform faq-icon">expand_more</span>
+</button>
+<div class="faq-answer hidden px-space-md pb-space-md text-body-md text-on-surface-variant leading-relaxed">
+            SEO gets your website ranked on traditional search engine results pages. AEO formats your answers so Google surfaces you as the direct snippet without a user having to click. GEO optimizes your authoritative web mentions so conversational AI assistants like ChatGPT recommend you. AIO injects structured machine data so autonomous software agents can directly book appointments and execute transactions for your business.
+          </div>
+</div>
+<!-- Q3 -->
+<div class="faq-item rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-xl overflow-hidden transition-colors">
+<button class="w-full p-space-md flex items-center justify-between text-left" onclick="toggleFaq(this)">
+<span class="font-headline-sm text-title-md text-on-surface">How long until we see measurable results?</span>
+<span class="material-symbols-outlined text-outline text-[20px] transition-transform faq-icon">expand_more</span>
+</button>
+<div class="faq-answer hidden px-space-md pb-space-md text-body-md text-on-surface-variant leading-relaxed">
+            Local profile optimizations and ad campaigns generate patient appointments within the first 14 to 30 days. Broad organic SEO and generative engine recommendations typically compound significantly between months 3 and 6 as search crawlers and AI models re-index your digital footprint.
+          </div>
+</div>
+<!-- Q4 -->
+<div class="faq-item rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-xl overflow-hidden transition-colors">
+<button class="w-full p-space-md flex items-center justify-between text-left" onclick="toggleFaq(this)">
+<span class="font-headline-sm text-title-md text-on-surface">Is ad spend included in the monthly retainer?</span>
+<span class="material-symbols-outlined text-outline text-[20px] transition-transform faq-icon">expand_more</span>
+</button>
+<div class="faq-answer hidden px-space-md pb-space-md text-body-md text-on-surface-variant leading-relaxed">
+            No. Your advertising budget is paid directly to Google or Meta through billing accounts registered strictly under your enterprise credit card. We manage strategy, copywriting, landing pages and bid optimization without taking markup percentages on your ad spend.
+          </div>
+</div>
+<!-- Q5 -->
+<div class="faq-item rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-xl overflow-hidden transition-colors">
+<button class="w-full p-space-md flex items-center justify-between text-left" onclick="toggleFaq(this)">
+<span class="font-headline-sm text-title-md text-on-surface">Do we keep full ownership of our accounts?</span>
+<span class="material-symbols-outlined text-outline text-[20px] transition-transform faq-icon">expand_more</span>
+</button>
+<div class="faq-answer hidden px-space-md pb-space-md text-body-md text-on-surface-variant leading-relaxed">
+            100% yes. We believe in absolute operational clarity. Your Google Business Profile, Google Search Console, Tag Manager, and Meta Ads accounts remain exclusively yours. If you ever leave us, you retain every piece of asset and schema code without impediment.
+          </div>
+</div>
+<!-- Q6 -->
+<div class="faq-item rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-xl overflow-hidden transition-colors">
+<button class="w-full p-space-md flex items-center justify-between text-left" onclick="toggleFaq(this)">
+<span class="font-headline-sm text-title-md text-on-surface">Do you work with businesses outside Mumbai?</span>
+<span class="material-symbols-outlined text-outline text-[20px] transition-transform faq-icon">expand_more</span>
+</button>
+<div class="faq-answer hidden px-space-md pb-space-md text-body-md text-on-surface-variant leading-relaxed">
+            Yes. While we maintain active studios in Mumbai, Berlin, and San Francisco, our algorithmic systems and GEO pipelines serve clients across India, Southeast Asia, Europe and North America.
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 12. FINAL CTA: "THE SIGNAL"               -->
+<!-- ========================================== -->
+<section class="relative w-full px-gutter-mobile md:px-gutter py-space-3xl border-t border-outline-variant/15 overflow-hidden" id="hero-inquiry">
+<!-- Concentric Pulse Canvas Field -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none -z-10">
+<div class="w-[800px] h-[500px] bg-primary-container/20 rounded-full blur-[140px]"></div>
+<div class="w-[500px] h-[500px] rounded-full border border-primary/20 animate-ping" style="animation-duration: 6s;"></div>
+<div class="w-[350px] h-[350px] rounded-full border border-secondary/25"></div>
+</div>
+<div class="max-w-4xl mx-auto rounded-3xl bg-surface-container-low/80 border border-primary/40 backdrop-blur-3xl p-space-xl md:p-space-3xl text-center flex flex-col items-center gap-space-lg shadow-[0_0_60px_rgba(121,40,202,0.3)]">
+<div class="w-16 h-16 rounded-full bg-primary-container/40 border border-primary flex items-center justify-center text-primary shadow-[0_0_30px_rgba(219,184,255,0.4)]">
+<span class="material-symbols-outlined text-[32px]">satellite_alt</span>
+</div>
+<div class="space-y-space-sm max-w-2xl">
+<span class="font-code-tech text-code-tech text-tertiary uppercase tracking-widest">[ Initiate The Signal ]</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-tight">
+          Let’s make your brand <span class="bg-gradient-to-r from-primary via-secondary to-tertiary bg-clip-text text-transparent">the one they recommend.</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+          Request a diagnostic visibility audit. We’ll show you where you stand today on search and AI, and provide a clear plan of what to fix first.
+        </p>
+</div>
+<!-- Action Pill Buttons -->
+<div class="flex flex-col sm:flex-row items-center gap-space-md pt-space-xs">
+<a class="w-full sm:w-auto px-space-xl py-3.5 rounded-full bg-gradient-to-r from-primary-container via-secondary-container to-primary text-on-primary font-headline-sm text-body-sm shadow-[0_0_28px_rgba(121,40,202,0.45)] hover:shadow-[0_0_36px_rgba(219,184,255,0.65)] transition-all flex items-center justify-center gap-2" href="#audit-section">
+<span>Get my free audit</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a class="w-full sm:w-auto px-space-xl py-3.5 rounded-full bg-surface-container-high/80 text-on-surface hover:text-primary font-headline-sm text-body-sm border border-outline-variant/40 hover:border-primary/50 transition-colors flex items-center justify-center gap-2" href="https://wa.me/910000000000" rel="noopener" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Chat on WhatsApp</span>
+</a>
+</div>
+<div class="flex items-center gap-4 text-outline font-code-tech text-[11px] pt-space-xs">
+<span>RESPONSE TIME &lt; 4 HOURS</span>
+<span>•</span>
+<span>CONFIDENTIAL AUDIT</span>
+<span>•</span>
+<span>NO SALES PRESSURE</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Vanilla Interactive Micro-Scripts for Live Preview and Ladder Stages -->
+<script>
+  // 1. Hero Dynamic State Simulator
+  const brandInput = document.getElementById('brand-input');
+  const cityInput = document.getElementById('city-input');
+  const beaconBrand = document.getElementById('beacon-brand-name');
+  const beaconCity = document.getElementById('beacon-city-name');
+  const btnDefault = document.getElementById('btn-state-default');
+  const btnTyping = document.getElementById('btn-state-typing');
+  const btnLocked = document.getElementById('btn-state-locked');
+  const btnRun = document.getElementById('btn-run-simulation');
+
+  function updateBeacon() {
+    if (brandInput && beaconBrand) {
+      beaconBrand.textContent = brandInput.value || "Your Brand";
+    }
+    if (cityInput && beaconCity) {
+      beaconCity.textContent = "LATENCY: OPTIMAL · " + (cityInput.value.toUpperCase() || "GLOBAL");
+    }
+  }
+
+  if (brandInput) brandInput.addEventListener('input', updateBeacon);
+  if (cityInput) cityInput.addEventListener('input', updateBeacon);
+
+  if (btnDefault) {
+    btnDefault.addEventListener('click', () => {
+      brandInput.value = "Your Brand";
+      cityInput.value = "Metro Region";
+      updateBeacon();
+    });
+  }
+
+  if (btnTyping) {
+    btnTyping.addEventListener('click', () => {
+      brandInput.value = "Sharma Dental";
+      cityInput.value = "Navi Mumbai";
+      updateBeacon();
+    });
+  }
+
+  if (btnLocked) {
+    btnLocked.addEventListener('click', () => {
+      beaconCity.textContent = "LOCKED & ANALYZING MATRIX...";
+    });
+  }
+
+  if (btnRun) {
+    btnRun.addEventListener('click', () => {
+      updateBeacon();
+      const audit = document.getElementById('audit-section');
+      if (audit) audit.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  // 2. Ladder Step Switcher
+  function switchLadderStep(step) {
+    for (let i = 1; i <= 4; i++) {
+      const content = document.getElementById('ladder-content-' + i);
+      const nav = document.getElementById('step-nav-' + i);
+      if (content && nav) {
+        if (i === step) {
+          content.classList.remove('hidden');
+          nav.classList.add('border-primary/50', 'bg-surface-container-low/70');
+          nav.classList.remove('border-outline-variant/20', 'bg-surface-container-low/30');
+          const badge = nav.querySelector('div:first-child');
+          if (badge) {
+            badge.className = "w-8 h-8 rounded-lg bg-primary-container text-on-primary font-code-tech text-title-md flex items-center justify-center shrink-0";
+          }
+        } else {
+          content.classList.add('hidden');
+          nav.classList.remove('border-primary/50', 'bg-surface-container-low/70');
+          nav.classList.add('border-outline-variant/20', 'bg-surface-container-low/30');
+          const badge = nav.querySelector('div:first-child');
+          if (badge) {
+            badge.className = "w-8 h-8 rounded-lg bg-surface-container-high text-on-surface-variant font-code-tech text-title-md flex items-center justify-center shrink-0";
+          }
+        }
+      }
+    }
+  }
+
+  // 3. Quiz Micro-Interactions
+  const quizQuestions = [
+    { title: "Are your phone number and address identical across Google, JustDial, and Apple Maps?", desc: "Discrepancies in suite numbers or prefixes fracture local ranking authority." },
+    { title: "Have you uploaded high-resolution geo-tagged photos to your profile within the last 14 days?", desc: "Active local media increases navigational search volume by 32%." },
+    { title: "Does your mobile web page load completely in under 2.5 seconds on a 4G connection?", desc: "Slow mobile experiences cause high immediate bounce rates before inquiries occur." },
+    { title: "Does your website have a dedicated, content-rich landing page for each distinct service you provide?", desc: "Search engines and generative bots fail to cite multi-service businesses when all capabilities are crowded onto a single generic homepage." },
+    { title: "Is your site injected with structured Schema.org MedicalOrganization JSON-LD data?", desc: "Schema allows AI models to programmatically extract procedures, clinic hours, and verified doctors." },
+    { title: "Do you have concise clinical FAQs that directly answer questions asked by patients?", desc: "Generative answer engines extract snippets directly from well-formatted Q&A sections." },
+    { title: "Do you actively generate at least 4 new genuine patient reviews each calendar month?", desc: "Review velocity signals operational vitality directly to Google Map algorithms." },
+    { title: "Is your robots.txt file configured to permit safe crawling by GPTBot and Perplexity?", desc: "Blocking AI user-agents prevents your clinic from ever being synthesized in conversational summaries." },
+    { title: "Is your brand cited in reputable local publications or healthcare portals?", desc: "Third-party validation forms the statistical baseline of LLM credibility engines." },
+    { title: "Can patients seamlessly schedule visits through an instant automated online interface?", desc: "Autonomous AI agents select and recommend service providers that provide structured booking endpoints." }
+  ];
+
+  let currentQuestionIndex = 3;
+
+  function updateQuizDisplay() {
+    const counter = document.getElementById('quiz-question-counter');
+    const bar = document.getElementById('quiz-progress-bar');
+    const title = document.getElementById('quiz-question-title');
+    const desc = document.getElementById('quiz-question-desc');
+
+    if (counter) counter.textContent = `QUESTION 0${currentQuestionIndex + 1} OF 10`;
+    if (bar) bar.style.width = `${((currentQuestionIndex + 1) / 10) * 100}%`;
+    if (title) title.textContent = quizQuestions[currentQuestionIndex].title;
+    if (desc) desc.textContent = quizQuestions[currentQuestionIndex].desc;
+  }
+
+  function navQuiz(delta) {
+    currentQuestionIndex = Math.max(0, Math.min(9, currentQuestionIndex + delta));
+    updateQuizDisplay();
+  }
+
+  function recordQuizAnswer(val) {
+    navQuiz(1);
+  }
+
+  // 4. Code Flip View
+  function toggleCodeView(view) {
+    const humanBtn = document.getElementById('toggle-human-view');
+    const machineBtn = document.getElementById('toggle-machine-view');
+    const humanContent = document.getElementById('view-human-content');
+    const machineContent = document.getElementById('view-machine-content');
+
+    if (view === 'human') {
+      humanBtn.className = "px-4 py-1.5 rounded-full bg-primary-container text-on-primary text-label-sm font-headline-sm transition-all shadow-sm";
+      machineBtn.className = "px-4 py-1.5 rounded-full text-on-surface-variant hover:text-on-surface text-label-sm font-headline-sm transition-all";
+      humanContent.classList.remove('hidden');
+      machineContent.classList.add('hidden');
+    } else {
+      machineBtn.className = "px-4 py-1.5 rounded-full bg-primary-container text-on-primary text-label-sm font-headline-sm transition-all shadow-sm";
+      humanBtn.className = "px-4 py-1.5 rounded-full text-on-surface-variant hover:text-on-surface text-label-sm font-headline-sm transition-all";
+      humanContent.classList.add('hidden');
+      machineContent.classList.remove('hidden');
+    }
+  }
+
+  // 5. Accordion Toggle
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-answer');
+    const icon = item.querySelector('.faq-icon');
+
+    if (answer.classList.contains('hidden')) {
+      answer.classList.remove('hidden');
+      icon.classList.add('rotate-180', 'text-primary');
+      icon.classList.remove('text-outline');
+    } else {
+      answer.classList.add('hidden');
+      icon.classList.remove('rotate-180', 'text-primary');
+      icon.classList.add('text-outline');
+    }
+  }
+</script></main><footer class="w-full bg-surface-container-lowest/80 backdrop-blur-xl mt-space-3xl"><div class="max-w-7xl mx-auto px-gutter-mobile md:px-gutter py-space-3xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl mb-space-2xl"><div class="space-y-space-md"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[18px]">diamond</span></div><span class="font-headline-sm text-title-md text-on-surface">10Peak<span class="text-primary">Studio</span></span></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Elite innovation and software architecture studio engineering high-craft digital products, bespoke computing platforms, and luminary interfaces.</p><div class="flex items-center gap-space-sm pt-space-xs"><div class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></div><span class="font-code-tech text-code-tech text-on-surface-variant uppercase tracking-wider">Systems Operational</span></div></div><div class="space-y-space-md"><h3 class="font-headline-sm text-body-sm uppercase tracking-wider text-on-surface">Services</h3><ul class="space-y-space-sm"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a data-path="services-overview" href="#">Custom Engineering</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a data-path="services-overview" href="#">AI &amp; Intelligent Systems</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a data-path="services-overview" href="#">Cloud Infrastructure</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a data-path="services-overview" href="#">UI/UX Architecture</a></li></ul></div><div class="space-y-space-md"><h3 class="font-headline-sm text-body-sm uppercase tracking-wider text-on-surface">Company</h3><ul class="space-y-space-sm"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a data-path="company" href="#">About Studio</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a data-path="portfolio" href="#">Selected Works</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a data-path="company" href="#">Leadership</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a data-path="contact" href="#">Careers</a></li></ul></div><div class="space-y-space-md"><h3 class="font-headline-sm text-body-sm uppercase tracking-wider text-on-surface">Legal &amp; Trust</h3><ul class="space-y-space-sm"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a data-path="privacy-policy" href="#">Privacy Policy</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a data-path="terms-of-service" href="#">Terms of Service</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a data-path="security" href="#">Security &amp; Compliance</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a data-path="contact" href="#">Direct Inquiries</a></li></ul></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md"><p class="font-body-sm text-body-sm text-on-surface-variant">© 2026 10PeakStudio. All rights reserved.</p><div class="flex items-center gap-space-lg font-code-tech text-code-tech text-on-surface-variant"><span class="hover:text-primary transition-colors cursor-pointer">BERLIN</span><span class="text-outline-variant">•</span><span class="hover:text-primary transition-colors cursor-pointer">SAN FRANCISCO</span><span class="text-outline-variant">•</span><span class="hover:text-primary transition-colors cursor-pointer">TOKYO</span></div></div></div></footer></body></html>
