@@ -52,10 +52,11 @@ test.describe('Digital Marketing service page', () => {
             requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
           ),
       );
-      const overflow = await page.evaluate(
-        () => document.documentElement.scrollWidth > window.innerWidth,
-      );
-      expect(overflow, `horizontal overflow at ${width}px`).toBe(false);
+      const [sw, cw] = await page.evaluate(() => [
+        document.documentElement.scrollWidth,
+        document.documentElement.clientWidth,
+      ]);
+      expect(sw, `horizontal overflow at ${width}px`).toBeLessThanOrEqual(cw);
     }
 
     await page.setViewportSize({ width: 390, height: 844 });
