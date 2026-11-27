@@ -173,11 +173,10 @@ const IN_PERSON_CARD_IMAGE: ProcessImageSlot = {
 };
 
 const ONLINE_CALL_IMAGE: ProcessImageSlot = {
-  // Uses relative Cloudinary crop to omit the bottom-left "MUMBAI" mug cleanly at every width
-  src: 'https://res.cloudinary.com/lta722n4/image/upload/c_crop,x_0.19,y_0.03,w_0.77,h_0.78/v1795792461/hww-online-call.png',
+  src: 'https://res.cloudinary.com/lta722n4/image/upload/v1795792461/hww-online-call.png',
   alt: 'Studio strategist on a remote video call reviewing interface wireframes on a laptop',
-  width: 924,
-  height: 698,
+  width: 1200,
+  height: 896,
   aspectClass: 'aspect-[4/3]',
   blurDataURL: ONLINE_CALL_BLUR,
   fallbackLabel: 'hww-online-call · Remote video room',
